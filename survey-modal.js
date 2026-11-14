@@ -1,5 +1,5 @@
 /**
- * Al Dirayah Electromechanical Contracting LLC
+ * Al Dirayah Electromechanical Services LLC
  * Site Survey & Consultation Modal Handler
  * Dispatches inquiries via FormSubmit AJAX endpoint & provides direct mailto fallback
  */
@@ -133,7 +133,7 @@
     // Direct mailto fallback
     var mailSubject = encodeURIComponent("[AL DIRAYAH SURVEY " + ref + "] " + service);
     var mailBody = encodeURIComponent(
-      "Al Dirayah Electromechanical Contracting LLC — Engineering Desk\n\n" +
+      "Al Dirayah Electromechanical Services LLC — Engineering Desk\n\n" +
       "SITE SURVEY & TECHNICAL AUDIT REQUEST\n" +
       "═══════════════════════════════════════════\n" +
       "Reference: " + ref + "\n" +
