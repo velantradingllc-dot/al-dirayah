@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Al Dirayah Electromechanical Services LLC — Vertical Transport & Building Infrastructure</title>
 <meta name="description" content="Al Dirayah Electromechanical Services LLC in Abu Dhabi & UAE. Certified specialists in vertical lifts, elevators, escalators, moving walkways, residential villa elevators, commercial towers, 24/7 AMC maintenance, and EN 81 engineering audits.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="survey-modal.css">
 
 <style>
@@ -17,7 +17,7 @@
   --f-d:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-b:"IBM Plex Sans",system-ui,sans-serif;
   --f-m:"IBM Plex Mono",ui-monospace,monospace;
-  --f-a:"IBM Plex Sans Arabic","Tajawal","Noto Kufi Arabic",system-ui,-apple-system,sans-serif;
+  --f-a:"IBM Plex Sans Arabic",system-ui,-apple-system,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box}
@@ -190,7 +190,7 @@ header .wrap{display:flex; align-items:center; justify-content:space-between; ga
   .card-img-holder{height:180px}
   .big-cta, .btn-sec{width:100%; justify-content:center; text-align:center; font-size:1.1rem; padding:.8rem 1.2rem}
   #fh{padding-top:7.5rem !important}
-  .big-title{font-size:clamp(2.4rem, 9.5vw, 4rem)}
+  .big-title{font-size:clamp(2.2rem, 8vw, 3.4rem)}
 }
 
 /* Layout & Sections */
@@ -201,7 +201,7 @@ section.pad{padding:6rem 0; position:relative}
 
 /* Hero */
 #hero{padding:9rem 0 5rem; min-height:85vh; display:flex; align-items:center}
-.big-title{font-size:clamp(3.5rem,8vw,7.5rem); color:var(--white); font-weight:700; line-height:.9; margin-bottom:1.4rem}
+.big-title{font-size:clamp(3rem, 5.5vw, 5.2rem); color:var(--white); font-weight:700; line-height:.92; margin-bottom:1.4rem}
 .big-title span{color:var(--amber-lt); text-shadow:0 0 25px rgba(245,169,60,0.3)}
 
 .big-cta{
@@ -236,8 +236,10 @@ section.pad{padding:6rem 0; position:relative}
 .card-img-holder img{width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease)}
 .div-card-hero:hover .card-img-holder img{transform:scale(1.06)}
 
-/* 4 Solutions Grid */
-.solutions-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem}
+/* 6 Solutions Grid - 3+3 Layout */
+.solutions-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-top:2rem}
+@media(max-width:992px){ .solutions-grid{grid-template-columns:repeat(2, 1fr)} }
+@media(max-width:640px){ .solutions-grid{grid-template-columns:1fr} }
 .sol-card-mini{
   background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.5rem;
   transition:all .3s var(--ease); display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;
@@ -569,6 +571,19 @@ section.pad{padding:6rem 0; position:relative}
             <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">EN 81-70 compliant wheelchair lifts, zero-threshold sills, ergonomic low-height Braille controls, and battery rescue.</p>
           </div>
           <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Explore Accessibility Lifts &rarr;</span>
+        </a>
+
+        <!-- 6: Escalators & Moving Walkways -->
+        <a href="escalators.html" class="sol-card-mini rv" data-d="2">
+          <div class="sol-card-img">
+            <img src="escalator_3d_assembled.jpg" alt="Commercial Heavy-Traffic Escalator">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">CONTINUOUS PASSENGER TRANSIT</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Escalators &amp; Moving Walkways</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">EN 115 commercial &amp; heavy transit escalators, 30° &amp; 35° inclines, public autowalks up to 100m, and step-chain overhauls.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Explore Escalators &rarr;</span>
         </a>
       </div>
     </div>

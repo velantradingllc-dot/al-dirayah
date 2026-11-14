@@ -88,6 +88,7 @@
   background: transparent !important;
   border: none !important;
   color: #8C9BAE !important;
+  font-family: var(--f-d, "Barlow Condensed", "Arial Narrow", sans-serif) !important;
   font-size: 1.8rem !important;
   line-height: 1 !important;
   cursor: pointer !important;
@@ -96,6 +97,13 @@
 }
 .modal-close:hover {
   color: #ffffff !important;
+}
+.modal-card button,
+.modal-card .big-cta {
+  font-family: var(--f-d, "Barlow Condensed", "Arial Narrow", sans-serif) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .5px !important;
 }
 .form-row-2col {
   display: grid !important;
