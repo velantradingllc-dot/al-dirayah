@@ -525,59 +525,34 @@
 <!-- Integrated Request Survey Modal -->
 <div class="modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyModalTitle">
   <div class="modal-card">
-    <button class="modal-close" type="button" onclick="closeSurveyModal()" aria-label="Close survey modal">×</button>
+    <button class="modal-close" type="button" onclick="closeSurveyModal()" aria-label="Close modal">×</button>
     
     <!-- Form View -->
     <div id="surveyFormView">
-      <div style="font-family:var(--f-m);font-size:.75rem;color:var(--amber-lt);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.3rem">TECHNICAL CONSULTATION</div>
-      <h3 id="surveyModalTitle">Request Site Survey &amp; Audit</h3>
-      <p>Select your required product or service below to schedule an on-site technical inspection by an Al Dirayah senior engineer.</p>
+      <h3 id="surveyModalTitle">Book a site visit</h3>
+      <p>Tell us what you need and we’ll call you to arrange a visit.</p>
       
       <form id="surveyForm" onsubmit="handleSurveySubmit(event)">
         <!-- Honeypot Anti-Spam Field -->
         <input type="text" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off">
         
-        <!-- Grouped Products & Services Select -->
-        <label>Product or Service Required *
+        <!-- Service Required Select -->
+        <label>Service Required *
           <select id="mEquip" name="service" required>
-            <option value="" disabled>-- Select Product or Service --</option>
-            <optgroup label="PRIVATE VILLA ESTATES">
-              <option value="Custom Luxury Villa Elevators (MRL Traction)" selected>Custom Luxury Villa Elevators (MRL Traction)</option>
-              <option value="Low-Pit Hydraulic Villa Lifts (200mm Pit)">Low-Pit Hydraulic Villa Lifts (200mm Pit)</option>
-              <option value="360° Circular Panoramic Glass Elevators">360° Circular Panoramic Glass Elevators</option>
-              <option value="Pitless Pneumatic Vacuum Villa Elevators">Pitless Pneumatic Vacuum Villa Elevators</option>
-            </optgroup>
-            <optgroup label="VERTICAL LIFTS & ELEVATORS">
-              <option value="MRL Gearless Passenger Elevators (EN 81-20/50)">MRL Gearless Passenger Elevators (EN 81-20/50)</option>
-              <option value="High-Speed Commercial Skyscraper Lifts (4.0 m/s)">High-Speed Commercial Skyscraper Lifts (4.0 m/s)</option>
-              <option value="Heavy-Duty Freight & Logistics Elevators (5,000 kg)">Heavy-Duty Freight &amp; Logistics Elevators (5,000 kg)</option>
-              <option value="Medical & Hospital Stretcher Elevators (EN 81-70)">Medical &amp; Hospital Stretcher Elevators (EN 81-70)</option>
-              <option value="Elderly & People of Determination Customized Lifts (EN 81-70)">Elderly &amp; People of Determination Customized Lifts (EN 81-70)</option>
-            </optgroup>
-            <optgroup label="INCLINE & CONTINUOUS FLOW">
-              <option value="30° & 35° Commercial Escalators (EN 115)">30° &amp; 35° Commercial Escalators (EN 115)</option>
-              <option value="Heavy Transit Metro & Airport Escalators">Heavy Transit Metro &amp; Airport Escalators</option>
-              <option value="Horizontal & Inclined Moving Autowalks (Up to 100m)">Horizontal &amp; Inclined Moving Autowalks (Up to 100m)</option>
-            </optgroup>
-            <optgroup label="MAINTENANCE & REFURBISHMENT">
-              <option value="24/7 Rapid Emergency Response AMC Contract">24/7 Rapid Emergency Response AMC Contract</option>
-              <option value="Microprocessor & VVVF Control Modernization">Microprocessor &amp; VVVF Control Modernization</option>
-              <option value="Luxury Elevator Cabin Fit-Out & Refurbishment">Luxury Elevator Cabin Fit-Out &amp; Refurbishment</option>
-              <option value="Shaft Pit Waterproofing & Sump Pump Installation">Shaft Pit Waterproofing &amp; Sump Pump Installation</option>
-            </optgroup>
-            <optgroup label="ENGINEERING & SAFETY AUDITS">
-              <option value="Third-Party EN 81 Compliance Safety Audit">Third-Party EN 81 Compliance Safety Audit</option>
-              <option value="CIBSE Guide D Passenger Traffic Simulation">CIBSE Guide D Passenger Traffic Simulation</option>
-              <option value="3D BIM Revit Shaft Reaction Load Analysis">3D BIM Revit Shaft Reaction Load Analysis</option>
-              <option value="Abu Dhabi Civil Defence Operational Clearance Filing">Abu Dhabi Civil Defence Operational Clearance Filing</option>
-            </optgroup>
+            <option value="" disabled selected>-- Select an option --</option>
+            <option value="New lift">New lift</option>
+            <option value="New escalator">New escalator</option>
+            <option value="Villa lift">Villa lift</option>
+            <option value="Maintenance (AMC)">Maintenance (AMC)</option>
+            <option value="Repair / breakdown">Repair / breakdown</option>
+            <option value="Audit or Civil Defence">Audit or Civil Defence</option>
           </select>
         </label>
 
         <div class="form-row-2col">
           <label>Property Type *
             <select name="property_type" required>
-              <option value="Luxury Private Villa" selected>Luxury Private Villa</option>
+              <option value="Luxury Private Villa">Luxury Private Villa</option>
               <option value="Commercial High-Rise Tower">Commercial High-Rise Tower</option>
               <option value="Shopping Mall / Retail Center">Shopping Mall / Retail Center</option>
               <option value="Hospital / Healthcare Facility">Hospital / Healthcare Facility</option>
@@ -587,7 +562,7 @@
           </label>
           <label>Project Stage *
             <select name="project_stage" required>
-              <option value="New Building Construction" selected>New Building Construction</option>
+              <option value="New Building Construction">New Building Construction</option>
               <option value="Existing Elevator Modernization">Existing Elevator Modernization</option>
               <option value="Emergency Repair & AMC Change">Emergency Repair &amp; AMC Change</option>
               <option value="Architectural Planning / Concept">Architectural Planning / Concept</option>
@@ -597,10 +572,10 @@
 
         <div class="form-row-2col">
           <label>Contact Name *
-            <input type="text" name="contact_name" placeholder="e.g. Eng. Ahmed Al Mansoori" required>
+            <input type="text" name="contact_name" placeholder="e.g. Ahmed Al Mansoori" required>
           </label>
           <label>Designation / Role
-            <input type="text" name="designation" placeholder="e.g. Villa Owner / Architect">
+            <input type="text" name="designation" placeholder="e.g. Project Manager / Owner">
           </label>
         </div>
 
@@ -608,14 +583,14 @@
           <label>Phone (+971) *
             <input type="tel" name="phone" placeholder="+971 50 123 4567" required>
           </label>
-          <label>Official Email *
+          <label>Email *
             <input type="email" name="email" placeholder="name@company.ae" required>
           </label>
         </div>
 
         <div class="form-row-2col">
           <label>Number of Units
-            <input type="text" name="units" placeholder="e.g. 1 Villa Lift">
+            <input type="text" name="units" placeholder="e.g. 2 Lifts / 4 Escalators">
           </label>
           <label>Emirate / Location *
             <select name="location" required>
@@ -627,36 +602,38 @@
         </div>
 
         <label>Specific Requirements / Notes
-          <textarea name="notes" rows="2" placeholder="Mention number of floors (e.g. B+G+1+R), pit depth available, panoramic glass, custom luxury finishes..."></textarea>
+          <textarea name="notes" rows="2" placeholder="Mention building height, floors, existing OEM brand (OTIS, TKE, KONE), or urgency..."></textarea>
         </label>
 
-        <button type="submit" id="surveySubmitBtn" class="big-cta" style="width:100%;justify-content:center;padding:.85rem;font-size:1rem;margin-top:.4rem;cursor:pointer">SUBMIT SITE SURVEY REQUEST →</button>
+        <button type="submit" id="surveySubmitBtn" class="big-cta" style="width:100%;justify-content:center;padding:.85rem;font-size:1rem;margin-top:.4rem;cursor:pointer">Send request</button>
       </form>
     </div>
 
-    <!-- Success / Confirmation View (Replaces fake alert) -->
-    <div id="surveySuccessView" style="display:none;text-align:center;padding:1rem 0">
+    <!-- Success / Confirmation View -->
+    <div id="surveySuccessView" style="display:none;text-align:center;padding:1.2rem 0">
       <div style="width:56px;height:56px;border-radius:50%;background:rgba(52,211,153,.15);border:2px solid #34D399;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:#34D399">✓</div>
-      <h3 style="font-size:2rem;color:#ffffff;margin-bottom:.5rem">Survey Request Dispatched</h3>
-      <p style="color:#BAC5D3;font-size:.92rem;max-width:440px;margin:0 auto 1.2rem;line-height:1.5">Your technical inspection inquiry has been registered and routed directly to our engineering desk.</p>
+      <h3 id="surveySuccessGreeting" style="font-size:2rem;color:#ffffff;margin-bottom:.5rem">Thanks!</h3>
+      <p style="color:#BAC5D3;font-size:1rem;max-width:440px;margin:0 auto 1.2rem;line-height:1.5">We’ve got your request and will call you today or next working day.</p>
       
-      <div style="background:#1B2128;border:1px solid #3A4550;border-radius:8px;padding:.8rem 1.2rem;display:inline-block;margin-bottom:1.2rem">
-        <span style="font-family:var(--f-m);font-size:.75rem;color:#8C9BAE;display:block;text-transform:uppercase;letter-spacing:1px">Inquiry Reference</span>
-        <span id="surveyRefNum" style="font-family:var(--f-m);font-size:1.3rem;font-weight:700;color:var(--amber-lt);letter-spacing:1px">DIR-000000</span>
+      <div style="background:rgba(224,138,30,.08);border:1px solid rgba(224,138,30,.25);border-radius:8px;padding:.9rem 1.1rem;text-align:center;max-width:460px;margin:0 auto 1.3rem;font-size:.9rem;color:#BAC5D3;line-height:1.5">
+        Urgent breakdown? Call <a href="tel:+97125550192" style="color:var(--amber-lt);font-weight:700;font-family:var(--f-m);text-decoration:none">+971 2 555 0192</a> now.
       </div>
 
-      <div style="background:rgba(224,138,30,.08);border:1px solid rgba(224,138,30,.25);border-radius:8px;padding:.9rem 1.1rem;text-align:left;max-width:460px;margin:0 auto 1.5rem;font-size:.82rem;color:#BAC5D3;line-height:1.5">
-        <b style="color:var(--amber-lt);display:block;margin-bottom:.2rem">⚡ Direct Dispatch Confirmation:</b>
-        Routed to <code id="surveyTargetEmail" style="color:#ffffff;background:#14181D;padding:.15rem .35rem;border-radius:3px">service@aldirayah.ae</code>. An Al Dirayah engineering specialist will contact you within <b>30 minutes in Abu Dhabi</b> and <b>2 hours in Dubai</b>.
+      <div style="background:#1B2128;border:1px solid #3A4550;border-radius:8px;padding:.6rem 1rem;display:inline-block;margin-bottom:1.3rem">
+        <span style="font-family:var(--f-m);font-size:.72rem;color:#8C9BAE;display:block;text-transform:uppercase;letter-spacing:1px">Reference</span>
+        <span id="surveyRefNum" style="font-family:var(--f-m);font-size:1.2rem;font-weight:700;color:var(--amber-lt);letter-spacing:1px">DIR-000000</span>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center">
         <a id="surveyMailtoBtn" href="#" class="big-cta" style="background:#1B2128;border:1px solid #3A4550;color:#FFFFFF;padding:.75rem 1.2rem;font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem">
           <span>✉ Open in Email Client</span>
         </a>
-        <button type="button" onclick="closeSurveyModal()" class="big-cta" style="padding:.75rem 1.4rem;font-size:.88rem;cursor:pointer">Close</button>
+        <button type="button" onclick="closeSurveyModal()" class="big-cta" style="padding:.75rem 1.6rem;font-size:.88rem;cursor:pointer">Close</button>
       </div>
     </div>
+
+  </div>
+</div>
 
   </div>
 </div>

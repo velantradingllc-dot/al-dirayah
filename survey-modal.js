@@ -37,18 +37,18 @@
         }
       }
       if (!found) {
-        if (cleanCat.indexOf("villa") !== -1 || cleanCat.indexOf("residential") !== -1) {
-          sel.value = "Custom Luxury Villa Elevators (MRL Traction)";
+        if (cleanCat.indexOf("villa") !== -1 || cleanCat.indexOf("residential") !== -1 || cleanCat.indexOf("estate") !== -1) {
+          sel.value = "Villa lift";
         } else if (cleanCat.indexOf("escalator") !== -1 || cleanCat.indexOf("walkway") !== -1 || cleanCat.indexOf("incline") !== -1) {
-          sel.value = "30° & 35° Commercial Escalators (EN 115)";
-        } else if (cleanCat.indexOf("accessibility") !== -1 || cleanCat.indexOf("determination") !== -1 || cleanCat.indexOf("elderly") !== -1) {
-          sel.value = "Elderly & People of Determination Customized Lifts (EN 81-70)";
-        } else if (cleanCat.indexOf("commercial") !== -1 || cleanCat.indexOf("skyscraper") !== -1) {
-          sel.value = "High-Speed Commercial Skyscraper Lifts (4.0 m/s)";
-        } else if (cleanCat.indexOf("maintenance") !== -1 || cleanCat.indexOf("amc") !== -1 || cleanCat.indexOf("repair") !== -1) {
-          sel.value = "24/7 Rapid Emergency Response AMC Contract";
-        } else if (cleanCat.indexOf("audit") !== -1 || cleanCat.indexOf("consultant") !== -1 || cleanCat.indexOf("engineering") !== -1) {
-          sel.value = "Third-Party EN 81 Compliance Safety Audit";
+          sel.value = "New escalator";
+        } else if (cleanCat.indexOf("breakdown") !== -1 || cleanCat.indexOf("repair") !== -1 || cleanCat.indexOf("broken") !== -1 || cleanCat.indexOf("emergency") !== -1) {
+          sel.value = "Repair / breakdown";
+        } else if (cleanCat.indexOf("maintenance") !== -1 || cleanCat.indexOf("amc") !== -1 || cleanCat.indexOf("fit-out") !== -1) {
+          sel.value = "Maintenance (AMC)";
+        } else if (cleanCat.indexOf("audit") !== -1 || cleanCat.indexOf("civil") !== -1 || cleanCat.indexOf("engineering") !== -1 || cleanCat.indexOf("traffic") !== -1) {
+          sel.value = "Audit or Civil Defence";
+        } else {
+          sel.value = "New lift";
         }
       }
     }
@@ -92,19 +92,19 @@
     }
 
     var submitBtn = document.getElementById("surveySubmitBtn");
-    var originalBtnText = submitBtn ? submitBtn.textContent : "SUBMIT SITE SURVEY REQUEST →";
+    var originalBtnText = submitBtn ? submitBtn.textContent : "Send request";
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "DISPATCHING ENQUIRY...";
+      submitBtn.textContent = "Sending…";
     }
 
     var ref = "DIR-" + Math.floor(100000 + Math.random() * 900000);
     var formData = new FormData(form);
 
-    var service = formData.get("service") || "Site Survey Request";
+    var service = formData.get("service") || "Site Visit Request";
     var propertyType = formData.get("property_type") || "Not specified";
     var projectStage = formData.get("project_stage") || "Not specified";
-    var contactName = formData.get("contact_name") || "Not specified";
+    var contactName = (formData.get("contact_name") || "").trim();
     var designation = formData.get("designation") || "Not specified";
     var phone = formData.get("phone") || "Not specified";
     var email = formData.get("email") || "Not specified";
@@ -114,7 +114,7 @@
 
     // FormSubmit payload
     var payload = new FormData();
-    payload.append("_subject", "[AL DIRAYAH SITE SURVEY] Ref: " + ref + " - " + service);
+    payload.append("_subject", "[AL DIRAYAH SITE VISIT] Ref: " + ref + " - " + service);
     payload.append("_replyto", email);
     payload.append("_captcha", "false");
     payload.append("_template", "table");
@@ -122,19 +122,19 @@
     payload.append("Service Required", service);
     payload.append("Property Type", propertyType);
     payload.append("Project Stage", projectStage);
-    payload.append("Contact Name", contactName);
+    payload.append("Contact Name", contactName || "Not specified");
     payload.append("Designation / Role", designation);
     payload.append("Phone Number", phone);
-    payload.append("Official Email", email);
+    payload.append("Email", email);
     payload.append("Number of Units", units);
     payload.append("Emirate / Location", location);
     payload.append("Technical Notes", notes);
 
     // Direct mailto fallback
-    var mailSubject = encodeURIComponent("[AL DIRAYAH SURVEY " + ref + "] " + service);
+    var mailSubject = encodeURIComponent("[AL DIRAYAH SITE VISIT " + ref + "] " + service);
     var mailBody = encodeURIComponent(
-      "Al Dirayah Electromechanical Services LLC — Engineering Desk\n\n" +
-      "SITE SURVEY & TECHNICAL AUDIT REQUEST\n" +
+      "Al Dirayah Electromechanical Services LLC\n\n" +
+      "BOOK A SITE VISIT REQUEST\n" +
       "═══════════════════════════════════════════\n" +
       "Reference: " + ref + "\n" +
       "Service: " + service + "\n" +
@@ -143,7 +143,7 @@
       "Units: " + units + "\n" +
       "Location: " + location + "\n\n" +
       "CLIENT CONTACT DETAILS:\n" +
-      "• Name: " + contactName + "\n" +
+      "• Name: " + (contactName || "Not specified") + "\n" +
       "• Role: " + designation + "\n" +
       "• Phone: " + phone + "\n" +
       "• Email: " + email + "\n\n" +
@@ -162,7 +162,14 @@
     var targetEmailEl = document.getElementById("surveyTargetEmail");
     if (targetEmailEl) targetEmailEl.textContent = ENQUIRY_EMAIL;
 
-    // Send via FormSubmit AJAX endpoint (same architecture as Velan website)
+    // Personalize greeting on success: "Thanks, [Name]."
+    var greeting = contactName ? ("Thanks, " + contactName + ".") : "Thanks!";
+    var greetingEl = document.getElementById("surveySuccessGreeting");
+    if (greetingEl) {
+      greetingEl.textContent = greeting;
+    }
+
+    // Send via FormSubmit AJAX endpoint
     fetch("https://formsubmit.co/ajax/" + encodeURIComponent(ENQUIRY_EMAIL), {
       method: "POST",
       body: payload,
