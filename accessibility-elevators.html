@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Customized Lifts for Elderly & People of Determination (EN 81-70) | Al Dirayah Contracting — Abu Dhabi</title>
 <meta name="description" content="Custom accessibility elevators engineered for elderly family members and People of Determination in Abu Dhabi & Dubai. EN 81-70 compliant, low-height Braille controls, wheelchair access, soft VVVF drives, and emergency battery rescue by Al Dirayah Electromechanical Contracting LLC.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap">
 
 <style>
 :root{
@@ -16,7 +16,7 @@
   --f-d:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-b:"IBM Plex Sans",system-ui,sans-serif;
   --f-m:"IBM Plex Mono",ui-monospace,monospace;
-  --f-a:"IBM Plex Sans Arabic",serif;
+  --f-a:"IBM Plex Sans Arabic","Tajawal","Noto Kufi Arabic",system-ui,-apple-system,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box}
@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}
 #hero > .wrap{width:100%}
 .eyebrow{font-family:var(--f-m); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); margin:0 0 1rem}
 .mono{font-family:var(--f-m); font-variant-numeric:tabular-nums}
-.ar{font-family:var(--f-a); direction:rtl; unicode-bidi:isolate}
+.ar, [lang="ar"]{font-family:var(--f-a) !important; direction:rtl; unicode-bidi:isolate; letter-spacing:0 !important; font-style:normal; word-spacing:normal}
 
 /* ── shaft backdrop (parallax) ─────────────────────────────── */
 #shaft{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
@@ -548,7 +548,7 @@ td.highlight { color: var(--white); font-weight: 600; font-family: var(--f-m); }
               <span>AL DIRAYAH</span>
             </div>
             <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Al Dirayah Electromechanical Contracting LLC. Certified vertical transportation and building infrastructure engineering specialists in Abu Dhabi and across the United Arab Emirates.</p>
-            <div style="font-family:var(--f-m);font-size:1.1rem;color:var(--amber-lt);direction:rtl;text-align:right">الدراية للمقاولات الكهروميكانيكية</div>
+            <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للمقاولات الكهروميكانيكية</div>
           </div>
 
           <!-- Col 2: Divisions -->
@@ -578,7 +578,7 @@ td.highlight { color: var(--white); font-weight: 600; font-family: var(--f-m); }
         <!-- Bottom Copyright Bar -->
         <div style="padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f-m);font-size:.8rem;color:var(--steel)">
           <span>© 2026 Al Dirayah Electromechanical Contracting LLC. All rights reserved.</span>
-          <span style="color:var(--amber-lt)">Keep it moving · الحركة لا تتوقف</span>
+          <span style="color:var(--amber-lt)">Keep it moving · <span lang="ar" dir="rtl" class="ar">الحركة لا تتوقف</span></span>
         </div>
 
       </div>

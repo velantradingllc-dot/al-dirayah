@@ -1,5 +1,5 @@
 <title>Al Dirayah Escalators</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap">
 
 <style>
 /* ─────────────────────────────────────────────────────────────
@@ -15,7 +15,7 @@
   --f-d:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-b:"IBM Plex Sans",system-ui,sans-serif;
   --f-m:"IBM Plex Mono",ui-monospace,monospace;
-  --f-a:"IBM Plex Sans Arabic",serif;
+  --f-a:"IBM Plex Sans Arabic","Tajawal","Noto Kufi Arabic",system-ui,-apple-system,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box}
@@ -32,7 +32,7 @@ a{color:inherit; text-decoration:none}
 .eyebrow{font-family:var(--f-m); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
   color:var(--amber); margin:0 0 1rem}
 .mono{font-family:var(--f-m); font-variant-numeric:tabular-nums}
-.ar{font-family:var(--f-a); direction:rtl; unicode-bidi:isolate}
+.ar, [lang="ar"]{font-family:var(--f-a) !important; direction:rtl; unicode-bidi:isolate; letter-spacing:0 !important; font-style:normal; word-spacing:normal}
 .lede{font-size:clamp(1.02rem,1.6vw,1.2rem); color:var(--steel-lt); max-width:56ch}
 h2.big{font-size:clamp(2.2rem,6vw,4.2rem); color:var(--white); margin-bottom:1.1rem}
 
@@ -366,7 +366,7 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
     <p class="h-sub" style="margin-top:1.7rem">An escalator runs every hour the building is open — roughly 5,000 hours a year, carrying thousands of people who never think about it once. That only stays true if somebody maintains it properly.</p>
     <div class="h-meta">
       <span>Install</span><span>Modernise</span><span>Maintain</span><span>EN 115</span>
-      <span class="ar" style="letter-spacing:0">الدراية</span>
+      <span class="ar" lang="ar" dir="rtl" style="letter-spacing:0">الدراية</span>
     </div>
   </div>
 </section>
@@ -643,12 +643,12 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
         <div><b>Service desk</b>+971 __ ___ ____ · 24/7</div>
         <div><b>Email</b>service@aldirayah.ae</div>
         <div><b>Web</b>aldirayah.ae</div>
-        <div class="ar" style="font-size:1.15rem;color:var(--steel-lt);margin-top:.5rem">الدراية للمقاولات الكهروميكانيكية</div>
+        <div class="ar" lang="ar" dir="rtl" style="font-size:1.15rem;color:var(--steel-lt);margin-top:.5rem">الدراية للمقاولات الكهروميكانيكية</div>
       </div>
     </div>
     <footer>
       <span>© 2026 Al Dirayah Electromechanical Contracting LLC</span>
-      <span>Keep it moving · الحركة لا تتوقف</span>
+      <span>Keep it moving · <span class="ar" lang="ar" dir="rtl">الحركة لا تتوقف</span></span>
     </footer>
   </div>
 </section>
