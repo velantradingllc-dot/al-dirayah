@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../survey-modal.css">
   <style>
     :root {
       --ink: #0E1115;
@@ -825,32 +826,58 @@
   <div class="modal-overlay" id="surveyModal">
     <div class="modal-card">
       <button class="modal-close" onclick="closeSurveyModal()">×</button>
-      <div style="font-family:var(--f-m);font-size:.75rem;color:var(--amber-lt);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.3rem">TECHNICAL CONSULTATION</div>
-      <h3>Request Site Survey &amp; Audit</h3>
-      <p>Select your required product or service below to schedule an on-site technical inspection by an Al Dirayah senior engineer.</p>
-      <form onsubmit="handleSurveySubmit(event)">
-        <label>Product or Service Required *
-          <select id="mEquip" required>
-            <option value="CCTV & ELV Systems" selected>Enterprise CCTV & Structured Cabling (SIRA/MCC)</option>
-            <option value="MRL Gearless Passenger Elevators">MRL Gearless Passenger Elevators (EN 81-20/50)</option>
-            <option value="Commercial Escalators & Moving Walks">Commercial Escalators & Moving Walks (EN 115-1)</option>
-            <option value="Accessibility Lifts">Accessibility Lifts (EN 81-70)</option>
-          </select>
-        </label>
-        <label>Full Name *
-          <input type="text" placeholder="Eng. John Smith" required>
-        </label>
-        <label>Company / Project Name *
-          <input type="text" placeholder="Al Dirayah Commercial Tower" required>
-        </label>
-        <label>Phone / WhatsApp *
-          <input type="tel" placeholder="+971 50 123 4567" required>
-        </label>
-        <label>Project Details / Requirements
-          <textarea rows="3" placeholder="Specify number of cameras, cabling distance, or site location..."></textarea>
-        </label>
-        <button type="submit" class="cta-btn" style="background:var(--amber); color:var(--ink); font-weight:700; padding:1rem; margin-top:.5rem;">Submit Survey Request</button>
-      </form>
+      <div id="surveyFormView">
+        <div style="font-family:var(--f-m);font-size:.75rem;color:var(--amber-lt);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.3rem">TECHNICAL CONSULTATION</div>
+        <h3>Request Site Survey &amp; Audit</h3>
+        <p>Select your required product or service below to schedule an on-site technical inspection by an Al Dirayah senior engineer.</p>
+        <form id="surveyForm" onsubmit="handleSurveySubmit(event)">
+          <input type="text" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off">
+          <label>Product or Service Required *
+            <select id="mEquip" name="service" required>
+              <option value="CCTV & ELV Systems" selected>Enterprise CCTV &amp; Structured Cabling (SIRA/MCC)</option>
+              <option value="MRL Gearless Passenger Elevators">MRL Gearless Passenger Elevators (EN 81-20/50)</option>
+              <option value="Commercial Escalators & Moving Walks">Commercial Escalators &amp; Moving Walks (EN 115-1)</option>
+              <option value="Accessibility Lifts">Accessibility Lifts (EN 81-70)</option>
+            </select>
+          </label>
+          <label>Full Name *
+            <input type="text" name="contact_name" placeholder="Eng. John Smith" required>
+          </label>
+          <label>Company / Project Name *
+            <input type="text" name="designation" placeholder="Al Dirayah Commercial Tower" required>
+          </label>
+          <label>Phone / WhatsApp *
+            <input type="tel" name="phone" placeholder="+971 50 123 4567" required>
+          </label>
+          <label>Official Email *
+            <input type="email" name="email" placeholder="name@company.ae" required>
+          </label>
+          <label>Project Details / Requirements
+            <textarea name="notes" rows="3" placeholder="Specify number of cameras, cabling distance, or site location..."></textarea>
+          </label>
+          <button type="submit" id="surveySubmitBtn" class="cta-btn" style="background:var(--amber); color:var(--ink); font-weight:700; padding:1rem; margin-top:.5rem;">Submit Survey Request</button>
+        </form>
+      </div>
+
+      <div id="surveySuccessView" style="display:none;text-align:center;padding:1rem 0">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(52,211,153,.15);border:2px solid #34D399;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:#34D399">✓</div>
+        <h3 style="font-size:2rem;color:#ffffff;margin-bottom:.5rem">Survey Request Dispatched</h3>
+        <p style="color:#BAC5D3;font-size:.92rem;max-width:440px;margin:0 auto 1.2rem;line-height:1.5">Your inquiry has been registered and routed directly to our engineering desk.</p>
+        <div style="background:#1B2128;border:1px solid #3A4550;border-radius:8px;padding:.8rem 1.2rem;display:inline-block;margin-bottom:1.2rem">
+          <span style="font-family:var(--f-m);font-size:.75rem;color:#8C9BAE;display:block;text-transform:uppercase;letter-spacing:1px">Inquiry Reference</span>
+          <span id="surveyRefNum" style="font-family:var(--f-m);font-size:1.3rem;font-weight:700;color:var(--amber-lt);letter-spacing:1px">DIR-000000</span>
+        </div>
+        <div style="background:rgba(224,138,30,.08);border:1px solid rgba(224,138,30,.25);border-radius:8px;padding:.9rem 1.1rem;text-align:left;max-width:460px;margin:0 auto 1.5rem;font-size:.82rem;color:#BAC5D3;line-height:1.5">
+          <b style="color:var(--amber-lt);display:block;margin-bottom:.2rem">⚡ Direct Dispatch Confirmation:</b>
+          Routed to <code id="surveyTargetEmail" style="color:#ffffff;background:#14181D;padding:.15rem .35rem;border-radius:3px">service@aldirayah.ae</code>.
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center">
+          <a id="surveyMailtoBtn" href="#" class="big-cta" style="background:#1B2128;border:1px solid #3A4550;color:#FFFFFF;padding:.75rem 1.2rem;font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem">
+            <span>✉ Open in Email Client</span>
+          </a>
+          <button type="button" onclick="closeSurveyModal()" class="big-cta" style="padding:.75rem 1.4rem;font-size:.88rem;cursor:pointer">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1131,5 +1158,6 @@
       document.getElementById('gaugeFill').style.width = data.gauge;
     }
   </script>
+  <script src="../survey-modal.js"></script>
 </body>
 </html>

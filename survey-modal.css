@@ -1,0 +1,116 @@
+/* ── Al Dirayah Site Survey Modal Styles ── */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(10,13,16,.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  display: none;
+  place-items: center !important;
+  padding: 1.5rem !important;
+  overflow-y: auto !important;
+}
+.modal-overlay.active {
+  display: grid !important;
+}
+.modal-card {
+  background: #151A20 !important;
+  border: 1px solid #E08A1E !important;
+  border-radius: 12px !important;
+  max-width: 580px !important;
+  width: 100% !important;
+  padding: 2.2rem !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  margin: auto !important;
+}
+.modal-card h3 {
+  font-family: var(--f-d, "Barlow Condensed", "Arial Narrow", sans-serif) !important;
+  font-size: 2.2rem !important;
+  color: #ffffff !important;
+  margin: 0 0 .4rem 0 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+.modal-card p {
+  font-family: var(--f-b, "IBM Plex Sans", system-ui, sans-serif) !important;
+  font-size: .9rem !important;
+  color: #9AA3B0 !important;
+  margin: 0 0 1.4rem 0 !important;
+  line-height: 1.5 !important;
+  max-width: 100% !important;
+}
+.modal-card form {
+  display: grid !important;
+  gap: .9rem !important;
+  width: 100% !important;
+}
+.modal-card label {
+  font-family: var(--f-m, "IBM Plex Mono", ui-monospace, monospace) !important;
+  font-size: .66rem !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  color: #F5A93C !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: .35rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.modal-card input,
+.modal-card select,
+.modal-card textarea {
+  background: #1B2128 !important;
+  border: 1px solid #3A4550 !important;
+  color: #E9E7E2 !important;
+  padding: .7rem .9rem !important;
+  font-family: var(--f-b, "IBM Plex Sans", system-ui, sans-serif) !important;
+  font-size: .9rem !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  outline: none !important;
+}
+.modal-card input:focus,
+.modal-card select:focus,
+.modal-card textarea:focus {
+  border-color: #E08A1E !important;
+  outline: none !important;
+}
+.modal-close {
+  position: absolute !important;
+  top: 1.2rem !important;
+  right: 1.2rem !important;
+  background: transparent !important;
+  border: none !important;
+  color: #8C9BAE !important;
+  font-size: 1.8rem !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  padding: .2rem .5rem !important;
+  border-radius: 4px !important;
+}
+.modal-close:hover {
+  color: #ffffff !important;
+}
+.form-row-2col {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: .8rem !important;
+}
+@media (max-width: 600px) {
+  .modal-card {
+    padding: 1.4rem 1.1rem !important;
+    border-radius: 10px !important;
+  }
+  .modal-overlay {
+    padding: .8rem !important;
+  }
+  .form-row-2col {
+    grid-template-columns: 1fr !important;
+  }
+}
