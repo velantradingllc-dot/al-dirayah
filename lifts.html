@@ -50,7 +50,7 @@ a{color:inherit;text-decoration:none}
 
 /* ── floor indicator ──────────────────────────────────────── */
 #fi{
-  position:fixed; right:clamp(.8rem,2.5vw,2rem); top:50%; transform:translateY(-50%);
+  position:fixed; right:clamp(.6rem,1.5vw,1.4rem); top:50%; transform:translateY(-50%);
   z-index:40; background:#0A0D10; border:1px solid var(--line-2); border-radius:8px;
   padding:.75rem .6rem; display:flex; flex-direction:column; align-items:center; gap:.5rem;
   box-shadow:0 12px 40px rgba(0,0,0,.7);
@@ -67,7 +67,7 @@ a{color:inherit;text-decoration:none}
 #fi ol li{font-family:var(--f-m); font-size:.62rem; color:#39434E; letter-spacing:.06em; cursor:pointer; transition:color .3s, transform .2s}
 #fi ol li:hover{color:var(--steel-lt)}
 #fi ol li[data-on]{color:var(--amber); font-weight:600; transform:scale(1.15)}
-@media(max-width:700px){ #fi{padding:.5rem .4rem} #fi .bar{height:70px} #fi ol{display:none} }
+@media(max-width:900px){ #fi{display:none !important} }
 
 /* ── header ───────────────────────────────────────────────── */
 header{position:fixed; top:0; left:0; right:0; z-index:50; padding:.9rem 0;
