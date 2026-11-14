@@ -115,14 +115,14 @@ header{position:fixed; top:0; left:0; right:0; z-index:50; padding:.9rem 0;
   border-bottom:1px solid transparent; transition:background .4s, backdrop-filter .4s, border-color .4s}
 header.stuck{background:rgba(14,17,21,.92); backdrop-filter:blur(16px); border-bottom-color:var(--line)}
 header .wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem}
-.brand{display:flex; align-items:center; gap:.7rem}
+.brand{display:flex; align-items:center; gap:.7rem; text-decoration:none; flex-shrink:0}
 .brand svg{width:34px; height:34px; flex:none}
 .brand .nm{font-family:var(--f-d); font-size:1.4rem; letter-spacing:.045em;
-  text-transform:uppercase; font-weight:600; color:var(--white)}
+  text-transform:uppercase; font-weight:600; color:var(--white); white-space:nowrap}
 
 /* Switcher pills */
-.div-switcher{display:flex; background:rgba(21,26,32,0.85); padding:3px; border-radius:6px; border:1px solid var(--line-2)}
-.sw-pill{font-family:var(--f-m); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--steel-lt); padding:.35rem .75rem; border-radius:4px; transition:all .25s ease; display:inline-flex; align-items:center; gap:.4rem; text-decoration:none}
+.div-switcher{display:flex; background:rgba(21,26,32,0.85); padding:3px; border-radius:6px; border:1px solid var(--line-2); flex-shrink:0}
+.sw-pill{font-family:var(--f-m); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--steel-lt); padding:.35rem .75rem; border-radius:4px; transition:all .25s ease; display:inline-flex; align-items:center; gap:.4rem; text-decoration:none; white-space:nowrap}
 .sw-pill:hover{color:var(--white); background:rgba(255,255,255,0.06)}
 .sw-pill.active{background:var(--amber); color:var(--ink); font-weight:600; box-shadow:0 0 12px rgba(224,138,30,0.35)}
 .sw-pill .icon{font-size:.75rem}
@@ -130,11 +130,77 @@ header .wrap{display:flex; align-items:center; justify-content:space-between; ga
 nav{display:flex; gap:1.4rem}
 nav a{font-family:var(--f-m); font-size:.67rem; letter-spacing:.16em; text-transform:uppercase; color:var(--steel-lt); transition:color .25s}
 nav a:hover{color:var(--amber)}
-.cta-btn{font-family:var(--f-m); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+
+.hdr-actions{display:flex; align-items:center; gap:.6rem; flex-shrink:0}
+.cta-btn{font-family:var(--f-m); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase;
   border:1px solid var(--amber); color:var(--amber); padding:.5rem .95rem; border-radius:3px; background:transparent; cursor:pointer;
-  transition:background .25s,color .25s,box-shadow .25s}
+  transition:background .25s,color .25s,box-shadow .25s; white-space:nowrap; flex-shrink:0}
 .cta-btn:hover{background:var(--amber); color:var(--ink); box-shadow:0 0 14px rgba(224,138,30,.4)}
+
+/* Hamburger Toggle Button */
+.menu-toggle{
+  display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+  width:38px; height:38px; background:rgba(21,26,32,0.85); border:1px solid var(--line-2);
+  border-radius:6px; cursor:pointer; padding:0; transition:all .25s ease; flex-shrink:0;
+}
+.menu-toggle:hover{border-color:var(--amber); background:var(--surface)}
+.menu-toggle span{
+  display:block; width:18px; height:2px; background:var(--paper); border-radius:1px;
+  transition:transform .3s ease, opacity .25s ease, background-color .25s ease;
+}
+.menu-toggle.active{border-color:var(--amber); background:rgba(224,138,30,0.12)}
+.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg); background:var(--amber-lt)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg); background:var(--amber-lt)}
+
+/* Mobile Navigation Dropdown */
+.mobile-menu{
+  position:absolute; top:100%; left:0; right:0;
+  background:rgba(14,17,21,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line-2); box-shadow:0 25px 60px rgba(0,0,0,0.9);
+  max-height:calc(100vh - 65px); overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+  z-index:49;
+}
+.mobile-menu.active{
+  opacity:1; visibility:visible; transform:translateY(0);
+}
+.mob-menu-inner{padding:1.2rem 1.2rem 1.8rem; max-width:540px; margin:0 auto}
+.mob-tag{font-family:var(--f-m); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-lt); margin-bottom:.55rem}
+.mob-divisions{display:grid; gap:.5rem}
+.mob-div-item{
+  display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem;
+  background:rgba(21,26,32,0.85); border:1px solid var(--line); border-radius:8px;
+  color:var(--paper); font-family:var(--f-d); font-size:1.25rem; text-transform:uppercase;
+  transition:all .2s ease; text-decoration:none;
+}
+.mob-div-item .left{display:flex; align-items:center; gap:.75rem}
+.mob-div-item .icon{font-size:1.15rem; width:24px; text-align:center}
+.mob-div-item .arrow{color:var(--steel); font-size:1.1rem; transition:transform .2s, color .2s}
+.mob-div-item:hover, .mob-div-item.active{
+  background:rgba(224,138,30,0.12); border-color:var(--amber); color:var(--amber-lt);
+}
+.mob-div-item:hover .arrow, .mob-div-item.active .arrow{color:var(--amber-lt); transform:translateX(3px)}
+.mob-sub-list{display:grid; grid-template-columns:1fr; gap:.35rem; margin-top:.4rem}
+.mob-sub-item{
+  display:flex; align-items:center; gap:.6rem; padding:.55rem .85rem;
+  color:var(--steel-lt); font-size:.88rem; border-radius:6px; transition:all .2s;
+  text-decoration:none;
+}
+.mob-sub-item:hover{color:var(--white); background:rgba(255,255,255,0.05)}
+.mob-cta-wrap{margin-top:1.3rem; padding-top:1.1rem; border-top:1px solid var(--line)}
+
 @media(max-width:920px){ nav{display:none} }
+@media(max-width:820px){
+  header{padding:.7rem 0}
+  header .wrap{gap:.5rem}
+  .div-switcher{display:none !important}
+  .menu-toggle{display:flex}
+  .brand svg{width:28px; height:28px}
+  .brand .nm{font-size:1.2rem}
+  .cta-btn{padding:.42rem .75rem; font-size:.62rem; letter-spacing:.08em}
+}
 
 main{position:relative; z-index:2}
 section{position:relative}
@@ -427,7 +493,57 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
     <nav>
       <a href="#types">Types</a><a href="#anat">Anatomy</a><a href="#circ">Circuit</a><a href="#cap">Sizing</a><a href="#safe">Safety</a>
     </nav>
-    <button class="cta-btn" onclick="openSurveyModal('Escalators & Walkways')">Request a survey</button>
+    <div class="hdr-actions">
+      <button class="cta-btn" onclick="openSurveyModal('Escalators & Walkways')">Get a Survey</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mob-menu-inner">
+      <div class="mob-tag">CORE DIVISIONS</div>
+      <div class="mob-divisions">
+        <a href="index.html" class="mob-div-item">
+          <div class="left"><span class="icon">🏠</span> <span>Hub / Master Overview</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="lifts.html" class="mob-div-item">
+          <div class="left"><span class="icon">↕</span> <span>Lifts &amp; Elevators</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="escalators.html" class="mob-div-item active">
+          <div class="left"><span class="icon">↗</span> <span>Escalators &amp; Walkways</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="mob-tag" style="margin-top:1.2rem">PAGE SECTIONS</div>
+      <div class="mob-sub-list">
+        <a href="#types" class="mob-sub-item">⚡ Types &amp; Incline Ratings</a>
+        <a href="#anat" class="mob-sub-item">🔬 Truss &amp; Drive Anatomy</a>
+        <a href="#circ" class="mob-sub-item">🔄 Step Circuit Architecture</a>
+        <a href="#cap" class="mob-sub-item">📊 Passenger Flow Calculator</a>
+        <a href="#safe" class="mob-sub-item">🛡 EN 115 Safety Features</a>
+      </div>
+
+      <div class="mob-tag" style="margin-top:1.2rem">SPECIALIZED SOLUTIONS</div>
+      <div class="mob-sub-list">
+        <a href="residential-elevators.html" class="mob-sub-item">🏡 Residential Villa Elevators</a>
+        <a href="commercial-elevators.html" class="mob-sub-item">🏢 Commercial Tower Elevators</a>
+        <a href="maintenance-modernization.html" class="mob-sub-item">🛠 24/7 Maintenance &amp; AMC</a>
+        <a href="engineering-services.html" class="mob-sub-item">📐 Engineering &amp; Traffic Audits</a>
+      </div>
+
+      <div class="mob-cta-wrap">
+        <button class="big-cta" onclick="closeMobileMenu();openSurveyModal('Escalators Mobile')" style="width:100%;justify-content:center;padding:.75rem 1rem;font-size:1rem">Request Site Survey →</button>
+        <div style="font-family:var(--f-m);font-size:.68rem;color:var(--steel);text-align:center;margin-top:.6rem">30-Min SLA Abu Dhabi · 2-Hour SLA Dubai</div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -1077,6 +1193,41 @@ Drive Power: 7.5 kW | Standard: EN 115-1</code>
     alert("Thank you! Your survey request has been received. An Al Dirayah engineering specialist will contact you within 30 minutes in Abu Dhabi and 2 hours in Dubai.");
     closeSurveyModal();
   };
+
+  /* Mobile menu logic */
+  var menuToggle = document.getElementById("menuToggle");
+  var mobileMenu = document.getElementById("mobileMenu");
+  window.toggleMobileMenu = function(){
+    if(!menuToggle || !mobileMenu) return;
+    var isOpen = menuToggle.classList.toggle("active");
+    mobileMenu.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  };
+  window.closeMobileMenu = function(){
+    if(!menuToggle || !mobileMenu) return;
+    menuToggle.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    mobileMenu.setAttribute("aria-hidden", "true");
+  };
+  if(menuToggle){
+    menuToggle.addEventListener("click", toggleMobileMenu);
+  }
+  if(mobileMenu){
+    mobileMenu.addEventListener("click", function(e){
+      if(e.target.tagName === "A" || e.target.closest("a")){
+        closeMobileMenu();
+      }
+    });
+  }
+  document.addEventListener("click", function(e){
+    if(mobileMenu && mobileMenu.classList.contains("active")){
+      if(!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)){
+        closeMobileMenu();
+      }
+    }
+  });
 
   frame();
 })();
