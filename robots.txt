@@ -1,6 +1,6 @@
 # ==============================================================================
 # Al Dirayah Electromechanical Services LLC — robots.txt
-# Website: https://aldirayah.ae
+# Website: https://aldirayah.com
 # ==============================================================================
 
 # Default rule for all search engine web crawlers
@@ -149,4 +149,4 @@ Allow: /
 # ------------------------------------------------------------------------------
 # Sitemap Index
 # ------------------------------------------------------------------------------
-Sitemap: https://aldirayah.ae/sitemap.xml
+Sitemap: https://aldirayah.com/sitemap.xml

@@ -6,8 +6,8 @@
 (function() {
   "use strict";
 
-  // Configurable Target Email (service@aldirayah.ae, or updated when user provides destination)
-  var ENQUIRY_EMAIL = "service@aldirayah.ae";
+  // Configurable Target Email (service@aldirayah.com, or updated when user provides destination)
+  var ENQUIRY_EMAIL = "service@aldirayah.com";
 
   window.setEnquiryEmail = function(newEmail) {
     if (newEmail && typeof newEmail === "string") {
