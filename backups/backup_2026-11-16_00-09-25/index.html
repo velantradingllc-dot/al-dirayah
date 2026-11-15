@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lift & Escalator Contractor in Abu Dhabi | Al Dirayah</title>
+<meta name="description" content="Lift and escalator installation, AMC maintenance and 24/7 breakdown repair in Abu Dhabi and Dubai. All major brands. Book a free site visit.">
+  <link rel="canonical" href="https://aldirayah.com/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="survey-modal.css">
+
+<style>
+:root{
+  --ink:#0E1115; --ink-2:#151A20; --surface:#1B2128; --surface-2:#232A33;
+  --line:#2B333D; --line-2:#3A4550;
+  --amber:#E08A1E; --amber-lt:#F5A93C; --amber-dim:#8A5A14;
+  --steel:#6E7885; --steel-lt:#9AA3B0; --paper:#E9E7E2; --white:#fff;
+  --f-d:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-b:"IBM Plex Sans",system-ui,sans-serif;
+  --f-m:"IBM Plex Mono",ui-monospace,monospace;
+  --f-a:"IBM Plex Sans Arabic",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; overflow-x:hidden}
+body{
+  margin:0; background:var(--ink); color:var(--paper);
+  font-family:var(--f-b); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; width:100%;
+  background-image:repeating-linear-gradient(60deg,transparent 0 21px,rgba(122,136,152,.04) 21px 23px,transparent 23px 27px);
+}
+h1,h2,h3{margin:0; text-wrap:balance; font-family:var(--f-d); font-weight:600; text-transform:uppercase; line-height:.95; letter-spacing:.01em}
+p{margin:0 0 1rem; max-width:62ch}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber); outline-offset:3px; border-radius:2px}
+.wrap{max-width:1180px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem)}
+.eyebrow{font-family:var(--f-m); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); margin:0 0 1rem}
+.mono{font-family:var(--f-m); font-variant-numeric:tabular-nums}
+.ar, [lang="ar"]{font-family:var(--f-a) !important; direction:rtl; unicode-bidi:isolate; letter-spacing:0 !important; font-style:normal; word-spacing:normal}
+
+/* Shaft backdrop (parallax & dust) */
+#shaft{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+#dust{position:absolute; inset:0; width:100%; height:100%}
+.rail{position:absolute; top:-20vh; height:160vh; width:10px; background:
+  linear-gradient(90deg,#20272F 0%,#39424D 42%,#4A5560 50%,#39424D 58%,#20272F 100%);
+  box-shadow:0 0 30px rgba(0,0,0,.6)}
+.rail.l{left:7vw} .rail.r{right:7vw}
+#ticks{position:absolute; inset:0}
+.tick{position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#2A323B 12%,#2A323B 88%,transparent)}
+.tick b{position:absolute; left:calc(7vw + 22px); top:-9px; font-family:var(--f-m); font-size:.6rem; letter-spacing:.18em; color:#39434E}
+#glow{position:absolute; left:50%; top:0; width:min(1100px,120vw); height:60vh; transform:translateX(-50%);
+  background:radial-gradient(60% 60% at 50% 0%, rgba(224,138,30,.18), transparent 70%)}
+
+/* Floor indicator gauge */
+#fi{
+  position:fixed; right:clamp(.6rem,1.5vw,1.4rem); top:50%; transform:translateY(-50%);
+  z-index:40; background:#0A0D10; border:1px solid var(--line-2); border-radius:8px;
+  padding:.75rem .6rem; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  box-shadow:0 12px 40px rgba(0,0,0,.7);
+}
+#fi .arrow{font-size:.9rem; color:var(--amber); line-height:1; transition:transform .4s var(--ease), opacity .3s}
+#fi .read{
+  font-family:var(--f-m); font-weight:600; font-size:1.45rem; color:var(--amber-lt);
+  min-width:2.1ch; text-align:center; line-height:1;
+  text-shadow:0 0 14px rgba(245,169,60,.55);
+}
+#fi .bar{width:3px; height:120px; background:#1A2027; border-radius:2px; overflow:hidden; position:relative}
+#fi .bar i{position:absolute; left:0; right:0; top:0; background:linear-gradient(180deg,var(--amber-lt),var(--amber-dim)); height:0%}
+#fi ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.34rem}
+#fi ol li{font-family:var(--f-m); font-size:.62rem; color:#39434E; letter-spacing:.06em; cursor:pointer; transition:color .3s, transform .2s}
+#fi ol li:hover{color:var(--steel-lt)}
+#fi ol li[data-on]{color:var(--amber); font-weight:600; transform:scale(1.15)}
+@media(max-width:900px){ #fi{display:none !important} }
+
+/* Header */
+header{position:fixed; top:0; left:0; right:0; z-index:50; padding:.9rem 0;
+  transition:background .4s, backdrop-filter .4s, border-color .4s;
+  border-bottom:1px solid transparent}
+header.stuck{background:rgba(14,17,21,.92); backdrop-filter:blur(16px); border-bottom-color:var(--line)}
+header .wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem}
+.brand{display:flex; align-items:center; gap:.7rem; text-decoration:none; flex-shrink:0}
+.brand svg{width:34px;height:34px;flex:none}
+.brand .nm{font-family:var(--f-d); font-size:1.4rem; letter-spacing:.045em; text-transform:uppercase; font-weight:600; color:var(--white); white-space:nowrap}
+
+/* Switcher pills */
+.div-switcher{display:flex; background:rgba(21,26,32,0.85); padding:3px; border-radius:6px; border:1px solid var(--line-2); flex-shrink:0}
+.sw-pill{font-family:var(--f-m); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--steel-lt); padding:.35rem .75rem; border-radius:4px; transition:all .25s ease; display:inline-flex; align-items:center; gap:.4rem; text-decoration:none; white-space:nowrap}
+.sw-pill:hover{color:var(--white); background:rgba(255,255,255,0.06)}
+.sw-pill.active{background:var(--amber); color:var(--ink); font-weight:600; box-shadow:0 0 12px rgba(224,138,30,0.35)}
+
+.hdr-actions{display:flex; align-items:center; gap:.6rem; flex-shrink:0}
+.cta-btn{font-family:var(--f-m); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase;
+  border:1px solid var(--amber); color:var(--amber); padding:.5rem .95rem; border-radius:3px; background:transparent; cursor:pointer;
+  transition:background .25s,color .25s,box-shadow .25s; white-space:nowrap; flex-shrink:0}
+.cta-btn:hover{background:var(--amber); color:var(--ink); box-shadow:0 0 14px rgba(224,138,30,.4)}
+
+/* Hamburger Toggle Button */
+.menu-toggle{
+  display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+  width:38px; height:38px; background:rgba(21,26,32,0.85); border:1px solid var(--line-2);
+  border-radius:6px; cursor:pointer; padding:0; transition:all .25s ease; flex-shrink:0;
+}
+.menu-toggle:hover{border-color:var(--amber); background:var(--surface)}
+.menu-toggle span{
+  display:block; width:18px; height:2px; background:var(--paper); border-radius:1px;
+  transition:transform .3s ease, opacity .25s ease, background-color .25s ease;
+}
+.menu-toggle.active{border-color:var(--amber); background:rgba(224,138,30,0.12)}
+.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg); background:var(--amber-lt)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg); background:var(--amber-lt)}
+
+/* Mobile Navigation Dropdown */
+.mobile-menu{
+  position:absolute; top:100%; left:0; right:0;
+  background:rgba(14,17,21,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line-2); box-shadow:0 25px 60px rgba(0,0,0,0.9);
+  max-height:calc(100vh - 65px); overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+  z-index:49;
+}
+.mobile-menu.active{
+  opacity:1; visibility:visible; transform:translateY(0);
+}
+.mob-menu-inner{padding:1.2rem 1.2rem 1.8rem; max-width:540px; margin:0 auto}
+.mob-tag{font-family:var(--f-m); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-lt); margin-bottom:.55rem}
+.mob-divisions{display:grid; gap:.5rem}
+.mob-div-item{
+  display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem;
+  background:rgba(21,26,32,0.85); border:1px solid var(--line); border-radius:8px;
+  color:var(--paper); font-family:var(--f-d); font-size:1.25rem; text-transform:uppercase;
+  transition:all .2s ease; text-decoration:none;
+}
+.mob-div-item .left{display:flex; align-items:center; gap:.75rem}
+.mob-div-item .icon{font-size:1.15rem; width:24px; text-align:center}
+.mob-div-item .arrow{color:var(--steel); font-size:1.1rem; transition:transform .2s, color .2s}
+.mob-div-item:hover, .mob-div-item.active{
+  background:rgba(224,138,30,0.12); border-color:var(--amber); color:var(--amber-lt);
+}
+.mob-div-item:hover .arrow, .mob-div-item.active .arrow{color:var(--amber-lt); transform:translateX(3px)}
+.mob-sub-list{display:grid; grid-template-columns:1fr; gap:.35rem; margin-top:.4rem}
+.mob-sub-item{
+  display:flex; align-items:center; gap:.6rem; padding:.55rem .85rem;
+  color:var(--steel-lt); font-size:.88rem; border-radius:6px; transition:all .2s;
+  text-decoration:none;
+}
+.mob-sub-item:hover{color:var(--white); background:rgba(255,255,255,0.05)}
+.mob-cta-wrap{margin-top:1.3rem; padding-top:1.1rem; border-top:1px solid var(--line)}
+
+/* Responsive adjustments for layout and mobile */
+.oem-card{
+  background:linear-gradient(135deg, rgba(224,138,30,0.14), rgba(21,26,32,0.95));
+  border:1px solid var(--amber); border-radius:14px;
+  padding:clamp(1.4rem, 4vw, 3.2rem) clamp(1.1rem, 3.5vw, 2.8rem);
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+}
+.ph-banner{
+  background:linear-gradient(135deg, rgba(224,138,30,0.12), rgba(20,24,29,0.95));
+  border:1px solid var(--amber-dim); border-radius:14px;
+  padding:clamp(1.4rem, 4vw, 2.5rem); display:grid; grid-template-columns:1.4fr 1fr;
+  gap:2rem; align-items:center; margin-bottom:4rem; box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+.footer-grid{
+  display:grid; grid-template-columns:1.8fr 1.2fr 1.4fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--line);
+}
+.form-row-2col{
+  display:grid; grid-template-columns:1fr 1fr; gap:.8rem;
+}
+
+@media(max-width:850px){
+  .ph-banner{grid-template-columns:1fr; gap:1.5rem}
+  .footer-grid{grid-template-columns:1fr; gap:2rem}
+}
+
+@media(max-width:820px){
+  header{padding:.7rem 0}
+  header .wrap{gap:.5rem}
+  .div-switcher{display:none !important}
+  .menu-toggle{display:flex}
+  .brand svg{width:28px; height:28px}
+  .brand .nm{font-size:1.2rem}
+  .cta-btn{padding:.42rem .75rem; font-size:.62rem; letter-spacing:.08em}
+}
+
+@media(max-width:600px){
+  .modal-card{padding:1.4rem 1.1rem !important; border-radius:10px !important}
+  .modal-overlay{padding:.8rem !important}
+  .form-row-2col{grid-template-columns:1fr !important}
+  .div-card-hero{padding:1.4rem 1.2rem}
+  .card-img-holder{height:180px}
+  .big-cta, .btn-sec{width:100%; justify-content:center; text-align:center; font-size:1.1rem; padding:.8rem 1.2rem}
+  #fh{padding-top:7.5rem !important}
+  .big-title{font-size:clamp(2.2rem, 8vw, 3.4rem)}
+}
+
+/* Layout & Sections */
+main{position:relative; z-index:1}
+section.pad{padding:6rem 0; position:relative}
+.big{font-size:clamp(2.4rem,6vw,4.8rem); color:var(--white); margin-bottom:.8rem; line-height:.95}
+.lede{font-size:clamp(1.05rem,1.8vw,1.25rem); color:var(--steel-lt); max-width:68ch}
+
+/* Hero */
+#hero{padding:9rem 0 5rem; min-height:85vh; display:flex; align-items:center}
+.big-title{font-size:clamp(3rem, 5.5vw, 5.2rem); color:var(--white); font-weight:700; line-height:.92; margin-bottom:1.4rem}
+.big-title span{color:var(--amber-lt); text-shadow:0 0 25px rgba(245,169,60,0.3)}
+
+.big-cta{
+  font-family:var(--f-d); font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase;
+  background:var(--amber); color:var(--ink); padding:.85rem 1.8rem; border-radius:4px; font-weight:600;
+  display:inline-flex; align-items:center; gap:.6rem; border:none; cursor:pointer;
+  transition:background .25s, transform .25s, box-shadow .25s; text-decoration:none;
+}
+.big-cta:hover{background:var(--amber-lt); transform:translateY(-2px); box-shadow:0 12px 30px rgba(224,138,30,0.4)}
+
+.btn-sec{
+  font-family:var(--f-d); font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase;
+  background:transparent; color:var(--paper); border:1px solid var(--line-2); padding:.85rem 1.8rem; border-radius:4px;
+  display:inline-flex; align-items:center; gap:.6rem; cursor:pointer; transition:all .25s; text-decoration:none;
+}
+.btn-sec:hover{border-color:var(--amber); color:var(--amber-lt); background:rgba(255,255,255,0.03)}
+
+/* 2 Main Divisions Cards */
+.division-dual{display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.5rem}
+@media(max-width:850px){ .division-dual{grid-template-columns:1fr} }
+
+.div-card-hero{
+  background:var(--ink-2); border:1px solid var(--line-2); border-radius:12px; padding:2.2rem;
+  display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;
+  transition:all .35s var(--ease);
+}
+.div-card-hero:hover{border-color:var(--amber); transform:translateY(-5px); box-shadow:0 25px 50px rgba(0,0,0,0.7); background:var(--surface)}
+.div-card-hero::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--amber-lt),transparent); opacity:0; transition:opacity .35s}
+.div-card-hero:hover::before{opacity:1}
+
+.card-img-holder{width:100%; height:240px; border-radius:8px; overflow:hidden; margin-bottom:1.5rem; border:1px solid var(--line); position:relative}
+.card-img-holder img{width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease)}
+.div-card-hero:hover .card-img-holder img{transform:scale(1.06)}
+
+/* 6 Solutions Grid - 3+3 Layout */
+.solutions-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-top:2rem}
+@media(max-width:992px){ .solutions-grid{grid-template-columns:repeat(2, 1fr)} }
+@media(max-width:640px){ .solutions-grid{grid-template-columns:1fr} }
+.sol-card-mini{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.5rem;
+  transition:all .3s var(--ease); display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;
+}
+.sol-card-mini:hover{border-color:var(--amber); transform:translateY(-4px); box-shadow:0 15px 35px rgba(0,0,0,0.6)}
+.sol-card-img{width:100%; height:160px; border-radius:6px; overflow:hidden; margin-bottom:1.2rem; border:1px solid var(--line)}
+.sol-card-img img{width:100%; height:100%; object-fit:cover; transition:transform .4s var(--ease)}
+.sol-card-mini:hover .sol-card-img img{transform:scale(1.06)}
+
+/* Credentials bar */
+.cred-bar{margin-top:4rem; background:var(--ink-2); border:1px solid var(--line-2); border-radius:10px; padding:2rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.6rem}
+.cred-item b{display:block; font-family:var(--f-d); font-size:2.2rem; color:var(--amber-lt); line-height:1}
+.cred-item span{font-family:var(--f-m); font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--steel); margin-top:.35rem; display:block}
+
+/* Scroll reveal animations */
+.rv{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.rv.in{opacity:1; transform:translateY(0)}
+
+/* Modal Overlay */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ══════════ REQUEST SURVEY MODAL STYLING ══════════ */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(10,13,16,.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  display: none;
+  place-items: center !important;
+  padding: 1.5rem !important;
+  overflow-y: auto !important;
+}
+.modal-overlay.active {
+  display: grid !important;
+}
+.modal-card {
+  background: #151A20 !important;
+  border: 1px solid #E08A1E !important;
+  border-radius: 12px !important;
+  max-width: 580px !important;
+  width: 100% !important;
+  padding: 2.2rem !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  margin: auto !important;
+}
+.modal-card h3 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
+  font-size: 2.2rem !important;
+  color: #ffffff !important;
+  margin: 0 0 .4rem 0 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+.modal-card p {
+  font-family: "IBM Plex Sans", system-ui, sans-serif !important;
+  font-size: .9rem !important;
+  color: #9AA3B0 !important;
+  margin: 0 0 1.4rem 0 !important;
+  line-height: 1.5 !important;
+  max-width: 100% !important;
+}
+.modal-card form {
+  display: grid !important;
+  gap: .9rem !important;
+  width: 100% !important;
+}
+.modal-card label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace !important;
+  font-size: .66rem !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  color: #F5A93C !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: .35rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.modal-card input,
+.modal-card select,
+.modal-card textarea {
+  background: #1B2128 !important;
+  border: 1px solid #3A4550 !important;
+  color: #E9E7E2 !important;
+  padding: .7rem .9rem !important;
+  font-family: "IBM Plex Sans", system-ui, sans-serif !important;
+  font-size: .9rem !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  outline: none !important;
+}
+.modal-card input:focus,
+.modal-card select:focus,
+.modal-card textarea:focus {
+  border-color: #E08A1E !important;
+  box-shadow: 0 0 12px rgba(224,138,30,0.35) !important;
+}
+.modal-close {
+  position: absolute !important;
+  right: 1.2rem !important;
+  top: 1.2rem !important;
+  background: transparent !important;
+  border: none !important;
+  color: #6E7885 !important;
+  font-size: 1.8rem !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+.modal-close:hover {
+  color: #F5A93C !important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Shaft backdrop canvas -->
+<div id="shaft" aria-hidden="true">
+  <canvas id="dust"></canvas>
+  <div class="rail l"></div><div class="rail r"></div>
+  <div id="ticks"></div>
+  <div id="glow"></div>
+</div>
+
+<!-- Floor indicator gauge -->
+<aside id="fi" aria-label="Floor level indicator">
+  <span class="arrow" id="fiArrow">▲</span>
+  <span class="read" id="fiRead">H</span>
+  <div class="bar"><i id="fiBar"></i></div>
+  <ol id="fiList"></ol>
+</aside>
+
+<!-- Header -->
+<header id="hdr">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <rect width="120" height="120" rx="20" fill="#E08A1E"/>
+        <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
+        <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
+        <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
+      </svg>
+      <span class="nm">Al Dirayah</span>
+    </a>
+
+    <div class="div-switcher">
+      <a href="index.html" class="sw-pill active"><span class="icon">🏠</span> Hub</a>
+      <a href="lifts.html" class="sw-pill"><span class="icon">↕</span> Lifts</a>
+      <a href="escalators.html" class="sw-pill"><span class="icon">↗</span> Escalators</a>
+    </div>
+
+    <div class="hdr-actions">
+      <button class="cta-btn" onclick="openSurveyModal('General Inquiries')">Get a Survey</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mob-menu-inner">
+      <div class="mob-tag">CORE DIVISIONS</div>
+      <div class="mob-divisions">
+        <a href="index.html" class="mob-div-item active">
+          <div class="left"><span class="icon">🏠</span> <span>Hub / Master Overview</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="lifts.html" class="mob-div-item">
+          <div class="left"><span class="icon">↕</span> <span>Lifts &amp; Elevators</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="escalators.html" class="mob-div-item">
+          <div class="left"><span class="icon">↗</span> <span>Escalators &amp; Walkways</span></div>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="mob-tag" style="margin-top:1.2rem">SPECIALIZED SOLUTIONS</div>
+      <div class="mob-sub-list">
+        <a href="residential-elevators.html" class="mob-sub-item">🏡 Residential Villa Elevators</a>
+        <a href="commercial-elevators.html" class="mob-sub-item">🏢 Commercial Tower Elevators</a>
+        <a href="accessibility-elevators.html" class="mob-sub-item">♿ Accessibility &amp; POD Lifts</a>
+        <a href="maintenance-modernization.html" class="mob-sub-item">🛠 24/7 Maintenance &amp; AMC</a>
+        <a href="engineering-services.html" class="mob-sub-item">📐 Engineering &amp; Traffic Audits</a>
+        <a href="configurator.html" class="mob-sub-item">⚡ 3D Elevator Configurator</a>
+      </div>
+
+      <div class="mob-cta-wrap">
+        <button class="big-cta" onclick="closeMobileMenu();openSurveyModal('Mobile Menu')" style="width:100%;justify-content:center;padding:.75rem 1rem;font-size:1rem">Request Site Survey →</button>
+        <div style="font-family:var(--f-m);font-size:.68rem;color:var(--steel);text-align:center;margin-top:.6rem">Free Technical Shaft &amp; Machine Audit</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ══════════ HERO (FLOOR H) ══════════ -->
+  <section id="fh" class="pad" data-floor="H" data-label="Hub" style="padding-top:10rem;padding-bottom:5rem">
+    <div class="wrap">
+      <p class="eyebrow rv">Lift &amp; Escalator installation, repair and maintenance, UAE</p>
+      <h1 class="big-title rv" data-d="1">Lifts and escalators.<br><span>Installed, serviced, kept running.</span></h1>
+      <p class="lede rv" data-d="2" style="margin-bottom:2.5rem">We install new lifts and escalators, service existing ones and fix breakdowns 24/7 across Abu Dhabi, Dubai. We work on TKE, OTIS, KONE and mostly all other major brands.</p>
+
+      <div class="rv" data-d="3" style="display:flex;flex-wrap:wrap;gap:1.2rem;margin-bottom:4rem">
+        <a href="lifts.html" class="big-cta">Lifts &rarr;</a>
+        <a href="escalators.html" class="btn-sec">Escalators &rarr;</a>
+        <button type="button" onclick="openSurveyModal('Emergency Breakdown')" class="btn-sec" style="border-color:var(--amber);color:var(--amber-lt);background:rgba(224,138,30,0.12);cursor:pointer">Lift broken? Call now</button>
+      </div>
+
+      <!-- Dual Core Divisions -->
+      <div class="division-dual">
+        <!-- Lifts Division -->
+        <a href="lifts.html" class="div-card-hero rv">
+          <div class="card-img-holder">
+            <img src="lift_real.png" alt="Passenger traction lift in shaft with gearless motor and guide rails">
+          </div>
+          <div>
+            <span class="eyebrow" style="font-size:.62rem;color:var(--amber-lt);display:inline-block;margin-bottom:.5rem">Lifts</span>
+            <h2 style="font-size:2.4rem;color:var(--white);margin-bottom:.6rem">Lifts &amp; Elevators Division</h2>
+            <p style="color:var(--steel-lt);font-size:.95rem;margin-bottom:1.5rem;line-height:1.6">Passenger, freight, panoramic and villa lifts, new installs and upgrades.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.3rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.6rem">Explore Lifts Division &rarr;</span>
+        </a>
+
+        <!-- Escalators Division -->
+        <a href="escalators.html" class="div-card-hero rv" data-d="1">
+          <div class="card-img-holder">
+            <img src="escalator_real.png" alt="Commercial escalator installation with stainless steel balustrades">
+          </div>
+          <div>
+            <span class="eyebrow" style="font-size:.62rem;color:var(--amber-lt);display:inline-block;margin-bottom:.5rem">Escalators &amp; walkways</span>
+            <h2 style="font-size:2.4rem;color:var(--white);margin-bottom:.6rem">Escalators &amp; Walkways Division</h2>
+            <p style="color:var(--steel-lt);font-size:.95rem;margin-bottom:1.5rem;line-height:1.6">Escalators and moving walkways for malls, offices and transport hubs, built and serviced to EN 115.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.3rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.6rem">Explore Escalators Division &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SPECIALIZED SOLUTIONS (FLOOR 1) ══════════ -->
+  <section id="f1" class="pad" data-floor="1" data-label="Solutions" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <p class="eyebrow rv">01 — SOLUTIONS</p>
+      <h2 class="big rv" data-d="1">What we do</h2>
+      <p class="lede rv" data-d="2" style="margin-bottom:2.5rem">Villas, towers, maintenance contracts and safety audits.</p>
+
+      <div class="solutions-grid">
+        <!-- 1: Residential Villa Lifts -->
+        <a href="residential-elevators.html" class="sol-card-mini rv">
+          <div class="sol-card-img">
+            <img src="residential_lift_3d.jpg" alt="Luxury Villa Glass Elevator">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Villas</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Residential Villa Elevators</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">MRL gearless &amp; hydraulic villa lifts, 360° panoramic glass cabs, pitless options, and Italian marble fit-outs.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Villa lifts &rarr;</span>
+        </a>
+
+        <!-- 2: Commercial Tower Elevators -->
+        <a href="commercial-elevators.html" class="sol-card-mini rv" data-d="1">
+          <div class="sol-card-img">
+            <img src="commercial_tower_lift_3d.jpg" alt="Commercial Skyscraper Elevator Bank">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Towers</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Commercial Tower Elevators</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">High-speed lifts up to 4.0 m/s, 5,000 kg freight elevators, EN 81-70 stretcher lifts, and smart destination dispatch.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Explore Commercial Lifts &rarr;</span>
+        </a>
+
+        <!-- 3: Maintenance & Fit-Out -->
+        <a href="maintenance-modernization.html" class="sol-card-mini rv" data-d="2">
+          <div class="sol-card-img">
+            <img src="maintenance_modernization_3d.jpg" alt="Modernized Elevator Cabin Fit-Out">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Maintenance</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Maintenance &amp; Fit-Out</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">24/7 emergency dispatch (target 30 min in Abu Dhabi, 2 hours in Dubai; exact SLA in contract), controller upgrades, VVVF drives, and cabin refurbishment.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">View AMC Packages &rarr;</span>
+        </a>
+
+        <!-- 4: Engineering Services -->
+        <a href="engineering-services.html" class="sol-card-mini rv" data-d="3">
+          <div class="sol-card-img">
+            <img src="engineering_audit_3d.jpg" alt="Elevator shaft structural engineering model and load calculations">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Audits</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Engineering &amp; Safety Audits</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">CIBSE Guide D traffic simulations, EN 81-20/50 third-party audits, 3D BIM load modeling, and Civil Defence filing.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Engineering &amp; audits &rarr;</span>
+        </a>
+
+        <!-- 5: Accessibility & POD Lifts -->
+        <a href="accessibility-elevators.html" class="sol-card-mini rv" data-d="1">
+          <div class="sol-card-img">
+            <img src="accessibility_lift_hero_3d.jpg" alt="EN 81-70 Wheelchair Accessible Elevator">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Accessibility</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Accessibility &amp; POD Lifts</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">EN 81-70 compliant wheelchair lifts, zero-threshold sills, ergonomic low-height Braille controls, and battery rescue.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Explore Accessibility Lifts &rarr;</span>
+        </a>
+
+        <!-- 6: Escalators & Moving Walkways -->
+        <a href="escalators.html" class="sol-card-mini rv" data-d="2">
+          <div class="sol-card-img">
+            <img src="escalator_3d_assembled.jpg" alt="Commercial Heavy-Traffic Escalator">
+          </div>
+          <div>
+            <span style="font-family:var(--f-m);font-size:.6rem;color:var(--amber-lt);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem">Escalators</span>
+            <h3 style="font-size:1.5rem;color:var(--white);margin-bottom:.5rem">Escalators &amp; Moving Walkways</h3>
+            <p style="font-size:.88rem;color:var(--steel-lt);margin-bottom:1.2rem;line-height:1.5">EN 115 commercial &amp; heavy transit escalators, 30° &amp; 35° inclines, public autowalks up to 100m, and step-chain overhauls.</p>
+          </div>
+          <span style="font-family:var(--f-d);font-size:1.1rem;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.4rem">Escalators &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <!-- ══════════ OEM ENGINEERING & CAPABILITIES (FLOOR 2) ══════════ -->
+  <section id="f2" class="pad" data-floor="2" data-label="OEM Matrix">
+    <div class="wrap">
+      <div class="oem-card">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--line)">
+          <div style="max-width:820px">
+            <span class="eyebrow" style="color:var(--amber-lt);font-size:.75rem;letter-spacing:2px;display:inline-block;margin-bottom:.6rem">TECHNICAL CAPABILITIES</span>
+            <h2 style="font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Why building managers use us</h2>
+            <p style="color:var(--steel-lt);font-size:1.05rem;margin-bottom:1.8rem;line-height:1.65">Trained on the major brands. Vans stocked with common parts. Civil Defence paperwork handled for you.</p>
+            
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem">
+              <a href="Al-Dirayah-Company-Profile.pdf" target="_blank" class="big-cta" style="font-size:1.05rem;padding:.9rem 1.8rem;justify-content:center">Download Company Profile (PDF) 📄</a>
+              <button class="btn-sec" onclick="openSurveyModal('OEM Capabilities')" style="font-size:1.05rem;padding:.85rem 1.8rem;justify-content:center">Request Technical Audit 📐</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capabilities Grid (2 Points Max) -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem">
+          <!-- 1: Multi-Brand Subcontracting -->
+          <div style="background:rgba(14,17,21,0.65);border:1px solid var(--line-2);border-radius:10px;padding:1.6rem">
+            <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1rem">
+              <div style="font-size:1.5rem">⚙️</div>
+              <div>
+                <span style="font-family:var(--f-m);font-size:.65rem;color:var(--amber-lt);letter-spacing:1.5px;text-transform:uppercase;display:block">OEM SUB-CONTRACTING</span>
+                <b style="color:var(--white);font-size:1.05rem">TKE · OTIS · KONE Systems</b>
+              </div>
+            </div>
+            <ul style="font-size:.85rem;color:var(--steel-lt);line-height:1.6;padding-left:1.1rem;display:grid;gap:.6rem">
+              <li>Our engineers are trained on <strong>OTIS</strong>, <strong>TKE</strong>, and <strong>KONE</strong> controllers.</li>
+              <li>Genuine OEM or approved-equivalent parts, documented on every job sheet.</li>
+            </ul>
+          </div>
+
+          <!-- 2: 24/7 SLA & Fleet Logistics -->
+          <div style="background:rgba(14,17,21,0.65);border:1px solid var(--line-2);border-radius:10px;padding:1.6rem">
+            <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1rem">
+              <div style="font-size:1.5rem">🚨</div>
+              <div>
+                <span style="font-family:var(--f-m);font-size:.65rem;color:var(--amber-lt);letter-spacing:1.5px;text-transform:uppercase;display:block">Fast callouts</span>
+                <b style="color:var(--white);font-size:1.05rem">30-Min AUH · 2-Hour DXB</b>
+              </div>
+            </div>
+            <ul style="font-size:.85rem;color:var(--steel-lt);line-height:1.6;padding-left:1.1rem;display:grid;gap:.6rem">
+              <li>Technicians based in Abu Dhabi and Dubai, so we reach most sites in 30 min in Abu Dhabi and 2 hrs in Dubai.</li>
+              <li>Our vans carry the parts that fail most often, so most breakdowns are fixed in one visit.</li>
+            </ul>
+          </div>
+
+          <!-- 3: Civil Defence & Standards -->
+          <div style="background:rgba(14,17,21,0.65);border:1px solid var(--line-2);border-radius:10px;padding:1.6rem">
+            <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1rem">
+              <div style="font-size:1.5rem">📜</div>
+              <div>
+                <span style="font-family:var(--f-m);font-size:.65rem;color:var(--amber-lt);letter-spacing:1.5px;text-transform:uppercase;display:block">Civil Defence approvals</span>
+                <b style="color:var(--white);font-size:1.05rem">Civil Defence &amp; EN 81-20/50</b>
+              </div>
+            </div>
+            <ul style="font-size:.85rem;color:var(--steel-lt);line-height:1.6;padding-left:1.1rem;display:grid;gap:.6rem">
+              <li>Full compliance with European safety standards <strong>EN 81-20/50</strong> (Lifts) and <strong>EN 115-1</strong> (Escalators).</li>
+              <li>We do the load tests and submit the paperwork for your annual Civil Defence certificate.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PH — MASTER FOOTER & CONTACT ══════════ -->
+  <section id="ph" class="pad" data-floor="PH" data-label="Contact" style="padding-top:4rem;padding-bottom:3rem;background:var(--ink-2);border-top:1px solid var(--line)">
+    <div class="wrap">
+      
+      <!-- Top Contact CTA Banner -->
+      <div class="ph-banner">
+        <div>
+          <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">Free site survey</p>
+          <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a free site visit</h2>
+          <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">An engineer visits, checks the shaft and equipment, and sends you a written quote within 1–2 working days.</p>
+          <button class="big-cta" onclick="openSurveyModal('Master Hub Footer')" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;font-size:1rem">Request On-Site Survey &rarr;</button>
+        </div>
+        
+        <div style="display:grid;gap:1rem;background:rgba(14,17,21,0.6);padding:1.5rem;border-radius:10px;border:1px solid var(--line)">
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📋</div>
+            <div>
+              <b style="font-size:.9rem;color:var(--white);display:block">We inspect everything</b>
+              <span style="font-size:.78rem;color:var(--steel)">Shaft clearances, machine health, brake testing &amp; controller diagnostics</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">⏱️</div>
+            <div>
+              <b style="font-size:.9rem;color:var(--white);display:block">Itemised quote</b>
+              <span style="font-size:.78rem;color:var(--steel)">Itemized scope, component lifecycle assessment &amp; transparent quotation</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📍</div>
+            <div>
+              <b style="font-size:.9rem;color:var(--white);display:block">We cover Abu Dhabi, Dubai and the Northern Emirates</b>
+              <span style="font-size:.78rem;color:var(--steel)">Licensed engineers deployed across Abu Dhabi, Dubai &amp; Northern Emirates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master 4-Column Footer Grid -->
+      <div class="footer-grid">
+        <!-- Col 1: Profile -->
+        <div>
+          <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
+            <svg viewBox="0 0 120 120" style="width:30px;height:30px;flex:none" aria-hidden="true">
+              <rect width="120" height="120" rx="20" fill="#E08A1E"/>
+              <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
+              <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
+              <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
+            </svg>
+            <span>AL DIRAYAH</span>
+          </div>
+          <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. [XXXX].</p>
+          <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
+        </div>
+
+        <!-- Col 2: Divisions -->
+        <div>
+          <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">DIVISIONS &amp; SERVICES</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.65rem;font-size:.88rem">
+            <li><a href="lifts.html" style="color:var(--steel);transition:color .2s">Vertical Lifts &amp; Elevators</a></li>
+            <li><a href="escalators.html" style="color:var(--steel);transition:color .2s">Escalators &amp; Moving Walkways</a></li>
+            <li><a href="residential-elevators.html" style="color:var(--steel);transition:color .2s">Residential Villa Lifts</a></li>
+            <li><a href="commercial-elevators.html" style="color:var(--steel);transition:color .2s">Commercial Tower Elevators</a></li>
+            <li><a href="accessibility-elevators.html" style="color:var(--steel);transition:color .2s">Accessibility &amp; POD Lifts</a></li>
+            <li><a href="maintenance-modernization.html" style="color:var(--steel);transition:color .2s">24/7 Maintenance &amp; AMC</a></li>
+            <li><a href="engineering-services.html" style="color:var(--steel);transition:color .2s">Engineering &amp; Traffic Audits</a></li>
+          </ul>
+        </div>
+
+        
+
+        <!-- Col 4: Abu Dhabi HQ -->
+        <div>
+          <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">ABU DHABI HEADQUARTERS</h4>
+          <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
+            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>Mussafah Industrial Area, Abu Dhabi, UAE</div>
+            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
+            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.com</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div style="padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f-m);font-size:.8rem;color:var(--steel)">
+        <span>© 2026 Al Dirayah Electromechanical Services LLC. All rights reserved.</span>
+        <span style="color:var(--amber-lt)">Keep it moving · <span lang="ar" dir="rtl" class="ar">الحركة لا تتوقف</span></span>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Integrated Request Survey Modal -->
+<div class="modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" type="button" onclick="closeSurveyModal()" aria-label="Close modal">×</button>
+    
+    <!-- Form View -->
+    <div id="surveyFormView">
+      <h3 id="surveyModalTitle">Book a site visit</h3>
+      <p>Tell us what you need and we’ll call you to arrange a visit.</p>
+      
+      <form id="surveyForm" onsubmit="handleSurveySubmit(event)">
+        <!-- Honeypot Anti-Spam Field -->
+        <input type="text" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off">
+        
+        <!-- Service Required Select -->
+        <label>Service Required *
+          <select id="mEquip" name="service" required>
+            <option value="" disabled selected>-- Select an option --</option>
+            <option value="New lift">New lift</option>
+            <option value="New escalator">New escalator</option>
+            <option value="Villa lift">Villa lift</option>
+            <option value="Maintenance (AMC)">Maintenance (AMC)</option>
+            <option value="Repair / breakdown">Repair / breakdown</option>
+            <option value="Audit or Civil Defence">Audit or Civil Defence</option>
+          </select>
+        </label>
+
+        <div class="form-row-2col">
+          <label>Property Type *
+            <select name="property_type" required>
+              <option value="Luxury Private Villa">Luxury Private Villa</option>
+              <option value="Commercial High-Rise Tower">Commercial High-Rise Tower</option>
+              <option value="Shopping Mall / Retail Center">Shopping Mall / Retail Center</option>
+              <option value="Hospital / Healthcare Facility">Hospital / Healthcare Facility</option>
+              <option value="Hotel & Hospitality Resort">Hotel &amp; Hospitality Resort</option>
+              <option value="Industrial Logistics Warehouse">Industrial Logistics Warehouse</option>
+            </select>
+          </label>
+          <label>Project Stage *
+            <select name="project_stage" required>
+              <option value="New Building Construction">New Building Construction</option>
+              <option value="Existing Elevator Modernization">Existing Elevator Modernization</option>
+              <option value="Emergency Repair & AMC Change">Emergency Repair &amp; AMC Change</option>
+              <option value="Architectural Planning / Concept">Architectural Planning / Concept</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row-2col">
+          <label>Contact Name *
+            <input type="text" name="contact_name" placeholder="e.g. Ahmed Al Mansoori" required>
+          </label>
+          <label>Designation / Role
+            <input type="text" name="designation" placeholder="e.g. Project Manager / Owner">
+          </label>
+        </div>
+
+        <div class="form-row-2col">
+          <label>Phone (+971) *
+            <input type="tel" name="phone" placeholder="+971 50 123 4567" required>
+          </label>
+          <label>Email *
+            <input type="email" name="email" placeholder="name@company.ae" required>
+          </label>
+        </div>
+
+        <div class="form-row-2col">
+          <label>Number of Units
+            <input type="text" name="units" placeholder="e.g. 2 Lifts / 4 Escalators">
+          </label>
+          <label>Emirate / Location *
+            <select name="location" required>
+              <option value="Abu Dhabi City & Dubai">Abu Dhabi City &amp; Dubai</option>
+              <option value="Al Ain & Western Region">Al Ain &amp; Western Region</option>
+              <option value="Dubai & Northern Emirates">Dubai &amp; Northern Emirates</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Specific Requirements / Notes
+          <textarea name="notes" rows="2" placeholder="Mention building height, floors, existing OEM brand (OTIS, TKE, KONE), or urgency..."></textarea>
+        </label>
+
+        <button type="submit" id="surveySubmitBtn" class="big-cta" style="width:100%;justify-content:center;padding:.85rem;font-size:1rem;margin-top:.4rem;cursor:pointer">Send request</button>
+      </form>
+    </div>
+
+    <!-- Success / Confirmation View -->
+    <div id="surveySuccessView" style="display:none;text-align:center;padding:1.2rem 0">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(52,211,153,.15);border:2px solid #34D399;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:#34D399">✓</div>
+      <h3 id="surveySuccessGreeting" style="font-size:2rem;color:#ffffff;margin-bottom:.5rem">Thanks!</h3>
+      <p style="color:#BAC5D3;font-size:1rem;max-width:440px;margin:0 auto 1.2rem;line-height:1.5">We’ve got your request and will call you today or next working day.</p>
+      
+      <div style="background:rgba(224,138,30,.08);border:1px solid rgba(224,138,30,.25);border-radius:8px;padding:.9rem 1.1rem;text-align:center;max-width:460px;margin:0 auto 1.3rem;font-size:.9rem;color:#BAC5D3;line-height:1.5">
+        Urgent breakdown? Call <a href="tel:+97125550192" style="color:var(--amber-lt);font-weight:700;font-family:var(--f-m);text-decoration:none">+971 2 555 0192</a> now.
+      </div>
+
+      <div style="background:#1B2128;border:1px solid #3A4550;border-radius:8px;padding:.6rem 1rem;display:inline-block;margin-bottom:1.3rem">
+        <span style="font-family:var(--f-m);font-size:.72rem;color:#8C9BAE;display:block;text-transform:uppercase;letter-spacing:1px">Reference</span>
+        <span id="surveyRefNum" style="font-family:var(--f-m);font-size:1.2rem;font-weight:700;color:var(--amber-lt);letter-spacing:1px">DIR-000000</span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center">
+        <a id="surveyMailtoBtn" href="#" class="big-cta" style="background:#1B2128;border:1px solid #3A4550;color:#FFFFFF;padding:.75rem 1.2rem;font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem">
+          <span>✉ Open in Email Client</span>
+        </a>
+        <button type="button" onclick="closeSurveyModal()" class="big-cta" style="padding:.75rem 1.6rem;font-size:.88rem;cursor:pointer">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var clamp = function(v,a,b){ return v<a?a:v>b?b:v; };
+
+  /* floor indicator */
+  var secs = Array.prototype.slice.call(document.querySelectorAll("[data-floor]"));
+  var fiRead=document.getElementById("fiRead"), fiBar=document.getElementById("fiBar"),
+      fiArrow=document.getElementById("fiArrow"), fiList=document.getElementById("fiList"),
+      hdr=document.getElementById("hdr");
+
+  secs.forEach(function(s){
+    var li=document.createElement("li"); li.textContent=s.dataset.floor;
+    li.title = s.dataset.label || s.dataset.floor;
+    li.addEventListener("click", function(){ s.scrollIntoView({behavior:"smooth"}); });
+    fiList.appendChild(li);
+  });
+  var lis=fiList.children;
+
+  /* ticks */
+  var ticks=document.getElementById("ticks");
+  if(!RM && ticks){
+    for(var i=0;i<18;i++){
+      var t=document.createElement("div"); t.className="tick";
+      t.style.top=(i*140)+"px";
+      t.innerHTML="<b>"+String(i*3+2).padStart(2,"0")+"</b>";
+      ticks.appendChild(t);
+    }
+  }
+
+  /* dust particles */
+  var cv=document.getElementById("dust"), ctx=cv&&cv.getContext("2d"), P=[], W=0, H=0;
+  function sizeCv(){ if(!cv) return; W=cv.width=innerWidth; H=cv.height=innerHeight; }
+  function seed(){
+    P=[]; var n=Math.min(75,Math.round(innerWidth/20));
+    for(var i=0;i<n;i++) P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.35,
+      v:(Math.random()*.35+.1)*0.35,o:Math.random()*.45+.1});
+  }
+  function dust(){
+    if(!ctx) return;
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){
+      var p=P[i]; p.y -= p.v;
+      if(p.y < -4){ p.y = H+4; p.x = Math.random()*W; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
+      ctx.fillStyle="rgba(224,152,60,"+p.o+")"; ctx.fill();
+    }
+    requestAnimationFrame(dust);
+  }
+  if(!RM && cv){ sizeCv(); seed(); dust(); addEventListener("resize",function(){ sizeCv(); seed(); },{passive:true}); }
+
+  /* scroll engine */
+  var lastY = 0, ticking = false;
+  function frame(){
+    ticking = false;
+    var y = scrollY, vh = innerHeight, doc = document.documentElement;
+    if(hdr) hdr.classList.toggle("stuck", y > 40);
+
+    var total = doc.scrollHeight - vh;
+    var prog = clamp(y / (total||1), 0, 1);
+    if(fiBar) fiBar.style.height = (prog * 100) + "%";
+    if(fiArrow){
+      fiArrow.style.transform = y < lastY ? "rotate(0deg)" : "rotate(180deg)";
+      fiArrow.style.opacity = y === 0 ? "0.3" : "1";
+    }
+
+    var act = secs[0];
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top <= vh * 0.45) act = secs[i];
+    }
+    if(act && fiRead) fiRead.textContent = act.dataset.floor;
+    for(var k=0;k<lis.length;k++){
+      if(secs[k] === act) lis[k].setAttribute("data-on",""); else lis[k].removeAttribute("data-on");
+    }
+
+    lastY = y;
+  }
+
+  addEventListener("scroll", function(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+  addEventListener("resize", frame, {passive:true});
+
+  /* reveals */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, {threshold:.16, rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+  /* Mobile menu logic */
+  var menuToggle = document.getElementById("menuToggle");
+  var mobileMenu = document.getElementById("mobileMenu");
+  window.toggleMobileMenu = function(){
+    if(!menuToggle || !mobileMenu) return;
+    var isOpen = menuToggle.classList.toggle("active");
+    mobileMenu.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  };
+  window.closeMobileMenu = function(){
+    if(!menuToggle || !mobileMenu) return;
+    menuToggle.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    mobileMenu.setAttribute("aria-hidden", "true");
+  };
+  if(menuToggle){
+    menuToggle.addEventListener("click", toggleMobileMenu);
+  }
+  if(mobileMenu){
+    mobileMenu.addEventListener("click", function(e){
+      if(e.target.tagName === "A" || e.target.closest("a")){
+        closeMobileMenu();
+      }
+    });
+  }
+  document.addEventListener("click", function(e){
+    if(mobileMenu && mobileMenu.classList.contains("active")){
+      if(!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)){
+        closeMobileMenu();
+      }
+    }
+  });
+
+  frame();
+})();
+</script>
+<script src="survey-modal.js"></script>
+</body>
+</html>
