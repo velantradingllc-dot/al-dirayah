@@ -1,0 +1,152 @@
+# ==============================================================================
+# Al Dirayah Electromechanical Services LLC — robots.txt
+# Website: https://aldirayah.ae
+# ==============================================================================
+
+# Default rule for all search engine web crawlers
+User-agent: *
+Allow: /
+Disallow: /backup/
+Disallow: /backups/
+Disallow: /cctv-archive/
+
+# ------------------------------------------------------------------------------
+# 1. AI Search, Answer & Citation Engines
+# Keep allowed so your services, technical specs, and brand can be cited directly
+# in AI-powered search results and conversational queries (ChatGPT, Claude, etc.)
+# ------------------------------------------------------------------------------
+
+# OpenAI Search & Real-time Assistants
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Search & Live Web Fetching
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI Search & Direct User Retrieval
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Copilot & Bing AI
+User-agent: Bingbot
+Allow: /
+User-agent: Copilot
+Allow: /
+User-agent: Microsoft-Copilot
+Allow: /
+
+# Apple Intelligence & Siri Search
+User-agent: Applebot
+Allow: /
+
+# DuckDuckGo AI Assistance
+User-agent: DuckAssistBot
+Allow: /
+
+# You.com AI Search
+User-agent: YouBot
+Allow: /
+
+
+# ------------------------------------------------------------------------------
+# 2. AI Model Training Crawlers
+# Allowed by default for broad knowledge base inclusion.
+# To opt out of model training only (while keeping search/citation allowed above),
+# change "Allow: /" to "Disallow: /" under the specific training bots below.
+# ------------------------------------------------------------------------------
+
+# OpenAI LLM Training
+User-agent: GPTBot
+Allow: /
+
+# Anthropic LLM Training
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI & Gemini Training (Separate from Googlebot search indexer)
+User-agent: Google-Extended
+Allow: /
+User-agent: GoogleOther
+Allow: /
+User-agent: GoogleOther-Image
+Allow: /
+User-agent: GoogleOther-Video
+Allow: /
+
+# Meta AI (LLaMA Training, Meta AI Assistant & Web Fetcher)
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: FacebookBot
+Allow: /
+
+# Apple Intelligence Foundation Model Training
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon AI & Alexa Knowledge Base
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance AI Training
+User-agent: Bytespider
+Allow: /
+
+# Common Crawl (Foundational open corpus used in training many frontier models)
+User-agent: CCBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Diffbot AI Knowledge Graph
+User-agent: Diffbot
+Allow: /
+
+# Image & Multimodal AI Training
+User-agent: ImagesiftBot
+Allow: /
+
+# Timpi Decentralized AI Search
+User-agent: Timpibot
+Allow: /
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# Allen Institute for AI (AI2 / Dolma Corpus)
+User-agent: Ai2Bot
+Allow: /
+User-agent: Ai2Bot-Dolma
+Allow: /
+
+# Webz.io / Omgili LLM Training Feeds
+User-agent: Omgilibot
+Allow: /
+User-agent: Omgili
+Allow: /
+
+# Scale AI
+User-agent: ScaleBot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# Sitemap Index
+# ------------------------------------------------------------------------------
+Sitemap: https://aldirayah.ae/sitemap.xml
