@@ -261,14 +261,106 @@ h2.big{font-size:clamp(2.3rem,6.5vw,4.6rem); color:var(--white); margin-bottom:1
 .expl-g{will-change:transform; cursor:pointer; transition:filter .3s, opacity .3s}
 .expl-g:hover,.expl-g.active{filter:drop-shadow(0 0 14px rgba(245,169,60,.95))}
 
-/* horizontal process */
-.htrack{display:flex; gap:clamp(1rem,3vw,2.4rem); padding:0 clamp(1.1rem,6vw,7rem); will-change:transform}
-.step{flex:0 0 min(78vw,440px); background:var(--ink-2); border:1px solid var(--line);
-  padding:2rem 1.7rem; display:flex; flex-direction:column; gap:.7rem; position:relative}
-.step .num{font-family:var(--f-d); font-size:4.4rem; color:var(--surface-2); line-height:.8; position:absolute; right:1.2rem; top:1rem}
-.step h3{font-size:1.6rem; color:var(--white); position:relative}
-.step p{font-size:.9rem; color:var(--steel-lt); margin:0; position:relative}
-.step .tag{font-family:var(--f-m); font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--amber)}
+/* horizontal process section */
+#f3 { position: relative; width: 100%; max-width: 100vw; overflow: hidden; }
+#f3 .pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  overflow: hidden !important;
+}
+#f3 .wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 2.2rem;
+  padding: 0 clamp(1.1rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  text-align: left;
+}
+.htrack {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.4rem);
+  padding-left: max(clamp(1.1rem, 4vw, 2.5rem), calc((100vw - 1180px) / 2 + clamp(1.1rem, 4vw, 2.5rem)));
+  padding-right: clamp(1.1rem, 6vw, 7rem);
+  will-change: transform;
+}
+.step {
+  flex: 0 0 min(78vw, 440px);
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  padding: 2rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  position: relative;
+  text-align: left;
+}
+.step .num {
+  font-family: var(--f-d);
+  font-size: 4.4rem;
+  color: var(--surface-2);
+  line-height: .8;
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+}
+.step h3 { font-size: 1.6rem; color: var(--white); position: relative; }
+.step p { font-size: .9rem; color: var(--steel-lt); margin: 0; position: relative; }
+.step .tag {
+  font-family: var(--f-m);
+  font-size: .6rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* Mobile & Tablet viewports for #f3 Process Section */
+@media (max-width: 900px) {
+  #f3.pinwrap {
+    height: auto !important;
+    padding: 3.5rem 0 4rem !important;
+  }
+  #f3 .pin {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  #f3 .wrap {
+    width: 100% !important;
+    padding: 0 1.25rem !important;
+    margin-bottom: 1.2rem !important;
+    text-align: left !important;
+  }
+  .mobile-swipe-cue {
+    display: block !important;
+  }
+  .htrack {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 0 1.25rem 1.5rem !important;
+    gap: 1rem !important;
+    transform: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .step {
+    flex: 0 0 82vw !important;
+    max-width: 320px !important;
+    scroll-snap-align: start !important;
+    padding: 1.5rem 1.25rem !important;
+  }
+}
 
 /* meters */
 .meters{display:grid; gap:1.3rem; margin-top:2.4rem; max-width:520px}
@@ -670,11 +762,12 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
 <!-- ══════════ 3 — PROCESS (pinned horizontal) ══════════ -->
 <section id="f3" class="pinwrap" style="height:400svh" data-floor="3" data-label="Process">
   <div class="pin">
-    <div class="wrap" style="margin-bottom:2.4rem">
+    <div class="wrap">
       <p class="eyebrow">03 — How it runs</p>
       <h2 class="big" style="font-size:clamp(2rem,5vw,3.6rem)">From survey to handover</h2>
+      <p class="mobile-swipe-cue" style="display:none;color:var(--amber-lt);font-size:.82rem;font-family:var(--f-m);margin-top:.5rem;margin-bottom:0">← Swipe horizontally to view steps →</p>
     </div>
-        <div class="htrack" id="htrack">
+    <div class="htrack" id="htrack">
       <article class="step"><span class="num">01</span><span class="tag">Week 1</span><h3>Survey</h3><p>Site attendance, shaft and machine-room measurement, load assessment, and condition reporting.</p></article>
       <article class="step"><span class="num">02</span><span class="tag">Weeks 2–3</span><h3>Design &amp; approvals</h3><p>Shop drawings, method statement, DMT submissions, and OEM coordination under master subcontractor agreements.</p></article>
       <article class="step"><span class="num">03</span><span class="tag">Weeks 3–6</span><h3>Material order &amp; delivery</h3><p>Factory order release with OEM manufacturers (TKE, OTIS, KONE), shipping logistics, customs clearance, and site offloading.</p></article>
@@ -1544,7 +1637,7 @@ function switchSolTab(idx){
 
     /* horizontal process */
     if(f3 && htrack){
-      if(RM){ htrack.style.transform="none"; }
+      if(RM || window.innerWidth <= 900){ htrack.style.transform="none"; }
       else{
         var r3 = f3.getBoundingClientRect();
         var p3 = clamp((-r3.top) / (f3.offsetHeight - vh), 0, 1);
