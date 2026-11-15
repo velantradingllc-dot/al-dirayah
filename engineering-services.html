@@ -266,12 +266,12 @@
     <section class="hero" id="hero" data-floor="L" data-label="Overview">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">HIGH-PRECISION VTI ENGINEERING</div>
+          <div class="eyebrow">Engineering &amp; audits</div>
           <h1>Vertical Transport Engineering &amp; Safety Audits</h1>
-          <p>Specialized traffic calculation simulations, EN 81-20/50 third-party compliance audits, 3D BIM shaft load modeling, and Civil Defence safety certification by Al Dirayah Electromechanical Services LLC.</p>
+          <p>Traffic studies, safety audits, shaft load calculations and Civil Defence submissions for consultants and building owners.</p>
           <div style="display:flex;gap:1rem;">
             <a href="#calculator" class="btn-survey" style="padding:.75rem 1.75rem;font-size:.9rem;">TRAFFIC CALCULATOR</a>
-            <a href="index.html#survey" class="nav-tab" style="padding:.75rem 1.5rem;border:1px solid var(--line);">BOOK AUDIT SURVEY</a>
+            <button onclick="openSurveyModal('Engineering &amp; Audits')" class="nav-tab" style="padding:.75rem 1.5rem;border:1px solid var(--line);background:transparent;cursor:pointer;color:inherit;font-family:inherit;font-size:.9rem;">BOOK AUDIT SURVEY</button>
           </div>
         </div>
         <figure class="hero-img-card">
@@ -289,13 +289,13 @@
       <div class="wrap">
         <div class="sec-hdr">
           <h2>Engineering Consulting &amp; Diagnostic Services</h2>
-          <p>Independent engineering expertise to optimize building traffic, ensure safety compliance, and maximize lift lifecycle.</p>
+          <p>How many lifts you need, whether they’re safe, and how long they’ll last.</p>
         </div>
         <div class="card-grid">
       <article class="card">
         <div class="card-icon">01</div>
         <h3>Traffic Analysis &amp; Passenger Simulation</h3>
-        <p>Computerized Monte Carlo passenger simulation adhering to CIBSE Guide D and ISO 22559 standards. Calculates optimal elevator quantity, speed, and handling capacity for commercial developments.</p>
+        <p>Traffic simulation to CIBSE Guide D, showing how many lifts, what size and what speed.</p>
       </article>
       <article class="card">
         <div class="card-icon">02</div>
@@ -320,7 +320,7 @@
       <article class="card">
         <div class="card-icon">06</div>
         <h3>Condition &amp; Dilapidation Reports</h3>
-        <p>Independent forensic assessment of aging elevator assets prior to building acquisition or major overhaul, providing detailed remaining useful life (RUL) estimates.</p>
+        <p>Condition report before you buy or refurbish a building: what’s worn, what to replace, and when.</p>
       </article>
     </div>
 
@@ -359,12 +359,13 @@
 
       <div class="t-result">
         <div>
-          <span style="font-family:var(--f-m);font-size:.8rem;color:var(--amber-lt);text-transform:uppercase;">PRELIMINARY VTI ESTIMATE</span>
+          <span style="font-family:var(--f-m);font-size:.8rem;color:var(--amber-lt);text-transform:uppercase;">Rough estimate</span>
           <div class="t-res-val" id="tResTitle">4 Elevators @ 2.5 m/s</div>
           <p style="color:var(--steel-lt);font-size:.92rem;line-height:1.6;" id="tResDesc">Recommended configuration for Commercial Office (10-20 Floors). Estimated waiting time under 28 seconds. Destination selection dispatch recommended.</p>
+          <p style="color:var(--steel);font-size:.8rem;font-family:var(--f-m);margin-top:.4rem;margin-bottom:0;">Not a substitute for a full study.</p>
         </div>
-        <div style="margin-top:2rem;">
-          <a href="index.html#survey" class="btn-survey" style="display:block;text-align:center;padding:.85rem 1.5rem;">REQUEST FULL CIBSE SIMULATION REPORT</a>
+        <div style="margin-top:1.5rem;">
+          <button onclick="openSurveyModal('Engineering &amp; Audits: Traffic Study')" class="btn-survey" style="display:block;width:100%;text-align:center;padding:.85rem 1.5rem;border:none;cursor:pointer;font-family:inherit;font-size:1rem;">Request a traffic study</button>
         </div>
       </div>
     </div>
@@ -398,31 +399,31 @@
     <!-- Top Contact CTA Banner -->
     <div class="ph-banner">
       <div>
-        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">PENTHOUSE — DIRECT TECHNICAL CONSULTATION</p>
-        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a Site Technical Survey</h2>
-        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">Provide your traffic study requirements, shaft audit parameters, or modernization specifications. Our senior engineers arrange an on-site technical inspection and deliver a comprehensive proposal within 24 hours.</p>
-        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Request On-Site Survey &rarr;</button>
+        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">Free site survey</p>
+        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a free site visit</h2>
+        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">An engineer visits, checks the shaft and equipment, and sends you a written quote within 1–2 working days.</p>
+        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Book a site visit &rarr;</button>
       </div>
       
       <div style="display:grid;gap:1rem;background:rgba(14,17,21,0.6);padding:1.5rem;border-radius:10px;border:1px solid var(--line)">
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📋</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Full Mechanical &amp; Electrical Audit</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We inspect everything</b>
             <span style="font-size:.78rem;color:var(--steel)">Shaft clearances, machine health, brake testing &amp; controller diagnostics</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">⏱️</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Proposal Within 24 Hours</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">Itemised quote</b>
             <span style="font-size:.78rem;color:var(--steel)">Itemized scope, component lifecycle assessment &amp; transparent quotation</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📍</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Direct On-Site Engineering</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We cover Abu Dhabi, Dubai and the Northern Emirates</b>
             <span style="font-size:.78rem;color:var(--steel)">Licensed engineers deployed across Abu Dhabi, Dubai &amp; Northern Emirates</span>
           </div>
         </div>
@@ -442,7 +443,7 @@
             </svg>
             <span>AL DIRAYAH</span>
           </div>
-        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Al Dirayah Electromechanical Services LLC. Certified vertical transportation and building infrastructure engineering specialists in Abu Dhabi and across the United Arab Emirates.</p>
+        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. [XXXX].</p>
         <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
       </div>
 
@@ -466,7 +467,7 @@
         <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>Mussafah Industrial Area, Abu Dhabi, UAE</div>
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
-          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Official Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
         </div>
       </div>
     </div>
