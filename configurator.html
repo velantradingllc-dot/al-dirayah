@@ -300,11 +300,11 @@
           </div>
 
           <div class="spec-summary-box">
-            <code id="studioSpecCode">Model: Al Dirayah Bespoke AD-T1600
+            <code id="studioSpecCode">Example spec: 1,600 kg, 21 persons, 1.75 m/s
 Cabin Wall Finish: ST-01 Brushed Stainless Steel
 Rated Load: 1600 kg (21 Persons) | Rated Speed: 1.75 m/s
 Handrail: Anodized Metallic Rail | COP: Touch Microprocessor
-Safety Standard: EN 81-20/50 | ISO 25745 Class A+++</code>
+Safety Standard: EN 81-20/50 | Energy class A (ISO 25745-2)</code>
           </div>
 
           <div style="margin-top:1.2rem">
@@ -456,11 +456,11 @@ Safety Standard: EN 81-20/50 | ISO 25745 Class A+++</code>
       document.getElementById('valLoad').textContent = load + " kg (" + persons + " Persons)";
       document.getElementById('valSpeed').textContent = speed + " m/s";
 
-      var code = "Model: Al Dirayah Bespoke AD-T1600\n" +
+      var code = "Example spec: 1,600 kg, 21 persons, 1.75 m/s\n" +
                  "Cabin Wall Finish: " + currentFinish + "\n" +
                  "Rated Load: " + load + " kg (" + persons + " Persons) | Rated Speed: " + speed + " m/s\n" +
                  "Handrail: Custom Anodized Rail | COP: Touch Microprocessor\n" +
-                 "Safety Standard: EN 81-20/50 | ISO 25745 Class A+++";
+                 "Safety Standard: EN 81-20/50 | Energy class A (ISO 25745-2)";
       
       document.getElementById('studioSpecCode').textContent = code;
     }
