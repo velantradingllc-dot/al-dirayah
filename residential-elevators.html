@@ -275,9 +275,9 @@
     <section class="hero" id="hero" data-floor="L" data-label="Overview">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">ARCHITECTURAL PRIVATE TRANSPORT</div>
-          <h1>Custom Luxury Villa Elevators for UAE Estates</h1>
-          <p>Seamlessly integrated Machine-Room-Less (MRL) gearless and hydraulic residential lifts. Certified to EN 81-41 standards with bespoke Italian marble, champagne gold, and 360° panoramic glass finishes.</p>
+          <div class="eyebrow">Villa lifts</div>
+          <h1>Home lifts for villas in Abu Dhabi and Dubai</h1>
+          <p>Quiet, compact lifts that fit into new or existing villas. Choose glass, marble, wood or steel finishes to match your interior.</p>
           <div style="display:flex;gap:1rem;">
             <a href="#configurator" class="btn-survey" style="padding:.75rem 1.75rem;font-size:.9rem;">CONFIGURE VILLA LIFT</a>
             <a href="#specs" class="nav-tab" style="padding:.75rem 1.5rem;border:1px solid var(--line);">VIEW SPECIFICATIONS</a>
@@ -297,14 +297,14 @@
     <section class="section" id="offerings" data-floor="1" data-label="Offerings" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
       <div class="wrap">
         <div class="sec-hdr">
-          <h2>Residential Vertical Transport Solutions</h2>
-          <p>Engineered for high-end luxury villas, duplex penthouses, and private estates in Abu Dhabi &amp; Dubai.</p>
+          <h2>Which villa lift is right for you?</h2>
+          <p>Traction, hydraulic and pneumatic options to fit your villa layout, whether you are building new or retrofitting.</p>
         </div>
         <div class="card-grid">
       <article class="card">
         <div class="card-icon">01</div>
         <h3>MRL Gearless Villa Lifts</h3>
-        <p>Ultra-quiet permanent magnet synchronous traction drive requiring zero dedicated machine room. Operates smoothly under 40 dB acoustic rating with low power consumption.</p>
+        <p>No machine room needed. Quiet enough to run next to a bedroom (about 40 dB).</p>
       </article>
       <article class="card">
         <div class="card-icon">02</div>
@@ -314,7 +314,7 @@
       <article class="card">
         <div class="card-icon">03</div>
         <h3>360° Panoramic Glass Cabins</h3>
-        <p>Curved circular or polygonal laminated safety glass enclosures with champagne gold stainless steel structure. Creates a breathtaking architectural focal point in villa stairwells.</p>
+        <p>Curved circular or polygonal laminated safety glass enclosures with champagne gold stainless steel structure. Works well in the middle of a staircase.</p>
       </article>
       <article class="card">
         <div class="card-icon">04</div>
@@ -324,18 +324,18 @@
       <article class="card">
         <div class="card-icon">05</div>
         <h3>Custom Italian Interior Fit-Outs</h3>
-        <p>Tailored interior finishes including backlit Calacatta marble flooring, hand-stitched leather wall accents, bronze mirror panels, and indirect ambient LED ceilings.</p>
+        <p>Marble, leather, bronze mirror or LED ceiling: we match your interior designer’s spec.</p>
       </article>
       <article class="card">
         <div class="card-icon">06</div>
-        <h3>Automatic Emergency Rescuing</h3>
-        <p>Equipped with automatic battery-powered Emergency Landing Device (ELD) that safely brings the cabin to the nearest floor and opens doors during power outages.</p>
+        <h3>Power-cut rescue</h3>
+        <p>Brings the lift to the nearest floor and opens the doors automatically if the power fails.</p>
       </article>
     </div>
 
     <!-- Technical Specifications -->
     <div class="specs-box" id="specs" data-floor="2" data-label="Specs">
-      <div class="eyebrow">ENGINEERING BENCHMARKS</div>
+      <div class="eyebrow">Specifications</div>
       <h3 style="font-family:var(--f-h);font-size:1.8rem;color:var(--white)">Residential Lift Technical Specifications</h3>
       <div class="specs-grid">
         <div class="spec-item">
@@ -377,7 +377,8 @@
     <div class="configurator" id="configurator" data-floor="3" data-label="Configurator">
       <div>
         <div class="eyebrow">INTERACTIVE CONFIGURATOR</div>
-        <h3 style="font-family:var(--f-h);font-size:1.8rem;color:var(--white);margin-bottom:1.5rem;">Estimate Your Villa Elevator Package</h3>
+        <h3 style="font-family:var(--f-h);font-size:1.8rem;color:var(--white);margin-bottom:.5rem;">Quick estimate</h3>
+        <p style="color:var(--steel-lt);font-size:.95rem;margin-bottom:1.5rem;">Pricing depends on the number of floors, shaft type and finishes. Indicative price ranges coming soon — or request a custom quote below.</p>
         
         <div class="cfg-group">
           <label class="cfg-lbl">01 — DRIVE SYSTEM</label>
@@ -414,7 +415,7 @@
           <p style="color:var(--steel-lt);font-size:.92rem;line-height:1.6;" id="resDesc">Selected: G + 1 (2 Stops) with Champagne Gold &amp; Calacatta Marble finish. Certified to EN 81-41 with automatic battery emergency rescue.</p>
         </div>
         <div style="margin-top:2rem;">
-          <a href="index.html#survey" class="btn-survey" style="display:block;text-align:center;padding:.85rem 1.5rem;">REQUEST SITE INSPECTION &amp; QUOTE</a>
+          <button onclick="openSurveyModal('Villa Lift Quote: ' + cfgState.drive + ' - ' + cfgState.floors)" class="btn-survey" style="display:block;width:100%;text-align:center;padding:.85rem 1.5rem;border:none;cursor:pointer;font-family:inherit;font-size:.9rem;">Get a villa lift quote</button>
         </div>
       </div>
     </div>
@@ -439,31 +440,31 @@
     <!-- Top Contact CTA Banner -->
     <div class="ph-banner">
       <div>
-        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">PENTHOUSE — DIRECT TECHNICAL CONSULTATION</p>
-        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a Site Technical Survey</h2>
-        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">Provide your villa rise, number of stops, or architectural shaft dimensions. Our senior engineers arrange an on-site technical inspection and deliver a comprehensive proposal within 24 hours.</p>
-        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Request On-Site Survey &rarr;</button>
+        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">Free site survey</p>
+        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a free site visit</h2>
+        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">An engineer visits, checks the shaft and equipment, and sends you a written quote within 1–2 working days.</p>
+        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Book a site visit &rarr;</button>
       </div>
       
       <div style="display:grid;gap:1rem;background:rgba(14,17,21,0.6);padding:1.5rem;border-radius:10px;border:1px solid var(--line)">
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📋</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Full Mechanical &amp; Electrical Audit</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We inspect everything</b>
             <span style="font-size:.78rem;color:var(--steel)">Shaft clearances, machine health, brake testing &amp; controller diagnostics</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">⏱️</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Proposal Within 24 Hours</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">Itemised quote</b>
             <span style="font-size:.78rem;color:var(--steel)">Itemized scope, component lifecycle assessment &amp; transparent quotation</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📍</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Direct On-Site Engineering</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We cover Abu Dhabi, Dubai and the Northern Emirates</b>
             <span style="font-size:.78rem;color:var(--steel)">Licensed engineers deployed across Abu Dhabi, Dubai &amp; Northern Emirates</span>
           </div>
         </div>
@@ -483,7 +484,7 @@
             </svg>
             <span>AL DIRAYAH</span>
           </div>
-        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Al Dirayah Electromechanical Services LLC. Certified vertical transportation and building infrastructure engineering specialists in Abu Dhabi and across the United Arab Emirates.</p>
+        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. [XXXX].</p>
         <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
       </div>
 
@@ -507,7 +508,7 @@
         <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>Mussafah Industrial Area, Abu Dhabi, UAE</div>
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
-          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Official Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
         </div>
       </div>
     </div>
