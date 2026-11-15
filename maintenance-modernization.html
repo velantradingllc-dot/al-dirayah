@@ -261,12 +261,12 @@
     <section class="hero" id="hero" data-floor="L" data-label="Overview">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">24/7 RAPID RESPONSE &amp; REFURBISHMENT</div>
+          <div class="eyebrow">Maintenance &amp; upgrades</div>
           <h1>Elevator Maintenance, Modernization &amp; Fit-Out</h1>
-          <p>Comprehensive 24/7 annual maintenance contracts (AMC), full microprocessor control panel modernization, and bespoke luxury cabin interior fit-outs for residential and commercial properties across Abu Dhabi &amp; UAE.</p>
+          <p>AMC contracts, breakdown repairs, controller upgrades and cabin refits for any lift brand.</p>
           <div style="display:flex;gap:1rem;">
             <a href="#amc" class="btn-survey" style="padding:.75rem 1.75rem;font-size:.9rem;">EXPLORE AMC PLANS</a>
-            <a href="index.html#survey" class="nav-tab" style="padding:.75rem 1.5rem;border:1px solid var(--line);">EMERGENCY DISPATCH</a>
+            <button onclick="openSurveyModal('Emergency Breakdown')" class="nav-tab" style="padding:.75rem 1.5rem;border:1px solid var(--line);background:transparent;cursor:pointer;color:inherit;font-family:inherit;font-size:.9rem;">EMERGENCY DISPATCH</button>
           </div>
         </div>
         <figure class="hero-img-card">
@@ -284,7 +284,7 @@
       <div class="wrap">
         <div class="sec-hdr">
           <h2>Complete Maintenance &amp; Upgrade Services</h2>
-          <p>Proactive preventive care, rapid emergency response, and turnkey aesthetic modernization.</p>
+          <p>Keep it running, fix it fast, make it look new.</p>
         </div>
         <div class="card-grid">
       <article class="card">
@@ -295,7 +295,7 @@
       <article class="card">
         <div class="card-icon">02</div>
         <h3>Microprocessor Control Modernization</h3>
-        <p>Replace outdated relay and analog controllers with state-of-the-art 32-bit microprocessor control panels and VVVF frequency inverters, reducing energy costs by up to 40%.</p>
+        <p>Replace outdated relay and analog controllers with modern microprocessor controllers and VVVF frequency inverters, reducing energy costs by up to 40%.</p>
       </article>
       <article class="card">
         <div class="card-icon">03</div>
@@ -305,7 +305,7 @@
       <article class="card">
         <div class="card-icon">04</div>
         <h3>Gearless Machine &amp; Sheave Overhauls</h3>
-        <p>Complete mechanical overhaul of traction motors, drive sheaves, brake solenoids, and high-tensile wire rope replacement to restore whisper-quiet operation.</p>
+        <p>Complete mechanical overhaul of traction motors, drive sheaves, brake solenoids, and high-tensile wire rope replacement to make it run quietly again.</p>
       </article>
       <article class="card">
         <div class="card-icon">05</div>
@@ -323,59 +323,59 @@
     <div style="margin-top:5rem;" id="amc" data-floor="2" data-label="AMC Packages">
       <div class="sec-hdr">
         <h2>Annual Maintenance Contract (AMC) Packages</h2>
-        <p>Select the optimal service level agreement tailored for your building requirement.</p>
+        <p>Pick a plan. We’ll adjust it after a site visit.</p>
       </div>
 
       <div class="amc-grid">
         <div class="amc-card">
           <div>
-            <span style="font-family:var(--f-m);font-size:.8rem;color:var(--steel);">ESSENTIAL CARE</span>
-            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Preventive Maintenance</h3>
-            <p style="color:var(--steel);font-size:.92rem;margin-bottom:1.5rem;">Monthly safety inspections, guide rail lubrication, door alignment, and 24/7 phone breakdown support.</p>
+            <span style="font-family:var(--f-m);font-size:.8rem;color:var(--steel);">NON-COMPREHENSIVE</span>
+            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Basic</h3>
+            <p style="color:var(--steel);font-size:.92rem;margin-bottom:1.5rem;">Routine servicing and safety checks for villas and low-traffic buildings. Parts and major repairs quoted as needed.</p>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;color:var(--steel-lt);font-size:.88rem;">
-              <li>✓ Monthly 28-Point Inspection</li>
-              <li>✓ Safety Gear Testing</li>
-              <li>✓ 24/7 Telephone Support</li>
-              <li>✓ Standard Response SLA</li>
+              <li>✓ Monthly visits for buildings (quarterly for villas)</li>
+              <li>✓ Safety gear &amp; brake testing</li>
+              <li>✓ 24/7 breakdown callouts</li>
+              <li>✓ Labour included, parts quoted separately</li>
             </ul>
           </div>
           <div style="margin-top:2rem;">
-            <a href="index.html#survey" class="nav-tab" style="display:block;text-align:center;border:1px solid var(--line);">SELECT PREVENTIVE</a>
+            <button onclick="openSurveyModal('AMC: Basic Plan')" class="nav-tab" style="display:block;width:100%;text-align:center;border:1px solid var(--line);background:transparent;cursor:pointer;color:inherit;font-family:inherit;font-size:.9rem;padding:.75rem;">Get a quote for this plan</button>
           </div>
         </div>
 
         <div class="amc-card featured">
           <div class="amc-tag">MOST POPULAR</div>
           <div>
-            <span style="font-family:var(--f-m);font-size:.8rem;color:var(--amber-lt);">COMMERCIAL &amp; RESIDENTIAL</span>
-            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Standard AMC Care</h3>
-            <p style="color:var(--steel-lt);font-size:.92rem;margin-bottom:1.5rem;">Includes all preventive care plus minor electrical component replacement, oil changes, and priority technician dispatch.</p>
+            <span style="font-family:var(--f-m);font-size:.8rem;color:var(--amber-lt);">SEMI-COMPREHENSIVE</span>
+            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Standard</h3>
+            <p style="color:var(--steel-lt);font-size:.92rem;margin-bottom:1.5rem;">Our most popular plan for residential and commercial towers, covering regular maintenance plus fast-moving electrical and wear parts.</p>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;color:var(--paper);font-size:.88rem;">
-              <li>✓ Bi-Weekly Comprehensive Audit</li>
-              <li>✓ Minor Electrical Parts Included</li>
-              <li>✓ Guaranteed &lt; 45 Min Emergency SLA</li>
-              <li>✓ Civil Defence Audit Assistance</li>
+              <li>✓ Monthly visits for buildings (quarterly for villas)</li>
+              <li>✓ Minor electrical &amp; common wear parts included</li>
+              <li>✓ Fast emergency callout response</li>
+              <li>✓ Civil Defence inspection support</li>
             </ul>
           </div>
           <div style="margin-top:2rem;">
-            <a href="index.html#survey" class="btn-survey" style="display:block;text-align:center;">SELECT STANDARD AMC</a>
+            <button onclick="openSurveyModal('AMC: Standard Plan')" class="btn-survey" style="display:block;width:100%;text-align:center;border:none;cursor:pointer;font-family:inherit;font-size:.9rem;padding:.75rem;">Get a quote for this plan</button>
           </div>
         </div>
 
         <div class="amc-card">
           <div>
             <span style="font-family:var(--f-m);font-size:.8rem;color:var(--steel);">FULL COVERAGE</span>
-            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Platinum Comprehensive</h3>
-            <p style="color:var(--steel);font-size:.92rem;margin-bottom:1.5rem;">All-inclusive zero-risk package covering major traction motor repair, control board replacement, and &lt; 30 min SLA.</p>
+            <h3 style="font-family:var(--f-h);font-size:1.6rem;color:var(--white);margin:.5rem 0 1rem;">Comprehensive</h3>
+            <p style="color:var(--steel);font-size:.92rem;margin-bottom:1.5rem;">All-inclusive zero-surprise contract covering routine maintenance, all breakdown labour, and replacement of major mechanical and electrical components.</p>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;color:var(--steel-lt);font-size:.88rem;">
-              <li>✓ All Parts &amp; Major Motors Covered</li>
-              <li>✓ Guaranteed &lt; 30 Min Emergency SLA</li>
-              <li>✓ Dedicated On-Site Resident Engineer</li>
-              <li>✓ Free Annual Interior Polish &amp; Audit</li>
+              <li>✓ Monthly visits for buildings (quarterly for villas)</li>
+              <li>✓ All mechanical &amp; electrical parts covered</li>
+              <li>✓ Priority emergency callout response</li>
+              <li>✓ Civil Defence annual renewal handled</li>
             </ul>
           </div>
           <div style="margin-top:2rem;">
-            <a href="index.html#survey" class="nav-tab" style="display:block;text-align:center;border:1px solid var(--line);">SELECT PLATINUM</a>
+            <button onclick="openSurveyModal('AMC: Comprehensive Plan')" class="nav-tab" style="display:block;width:100%;text-align:center;border:1px solid var(--line);background:transparent;cursor:pointer;color:inherit;font-family:inherit;font-size:.9rem;padding:.75rem;">Get a quote for this plan</button>
           </div>
         </div>
       </div>
@@ -390,31 +390,31 @@
     <!-- Top Contact CTA Banner -->
     <div class="ph-banner">
       <div>
-        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">PENTHOUSE — DIRECT TECHNICAL CONSULTATION</p>
-        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a Site Technical Survey</h2>
-        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">Provide your current lift age, number of landings, or modernization scope. Our senior engineers arrange an on-site technical inspection and deliver a comprehensive proposal within 24 hours.</p>
-        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Request On-Site Survey &rarr;</button>
+        <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">Free site survey</p>
+        <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a free site visit</h2>
+        <p style="color:var(--steel-lt);font-size:1rem;margin-bottom:1.5rem;max-width:560px;line-height:1.6">An engineer visits, checks the shaft and equipment, and sends you a written quote within 1–2 working days.</p>
+        <button class="big-cta" onclick="openSurveyModal('Footer CTA')">Book a site visit &rarr;</button>
       </div>
       
       <div style="display:grid;gap:1rem;background:rgba(14,17,21,0.6);padding:1.5rem;border-radius:10px;border:1px solid var(--line)">
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📋</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Full Mechanical &amp; Electrical Audit</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We inspect everything</b>
             <span style="font-size:.78rem;color:var(--steel)">Shaft clearances, machine health, brake testing &amp; controller diagnostics</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">⏱️</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Proposal Within 24 Hours</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">Itemised quote</b>
             <span style="font-size:.78rem;color:var(--steel)">Itemized scope, component lifecycle assessment &amp; transparent quotation</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.8rem">
           <div style="width:36px;height:36px;border-radius:6px;background:var(--amber-dim);border:1px solid var(--amber-lt);display:grid;place-items:center;color:var(--amber-lt);font-size:1.1rem">📍</div>
           <div>
-            <b style="font-size:.9rem;color:var(--white);display:block">Direct On-Site Engineering</b>
+            <b style="font-size:.9rem;color:var(--white);display:block">We cover Abu Dhabi, Dubai and the Northern Emirates</b>
             <span style="font-size:.78rem;color:var(--steel)">Licensed engineers deployed across Abu Dhabi, Dubai &amp; Northern Emirates</span>
           </div>
         </div>
@@ -434,7 +434,7 @@
             </svg>
             <span>AL DIRAYAH</span>
           </div>
-        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Al Dirayah Electromechanical Services LLC. Certified vertical transportation and building infrastructure engineering specialists in Abu Dhabi and across the United Arab Emirates.</p>
+        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. [XXXX].</p>
         <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
       </div>
 
@@ -458,7 +458,7 @@
         <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>Mussafah Industrial Area, Abu Dhabi, UAE</div>
           <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
-          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Official Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.ae</span></div>
         </div>
       </div>
     </div>
