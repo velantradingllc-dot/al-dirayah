@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CCTV & ELV Infrastructure Solutions | Al Dirayah Electromechanical Services LLC</title>
@@ -90,7 +92,7 @@
     header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 
     .brand { display: flex; align-items: center; gap: .7rem; }
-    .brand svg { width: 34px; height: 34px; flex: none; }
+    .brand svg, .brand img, .brand-logo{width:34px;height:auto;max-height:40px;flex:none;object-fit:contain}
     .brand .nm { font-family: var(--f-d); font-size: 1.4rem; letter-spacing: .045em; text-transform: uppercase; font-weight: 600; color: var(--white); }
 
     /* Switcher pills */
@@ -450,12 +452,7 @@
   <header id="hdr">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <rect width="120" height="120" rx="20" fill="#E08A1E"/>
-          <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
-          <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
-          <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
-        </svg>
+        <img src="logo.png" alt="Al Dirayah Logo" class="brand-logo" style="width:34px;height:auto;max-height:40px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
         <span class="nm">Al Dirayah</span>
       </a>
 
@@ -786,12 +783,7 @@
       <div class="ft-grid">
         <div class="ft-brand">
           <a class="brand" href="index.html" style="margin-bottom:1rem; display:inline-flex;">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <rect width="120" height="120" rx="20" fill="#E08A1E"/>
-              <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
-              <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
-              <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
-            </svg>
+            <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
             <span class="nm">Al Dirayah</span>
           </a>
           <p>Specialized Vertical Transportation, Escalator Engineering, Structured Cabling, and Enterprise CCTV Infrastructure across Abu Dhabi and Dubai, UAE.</p>

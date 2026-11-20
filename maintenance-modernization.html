@@ -6,6 +6,8 @@
   <title>Lift Maintenance & AMC Abu Dhabi | Al Dirayah</title>
   <meta name="description" content="Lift AMC contracts, 24/7 breakdown repair and Civil Defence compliance for any lift brand in Abu Dhabi and Dubai. Get an AMC quote.">
   <link rel="canonical" href="https://aldirayah.com/maintenance-modernization.html">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="survey-modal.css">
   <style>
@@ -70,7 +72,7 @@
     header.stuck { background: rgba(14,17,21,.92); backdrop-filter: blur(16px); border-bottom-color: var(--line); }
     header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; flex-shrink: 0; }
-    .brand svg { width: 34px; height: 34px; flex: none; }
+    .brand svg, .brand img, .brand-logo{width:34px;height:auto;max-height:40px;flex:none;object-fit:contain}
     .brand .nm { font-family: var(--f-d); font-size: 1.4rem; letter-spacing: .045em; text-transform: uppercase; font-weight: 600; color: var(--white); white-space: nowrap; }
 
     /* Switcher pills */
@@ -127,7 +129,7 @@
       header .wrap { gap: .5rem; }
       .div-switcher { display: none !important; }
       .menu-toggle { display: flex; }
-      .brand svg { width: 28px; height: 28px; }
+      .brand svg, .brand img, .brand-logo{width:28px;height:auto;max-height:34px}
       .brand .nm { font-size: 1.2rem; }
       .cta-btn { padding: .42rem .75rem; font-size: .62rem; letter-spacing: .08em; }
     }
@@ -197,12 +199,7 @@
   <header id="hdr">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <rect width="120" height="120" rx="20" fill="#E08A1E"/>
-          <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
-          <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
-          <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
-        </svg>
+        <img src="logo.png" alt="Al Dirayah Logo" class="brand-logo" style="width:34px;height:auto;max-height:40px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
         <span class="nm">Al Dirayah</span>
       </a>
 
@@ -428,12 +425,7 @@
       <!-- Col 1: Profile -->
       <div>
         <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
-            <svg viewBox="0 0 120 120" style="width:30px;height:30px;flex:none" aria-hidden="true">
-              <rect width="120" height="120" rx="20" fill="#E08A1E"/>
-              <path d="M35 49 L60 29 L85 49" fill="none" stroke="#0E1115" stroke-width="10"/>
-              <path d="M35 70 L60 50 L85 70" fill="none" stroke="#0E1115" stroke-width="10" opacity=".62"/>
-              <path d="M35 91 L60 71 L85 91" fill="none" stroke="#0E1115" stroke-width="10" opacity=".34"/>
-            </svg>
+            <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
             <span>AL DIRAYAH</span>
           </div>
         <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. [XXXX].</p>
