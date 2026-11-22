@@ -6,8 +6,8 @@
 (function() {
   "use strict";
 
-  // Configurable Target Email (service@aldirayah.com, or updated when user provides destination)
-  var ENQUIRY_EMAIL = "service@aldirayah.com";
+  // Configurable Target Email (temporarily directed to aldirayahuae@gmail.com per user request)
+  var ENQUIRY_EMAIL = "aldirayahuae@gmail.com";
 
   window.setEnquiryEmail = function(newEmail) {
     if (newEmail && typeof newEmail === "string") {
