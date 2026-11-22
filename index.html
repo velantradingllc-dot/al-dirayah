@@ -656,12 +656,12 @@ section.pad{padding:6rem 0; position:relative}
     </div>
   </section>
 
-  <!-- ══════════ PH — MASTER FOOTER & CONTACT ══════════ -->
-  <section id="ph" class="pad" data-floor="PH" data-label="Contact" style="padding-top:4rem;padding-bottom:3rem;background:var(--ink-2);border-top:1px solid var(--line)">
+  <!-- ══════════ SITE SURVEY / CTA SECTION ══════════ -->
+  <section id="site-survey" class="pad" data-floor="PH" data-label="Site Visit" style="padding-top:4.5rem;padding-bottom:4.5rem;background:var(--ink-1);border-top:1px solid var(--line)">
     <div class="wrap">
       
       <!-- Top Contact CTA Banner -->
-      <div class="ph-banner">
+      <div class="ph-banner" style="margin-bottom:0">
         <div>
           <p class="eyebrow" style="color:var(--amber-lt);font-family:var(--f-m);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem">Free site survey</p>
           <h2 style="font-family:var(--f-d);font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:.8rem;line-height:1.05">Book a free site visit</h2>
@@ -693,55 +693,60 @@ section.pad{padding:6rem 0; position:relative}
           </div>
         </div>
       </div>
-
-      <!-- Master 4-Column Footer Grid -->
-      <div class="footer-grid">
-        <!-- Col 1: Profile -->
-        <div>
-          <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
-            <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
-            <span>AL DIRAYAH</span>
-          </div>
-          <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. CN-6891729.</p>
-          <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
-        </div>
-
-        <!-- Col 2: Divisions -->
-        <div>
-          <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">DIVISIONS &amp; SERVICES</h4>
-          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.65rem;font-size:.88rem">
-            <li><a href="lifts.html" style="color:var(--steel);transition:color .2s">Vertical Lifts &amp; Elevators</a></li>
-            <li><a href="escalators.html" style="color:var(--steel);transition:color .2s">Escalators &amp; Moving Walkways</a></li>
-            <li><a href="residential-elevators.html" style="color:var(--steel);transition:color .2s">Residential Villa Lifts</a></li>
-            <li><a href="commercial-elevators.html" style="color:var(--steel);transition:color .2s">Commercial Tower Elevators</a></li>
-            <li><a href="accessibility-elevators.html" style="color:var(--steel);transition:color .2s">Accessibility &amp; POD Lifts</a></li>
-            <li><a href="maintenance-modernization.html" style="color:var(--steel);transition:color .2s">24/7 Maintenance &amp; AMC</a></li>
-            <li><a href="engineering-services.html" style="color:var(--steel);transition:color .2s">Engineering &amp; Traffic Audits</a></li>
-          </ul>
-        </div>
-
-        
-
-        <!-- Col 4: Abu Dhabi HQ -->
-        <div>
-          <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">ABU DHABI HEADQUARTERS</h4>
-          <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
-            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>3rd Floor, Al Yasat Tower, E11, Al Danah, Abu Dhabi, UAE</div>
-            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
-            <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.com</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Copyright Bar -->
-      <div style="padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f-m);font-size:.8rem;color:var(--steel)">
-        <span>© 2026 Al Dirayah Electromechanical Services LLC. All rights reserved.</span>
-        <span style="color:var(--amber-lt)">Keep it moving · <span lang="ar" dir="rtl" class="ar">الحركة لا تتوقف</span></span>
-      </div>
-
     </div>
   </section>
 </main>
+
+<!-- ══════════ FOOTER (Company Details Only) ══════════ -->
+<footer id="ph" style="background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
+  <div class="wrap">
+    <!-- Master 4-Column Footer Grid -->
+    <div class="footer-grid">
+      <!-- Col 1: Profile -->
+      <div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
+          <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
+          <span>AL DIRAYAH</span>
+        </div>
+        <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. CN-6891729.</p>
+        <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
+      </div>
+
+      <!-- Col 2: Divisions -->
+      <div>
+        <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">DIVISIONS &amp; SERVICES</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.65rem;font-size:.88rem">
+          <li><a href="lifts.html" style="color:var(--steel);transition:color .2s">Vertical Lifts &amp; Elevators</a></li>
+          <li><a href="escalators.html" style="color:var(--steel);transition:color .2s">Escalators &amp; Moving Walkways</a></li>
+          <li><a href="residential-elevators.html" style="color:var(--steel);transition:color .2s">Residential Villa Lifts</a></li>
+          <li><a href="commercial-elevators.html" style="color:var(--steel);transition:color .2s">Commercial Tower Elevators</a></li>
+          <li><a href="accessibility-elevators.html" style="color:var(--steel);transition:color .2s">Accessibility &amp; POD Lifts</a></li>
+          <li><a href="maintenance-modernization.html" style="color:var(--steel);transition:color .2s">24/7 Maintenance &amp; AMC</a></li>
+          <li><a href="engineering-services.html" style="color:var(--steel);transition:color .2s">Engineering &amp; Traffic Audits</a></li>
+        </ul>
+      </div>
+
+      
+
+      <!-- Col 4: Abu Dhabi HQ -->
+      <div>
+        <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">ABU DHABI HEADQUARTERS</h4>
+        <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Office Address:</b>3rd Floor, Al Yasat Tower, E11, Al Danah, Abu Dhabi, UAE</div>
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">24/7 Emergency Dispatch:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span></div>
+          <div><b style="color:var(--white);display:block;margin-bottom:.2rem">Email:</b><span style="font-family:var(--f-m);color:var(--amber-lt)">service@aldirayah.com</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div style="padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f-m);font-size:.8rem;color:var(--steel)">
+      <span>© 2026 Al Dirayah Electromechanical Services LLC. All rights reserved.</span>
+      <span style="color:var(--amber-lt)">Keep it moving · <span lang="ar" dir="rtl" class="ar">الحركة لا تتوقف</span></span>
+    </div>
+
+  </div>
+</footer>
 
 <!-- Integrated Request Survey Modal -->
 <div class="modal-overlay" id="surveyModal" role="dialog" aria-modal="true" aria-labelledby="surveyModalTitle">
