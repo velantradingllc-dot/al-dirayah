@@ -195,12 +195,7 @@
     <div class="read" id="fiRead">L</div>
     <div class="bar"><i id="fiBar"></i></div>
     <div class="arrow" id="fiArrow" aria-hidden="true">▲</div>
-    <ol>
-      <li data-floor="L">L</li>
-      <li data-floor="1">1</li>
-      <li data-floor="2">2</li>
-      <li data-floor="PH">PH</li>
-    </ol>
+    <ol id="fiList"></ol>
   </div>
 
   <!-- Sticky Blur Header -->
@@ -645,8 +640,20 @@
     }
   }
 
-  var secs = Array.prototype.slice.call(document.querySelectorAll("[data-floor]"));
-  var lis = document.querySelectorAll("#fi ol li");
+var secs = Array.prototype.slice.call(document.querySelectorAll("[data-floor]"));
+  var fiList = document.getElementById("fiList");
+  if(fiList){
+    secs.forEach(function(s){
+      var li = document.createElement("li");
+      li.textContent = s.dataset.floor;
+      li.title = s.dataset.label || s.dataset.floor;
+      li.addEventListener("click", function(){
+        s.scrollIntoView({behavior: "smooth"});
+      });
+      fiList.appendChild(li);
+    });
+  }
+  var lis = fiList ? fiList.children : [];
 
   var lastY = 0, ticking = false;
   function frame(){
@@ -671,29 +678,20 @@
     if(rR) rR.style.transform = "translate3d(0," + (-(y*0.18) % 200) + "px,0)";
 
     /* floor detection */
-    var act = 0;
+    var act = secs[0];
     for(var i=0; i<secs.length; i++){
-      if(secs[i].getBoundingClientRect().top <= vh*0.45) act = i;
+      if(secs[i].getBoundingClientRect().top <= vh*0.45) act = secs[i];
     }
-    if(secs[act] && fiRead && fiRead.textContent !== secs[act].dataset.floor){
-      fiRead.textContent = secs[act].dataset.floor;
+    if(act && fiRead && fiRead.textContent !== act.dataset.floor){
+      fiRead.textContent = act.dataset.floor;
     }
     for(var j=0; j<lis.length; j++){
-      if(j===act) lis[j].setAttribute("data-on",""); else lis[j].removeAttribute("data-on");
+      if(secs[j] === act) lis[j].setAttribute("data-on",""); else lis[j].removeAttribute("data-on");
     }
   }
 
   window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
   window.addEventListener("resize", frame, {passive:true});
-
-  /* click on floor indicator to scroll */
-  Array.prototype.forEach.call(lis, function(li, idx){
-    li.addEventListener("click", function(){
-      if(secs[idx]){
-        secs[idx].scrollIntoView({behavior:"smooth", block:"start"});
-      }
-    });
-  });
 
   /* Mobile menu logic */
   var menuToggle = document.getElementById("menuToggle");

@@ -232,14 +232,7 @@ td.highlight { color: var(--white); font-weight: 600; font-family: var(--f-m); }
     <div class="read" id="fiRead">L</div>
     <div class="bar"><i id="fiBar"></i></div>
     <div class="arrow" id="fiArrow" aria-hidden="true">▲</div>
-    <ol>
-      <li data-floor="L">L</li>
-      <li data-floor="1">1</li>
-      <li data-floor="2">2</li>
-      <li data-floor="3">3</li>
-      <li data-floor="4">4</li>
-      <li data-floor="PH">PH</li>
-    </ol>
+    <ol id="fiList"></ol>
   </div>
 
   <!-- Master Header Bar (Identical to lifts.html) -->
@@ -765,15 +758,27 @@ td.highlight { color: var(--white); font-weight: 600; font-family: var(--f-m); }
     }
   }
 
-  var secs = Array.prototype.slice.call(document.querySelectorAll("[data-floor]"));
-  var lis = document.querySelectorAll("#fi ol li");
+var secs = Array.prototype.slice.call(document.querySelectorAll("[data-floor]"));
+  var fiList = document.getElementById("fiList");
+  if(fiList){
+    secs.forEach(function(s){
+      var li = document.createElement("li");
+      li.textContent = s.dataset.floor;
+      li.title = s.dataset.label || s.dataset.floor;
+      li.addEventListener("click", function(){
+        s.scrollIntoView({behavior: "smooth"});
+      });
+      fiList.appendChild(li);
+    });
+  }
+  var lis = fiList ? fiList.children : [];
 
   var lastY = 0, ticking = false;
   function frame(){
     ticking = false;
-    var y = scrollY, vh = innerHeight, doc = document.documentElement;
+    var y = window.scrollY || document.documentElement.scrollTop, vh = window.innerHeight, doc = document.documentElement;
 
-    hdr.classList.toggle("stuck", y > 40);
+    if(hdr) hdr.classList.toggle("stuck", y > 40);
 
     var total = doc.scrollHeight - vh;
     if(fiBar) fiBar.style.height = clamp(y/(total||1)*100,0,100) + "%";
@@ -783,20 +788,28 @@ td.highlight { color: var(--white); font-weight: 600; font-family: var(--f-m); }
       lastY = y;
     }
 
-    var act = 0;
-    for(var i=0;i<secs.length;i++){
-      if(secs[i].getBoundingClientRect().top <= vh*0.45) act = i;
+    /* shaft parallax */
+    if(ticks){
+      ticks.style.transform = "translate3d(0," + (-(y*0.32) % 140) + "px,0)";
     }
-    if(fiRead && fiRead.textContent !== secs[act].dataset.floor){
-      fiRead.textContent = secs[act].dataset.floor;
+    if(rL) rL.style.transform = "translate3d(0," + (-(y*0.12) % 200) + "px,0)";
+    if(rR) rR.style.transform = "translate3d(0," + (-(y*0.18) % 200) + "px,0)";
+
+    /* floor detection */
+    var act = secs[0];
+    for(var i=0; i<secs.length; i++){
+      if(secs[i].getBoundingClientRect().top <= vh*0.45) act = secs[i];
     }
-    for(var j=0;j<lis.length;j++){
-      if(j===act) lis[j].setAttribute("data-on",""); else lis[j].removeAttribute("data-on");
+    if(act && fiRead && fiRead.textContent !== act.dataset.floor){
+      fiRead.textContent = act.dataset.floor;
+    }
+    for(var j=0; j<lis.length; j++){
+      if(secs[j] === act) lis[j].setAttribute("data-on",""); else lis[j].removeAttribute("data-on");
     }
   }
 
-  addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
-  addEventListener("resize", frame, {passive:true});
+  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
+  window.addEventListener("resize", frame, {passive:true});
 
   /* Mobile menu logic */
   var menuToggle = document.getElementById("menuToggle");
