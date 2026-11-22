@@ -114,6 +114,8 @@
 
     .ph-banner { background: linear-gradient(135deg, rgba(224,138,30,0.12), rgba(20,24,29,0.95)); border: 1px solid var(--amber-dim); border-radius: 14px; padding: clamp(1.4rem, 4vw, 2.5rem); display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; align-items: center; margin-bottom: 4rem; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
     .footer-grid { display: grid; grid-template-columns: 1.8fr 1.2fr 1.4fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--line); }
+    .footer-grid a { color: var(--steel-lt); text-decoration: none; transition: color .2s var(--ease); cursor: pointer; }
+    .footer-grid a:hover, .footer-grid a:focus { color: var(--amber-lt) !important; }
     .big-cta { font-family: var(--f-d); font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase; background: var(--amber); color: #000; padding: .85rem 1.8rem; border-radius: 4px; font-weight: 600; display: inline-flex; align-items: center; gap: .6rem; border: none; cursor: pointer; transition: background .25s, transform .25s, box-shadow .25s; text-decoration: none; }
     .big-cta:hover { background: var(--amber-lt); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(224,138,30,0.4); }
 
@@ -435,14 +437,14 @@
 <!-- ══════════ FOOTER (Company Details Only) ══════════ -->
 <footer id="ph" style="background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
   <div class="wrap">
-    <!-- Master 3-Column Footer Grid -->
+    <!-- Master Footer Grid -->
     <div class="footer-grid">
       <!-- Col 1: Profile -->
       <div>
         <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
-            <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
-            <span>AL DIRAYAH</span>
-          </div>
+          <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
+          <span>AL DIRAYAH</span>
+        </div>
         <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. CN-6891729.</p>
         <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
       </div>
@@ -451,13 +453,12 @@
       <div>
         <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">DIVISIONS &amp; SERVICES</h4>
         <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.65rem;font-size:.88rem">
-          <li><a href="lifts.html" style="color:var(--steel);transition:color .2s">Vertical Lifts &amp; Elevators</a></li>
-          <li><a href="escalators.html" style="color:var(--steel);transition:color .2s">Escalators &amp; Moving Walkways</a></li>
-          <li><a href="residential-elevators.html" style="color:var(--steel);transition:color .2s">Residential Villa Lifts</a></li>
-          <li><a href="commercial-elevators.html" style="color:var(--steel);transition:color .2s">Commercial Tower Elevators</a></li>
-          <li><a href="accessibility-elevators.html" style="color:var(--steel);transition:color .2s">Accessibility &amp; POD Lifts</a></li>
-          <li><a href="maintenance-modernization.html" style="color:var(--steel);transition:color .2s">24/7 Maintenance &amp; AMC</a></li>
-          <li><a href="engineering-services.html" style="color:var(--steel);transition:color .2s">Engineering &amp; Traffic Audits</a></li>
+          <li><a href="lifts.html">Vertical Lifts &amp; Elevators</a></li>
+          <li><a href="escalators.html">Escalators &amp; Moving Walkways</a></li>
+          <li><a href="residential-elevators.html">Residential Villa Lifts</a></li>
+          <li><a href="commercial-elevators.html">Commercial Tower Elevators</a></li>
+          <li><a href="accessibility-elevators.html">Accessibility &amp; POD Lifts</a></li>
+          <li><a href="maintenance-modernization.html">24/7 Maintenance &amp; AMC</a></li>
         </ul>
       </div>
 

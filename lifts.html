@@ -541,6 +541,25 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
   animation: diagrise 0.9s var(--ease) forwards !important;
 }
 
+
+/* Footer Grid & Link Hover */
+.footer-grid{
+  display:grid; grid-template-columns:1.8fr 1.2fr 1.4fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--line);
+}
+.footer-grid a{
+  color:var(--steel-lt);
+  text-decoration:none;
+  transition:color .2s var(--ease);
+  cursor:pointer;
+}
+.footer-grid a:hover,
+.footer-grid a:focus{
+  color:var(--amber-lt) !important;
+}
+@media(max-width:850px){
+  .footer-grid{grid-template-columns:1fr; gap:2rem}
+}
+
 </style>
 </head>
 <body>
@@ -1292,14 +1311,14 @@ function switchSolTab(idx){
 <!-- ══════════ FOOTER (Company Details Only) ══════════ -->
 <footer id="ph" style="background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
   <div class="wrap">
-    <!-- Master 4-Column Footer Grid -->
-    <div style="display:grid;grid-template-columns:1.8fr 1.2fr 1.4fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--line)">
+    <!-- Master Footer Grid -->
+    <div class="footer-grid">
       <!-- Col 1: Profile -->
       <div>
         <div style="display:flex;align-items:center;gap:.7rem;font-family:var(--f-d);font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:1rem">
-            <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
-            <span>AL DIRAYAH</span>
-          </div>
+          <img src="logo.png" alt="Al Dirayah Logo" class="footer-logo" style="width:32px;height:auto;max-height:38px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 8px rgba(224,138,30,0.25))">
+          <span>AL DIRAYAH</span>
+        </div>
         <p style="color:var(--steel-lt);font-size:.9rem;line-height:1.65;margin-bottom:1.2rem">Lift and escalator contractor based in Abu Dhabi. Trade licence no. CN-6891729.</p>
         <div lang="ar" dir="rtl" class="ar" style="font-size:1.15rem;color:var(--amber-lt);text-align:right">الدراية للخدمات الكهروميكانيكية</div>
       </div>
@@ -1308,18 +1327,16 @@ function switchSolTab(idx){
       <div>
         <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">DIVISIONS &amp; SERVICES</h4>
         <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.65rem;font-size:.88rem">
-          <li><a href="lifts.html" style="color:var(--steel);transition:color .2s">Vertical Lifts &amp; Elevators</a></li>
-          <li><a href="escalators.html" style="color:var(--steel);transition:color .2s">Escalators &amp; Moving Walkways</a></li>
-          <li><a href="residential-elevators.html" style="color:var(--steel);transition:color .2s">Residential Villa Lifts</a></li>
-          <li><a href="commercial-elevators.html" style="color:var(--steel);transition:color .2s">Commercial Tower Elevators</a></li>
-          <li><a href="maintenance-modernization.html" style="color:var(--steel);transition:color .2s">24/7 Maintenance &amp; AMC</a></li>
-          <li><a href="engineering-services.html" style="color:var(--steel);transition:color .2s">Engineering &amp; Traffic Audits</a></li>
+          <li><a href="lifts.html">Vertical Lifts &amp; Elevators</a></li>
+          <li><a href="escalators.html">Escalators &amp; Moving Walkways</a></li>
+          <li><a href="residential-elevators.html">Residential Villa Lifts</a></li>
+          <li><a href="commercial-elevators.html">Commercial Tower Elevators</a></li>
+          <li><a href="accessibility-elevators.html">Accessibility &amp; POD Lifts</a></li>
+          <li><a href="maintenance-modernization.html">24/7 Maintenance &amp; AMC</a></li>
         </ul>
       </div>
 
-      
-
-      <!-- Col 4: Abu Dhabi HQ -->
+      <!-- Col 3: Abu Dhabi HQ -->
       <div>
         <h4 style="font-family:var(--f-d);font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;letter-spacing:1px">ABU DHABI HEADQUARTERS</h4>
         <div style="display:grid;gap:.8rem;font-size:.88rem;color:var(--steel-lt)">
