@@ -227,11 +227,7 @@ section{position:relative}
   font-size:.66rem; letter-spacing:.15em; text-transform:uppercase; color:var(--steel);
   opacity:0; animation:fade 1s var(--ease) 1.05s forwards}
 
-/* Motion Engine Controls Bar */
-.incline-ctrls{display:flex; align-items:center; gap:1rem; margin-top:2.2rem; background:rgba(14,17,21,.95); border:1px solid var(--amber-dim); border-radius:6px; padding:.65rem 1.1rem; width:fit-content; backdrop-filter:blur(14px); position:relative; z-index:10; opacity:0; animation:fade 1s var(--ease) 1.2s forwards; box-shadow:0 10px 30px rgba(0,0,0,.6)}
-.incline-ctrls label{font-family:var(--f-m); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--paper)}
-.incline-ctrls button{background:var(--surface-2); border:1px solid var(--line-2); color:var(--paper); font-family:var(--f-m); font-size:.62rem; padding:.3rem .7rem; border-radius:3px; cursor:pointer; transition:all .2s}
-.incline-ctrls button:hover,.incline-ctrls button.active{background:var(--amber); color:var(--ink); border-color:var(--amber); font-weight:600}
+
 
 /* hero step ribbon */
 #ribbon{position:absolute; left:-12%; right:-12%; bottom:-4%; height:46vh; pointer-events:none; opacity:.85; z-index:1}
@@ -562,15 +558,7 @@ footer{border-top:1px solid var(--line); padding:2.2rem 0; font-family:var(--f-m
       <span>30° &amp; 35° Inclines</span><span>Moving Walkways</span><span>OEM Certified</span><span>24/7 Response</span>
     </div>
 
-    <!-- Motion Control Bar -->
-    <div class="incline-ctrls">
-      <label>Speed:</label>
-      <button id="sp05" class="active">0.50 m/s</button>
-      <button id="sp065">0.65 m/s</button>
-      <button id="sp075">0.75 m/s</button>
-      <label style="margin-left:.6rem">Direction:</label>
-      <button id="btnDir">Ascending ↗</button>
-    </div>
+
   </div>
 
   <div id="ribbon"><div class="band" id="rband"></div></div>
@@ -1010,40 +998,10 @@ Drive Power: 7.5 kW | Standard: EN 115-1</code>
   var rb = document.getElementById("rband");
   if(rb){ for(var i=0;i<28;i++){ var d=document.createElement("div"); d.className="rstep"; rb.appendChild(d); } }
 
-  /* Speed & Motion controls */
+  /* Motion engine: standard 0.50 m/s ascending */
   var hatch = document.getElementById("hatch"), railMarks = document.getElementById("railMarks");
-  var sp05 = document.getElementById("sp05"), sp065 = document.getElementById("sp065"), sp075 = document.getElementById("sp075");
-  var btnDir = document.getElementById("btnDir");
-  var currentDir = "normal";
-
-  function setSpeed(durHatch, durRail){
-    if(hatch) hatch.style.animationDuration = durHatch + "s";
-    if(railMarks) railMarks.style.animationDuration = durRail + "s";
-  }
-
-  if(sp05 && sp065 && sp075){
-    sp05.addEventListener("click", function(){
-      [sp05,sp065,sp075].forEach(function(b){ b.classList.remove("active"); });
-      sp05.classList.add("active"); setSpeed(8, 6.07);
-    });
-    sp065.addEventListener("click", function(){
-      [sp05,sp065,sp075].forEach(function(b){ b.classList.remove("active"); });
-      sp065.classList.add("active"); setSpeed(6.15, 4.67);
-    });
-    sp075.addEventListener("click", function(){
-      [sp05,sp065,sp075].forEach(function(b){ b.classList.remove("active"); });
-      sp075.classList.add("active"); setSpeed(5.33, 4.05);
-    });
-  }
-
-  if(btnDir){
-    btnDir.addEventListener("click", function(){
-      currentDir = currentDir === "normal" ? "reverse" : "normal";
-      if(hatch) hatch.style.animationDirection = currentDir;
-      if(railMarks) railMarks.style.animationDirection = currentDir;
-      btnDir.textContent = currentDir === "normal" ? "Ascending ↗" : "Descending ↙";
-    });
-  }
+  if(hatch){ hatch.style.animationDuration = "8s"; hatch.style.animationDirection = "normal"; }
+  if(railMarks){ railMarks.style.animationDuration = "6.07s"; railMarks.style.animationDirection = "normal"; }
 
   /* scroll engine */
   var hdr = document.getElementById("hdr");
