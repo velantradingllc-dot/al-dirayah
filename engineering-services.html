@@ -141,6 +141,7 @@
     .eyebrow { font-family: var(--f-m); font-size: .85rem; color: var(--amber-lt); text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
     .eyebrow::before { content:''; width: 24px; height: 2px; background: var(--amber-lt); }
     .hero h1 { font-family: var(--f-h); font-size: clamp(2.8rem, 5.2vw, 4.6rem); font-weight: 800; line-height: 1.05; color: var(--white); margin-bottom: 1.25rem; }
+    .hero h1 .am { color: var(--amber); }
     .hero p { font-size: 1.1rem; color: var(--steel-lt); margin-bottom: 2rem; max-width: 540px; }
     .hero-img-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--amber-dim); box-shadow: 0 25px 60px rgba(0,0,0,0.9); }
     .hero-img-card img { width: 100%; height: auto; display: block; object-fit: cover; }
@@ -265,7 +266,7 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow">Engineering &amp; audits</div>
-          <h1>Vertical Transport Engineering &amp; Safety Audits</h1>
+          <h1>Vertical Transport<br><span class="am">Engineering &amp; Safety Audits</span></h1>
           <p>Traffic studies, safety audits, shaft load calculations and Civil Defence submissions for consultants and building owners.</p>
           <div style="display:flex;gap:1rem;">
             <a href="#calculator" class="btn-survey" style="padding:.75rem 1.75rem;font-size:.9rem;">TRAFFIC CALCULATOR</a>
