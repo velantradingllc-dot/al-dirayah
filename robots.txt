@@ -9,6 +9,8 @@ Allow: /
 Disallow: /backup/
 Disallow: /backups/
 Disallow: /cctv-archive/
+Disallow: /brand.html
+Disallow: /incline.html
 
 # ------------------------------------------------------------------------------
 # 1. AI Search, Answer & Citation Engines

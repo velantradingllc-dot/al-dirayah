@@ -15,7 +15,7 @@
     }
   };
 
-  window.openSurveyModal = function(cat) {
+  window.openSurveyModal = function(cat, notes) {
     var modal = document.getElementById("surveyModal");
     var formView = document.getElementById("surveyFormView");
     var successView = document.getElementById("surveySuccessView");
@@ -23,6 +23,13 @@
 
     if (formView) formView.style.display = "block";
     if (successView) successView.style.display = "none";
+
+    if (notes) {
+      var notesField = document.querySelector('#surveyForm textarea[name="notes"]');
+      if (notesField) {
+        notesField.value = notes;
+      }
+    }
 
     if (sel && cat) {
       var found = false;

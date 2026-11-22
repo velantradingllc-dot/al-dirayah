@@ -187,7 +187,7 @@
       <div class="hero-config">
         <span class="eyebrow">Cabin designer</span>
         <h1 class="page-title">See your cabin before we build it</h1>
-        <p class="page-desc">Customize luxury interior wall finishes, COP operating panels, flooring, ceiling lighting profiles, and architectural handrails. Built for consultants, architects, and building owners.</p>
+        <p class="page-desc">Customise luxury interior wall finishes, COP operating panels, flooring, ceiling lighting profiles, and architectural handrails. Built for consultants, architects, and building owners.</p>
       </div>
 
       <!-- Configurator Grid -->
@@ -310,7 +310,7 @@ Safety Standard: EN 81-20/50 | Energy class A (ISO 25745-2)</code>
 
           <div style="margin-top:1.2rem">
             <button onclick="copyStudioSpec()" class="btn-act-primary">COPY SPECIFICATION TO CLIPBOARD</button>
-            <button onclick="openSurveyModal('Configurator Studio: ' + document.getElementById('studioLabel').textContent)" class="btn-act-sec">Send me a quote for this design</button>
+            <button onclick="requestStudioQuote()" class="btn-act-sec">Send me a quote for this design</button>
           </div>
 
         </div>
@@ -463,6 +463,18 @@ Safety Standard: EN 81-20/50 | Energy class A (ISO 25745-2)</code>
       document.getElementById('studioSpecCode').textContent = code;
     }
 
+    function requestStudioQuote() {
+      var studioLabel = document.getElementById('studioLabel') ? document.getElementById('studioLabel').textContent.replace('ACTIVE FINISH: ', '').trim() : currentFinish;
+      var load = document.getElementById('rngLoad') ? document.getElementById('rngLoad').value : '1600';
+      var speed = document.getElementById('rngSpeed') ? document.getElementById('rngSpeed').value : '1.75';
+      var persons = Math.round(load / 75);
+      var specText = "Configurator Design Selection: " + studioLabel + "\n" +
+                     "Rated Load: " + load + " kg (" + persons + " Persons) | Speed: " + speed + " m/s\n" +
+                     "Safety Standard: EN 81-20/50";
+      
+      openSurveyModal('Configurator Studio: ' + studioLabel, specText);
+    }
+
     function copyStudioSpec() {
       var text = document.getElementById('studioSpecCode').textContent;
       navigator.clipboard.writeText(text).then(() => {
@@ -514,7 +526,7 @@ Safety Standard: EN 81-20/50 | Energy class A (ISO 25745-2)</code>
           <label>Project Stage *
             <select name="project_stage" required>
               <option value="New Building Construction">New Building Construction</option>
-              <option value="Existing Elevator Modernization">Existing Elevator Modernization</option>
+              <option value="Existing Elevator Modernisation">Existing Elevator Modernisation</option>
               <option value="Emergency Repair & AMC Change">Emergency Repair &amp; AMC Change</option>
               <option value="Architectural Planning / Concept">Architectural Planning / Concept</option>
             </select>
