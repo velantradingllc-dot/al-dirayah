@@ -232,19 +232,73 @@
     }
 
     @media print {
-      body { background: #FFF; color: #000; padding: 0; }
-      .container { border: none; box-shadow: none; padding: 0; background: #FFF; }
-      .logo-block h1 { color: #000; }
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+      }
+      body {
+        background: #FFF;
+        color: #1E293B;
+        padding: 0;
+        font-size: 13.5px;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .container {
+        max-width: 100%;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background: #FFF;
+      }
+      header {
+        border-bottom: 2px solid #D97706;
+        padding-bottom: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .logo-block h1 { color: #0F172A; font-size: 2.1rem; }
       .logo-block h1 span { color: #D97706; }
-      .meta-badge { background: #FFF; border: 1px solid #D97706; }
-      .meta-badge .val { color: #000; }
-      .section-title { color: #000; }
-      .card { background: #F8FAFC; border: 1px solid #E2E8F0; }
-      .card h3 { color: #D97706; }
-      table th { background: #F1F5F9; color: #D97706; }
-      table td { border-bottom: 1px solid #E2E8F0; }
-      td.code { color: #D97706; }
-      .badge { background: #F1F5F9; border: 1px solid #CBD5E1; color: #000; }
+      .logo-block .arabic { color: #475569; }
+      .meta-badge { background: #FFF7ED; border: 1.5px solid #D97706; padding: 0.6rem 1.2rem; border-radius: 8px; }
+      .meta-badge .label { color: #D97706; }
+      .meta-badge .val { color: #0F172A; }
+      .meta-badge div { color: #64748B !important; }
+      .section-title { color: #0F172A; font-size: 1.35rem; margin-bottom: 0.8rem; break-after: avoid; page-break-after: avoid; }
+      .section-title::before { background: #D97706; }
+      p { color: #334155 !important; }
+      .grid-2 { gap: 1rem; margin-bottom: 1.5rem; }
+      .card {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 1.1rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .card h3 { color: #D97706; font-size: 1.15rem; }
+      .card p { color: #334155 !important; font-size: 0.9rem; }
+      
+      .page-break-before {
+        page-break-before: always;
+        break-before: page;
+      }
+      
+      table {
+        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      table th { background: #F1F5F9; color: #D97706; padding: 0.65rem 0.8rem; font-size: 0.72rem; }
+      table td { border-bottom: 1px solid #E2E8F0; padding: 0.65rem 0.8rem; color: #334155; }
+      td.code { color: #D97706; font-weight: 600; }
+      
+      .badge-bar { gap: 0.5rem; margin-bottom: 1.5rem; page-break-inside: avoid; break-inside: avoid; }
+      .badge { background: #F8FAFC; border: 1px solid #CBD5E1; color: #1E293B; font-size: 0.78rem; padding: 0.4rem 0.75rem; border-radius: 6px; }
+      .badge svg { color: #D97706 !important; }
+      
+      .doc-footer { border-top: 1px solid #E2E8F0 !important; color: #64748B !important; margin-top: 1.5rem; padding-top: 1rem; }
       .cta-actions { display: none; }
     }
   </style>
@@ -296,7 +350,7 @@
       </div>
     </div>
 
-    <div style="margin-bottom:2.5rem;">
+    <div class="page-break-before" style="margin-bottom:2.5rem;">
       <h2 class="section-title">Licensed Trade Activity Matrix</h2>
       <table>
         <thead>
@@ -360,6 +414,11 @@
           <p>Email: <a href="mailto:info@aldirayah.com" style="color:var(--amber-lt)">info@aldirayah.com</a> | <a href="mailto:tenders@aldirayah.com" style="color:var(--amber-lt)">tenders@aldirayah.com</a><br>Web: <a href="https://aldirayah.com" style="color:var(--amber-lt)">aldirayah.com</a></p>
         </div>
       </div>
+    </div>
+
+    <div class="doc-footer" style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-family:var(--f-m);font-size:0.75rem;color:var(--steel)">
+      <span>© 2026 Al Dirayah Electromechanical Services LLC · CN-6891729</span>
+      <span style="color:var(--amber-lt)">Official Corporate Profile · aldirayah.com</span>
     </div>
 
     <div class="cta-actions">
