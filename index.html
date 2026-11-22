@@ -163,6 +163,7 @@ header .wrap{display:flex; align-items:center; justify-content:space-between; ga
   padding:clamp(1.4rem, 4vw, 2.5rem); display:grid; grid-template-columns:1.4fr 1fr;
   gap:2rem; align-items:center; margin-bottom:4rem; box-shadow:0 15px 40px rgba(0,0,0,0.5);
 }
+footer#ph { position: relative; z-index: 10; }
 .footer-grid{
   display:grid; grid-template-columns:1.8fr 1.2fr 1.4fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--line);
 }
@@ -710,7 +711,7 @@ section.pad{padding:6rem 0; position:relative}
 </main>
 
 <!-- ══════════ FOOTER (Company Details Only) ══════════ -->
-<footer id="ph" style="background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
+<footer id="ph" style="position:relative;z-index:10;background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
   <div class="wrap">
     <!-- Master Footer Grid -->
     <div class="footer-grid">

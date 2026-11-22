@@ -376,6 +376,8 @@ h2.big{font-size:clamp(2.3rem,6.5vw,4.6rem); color:var(--white); margin-bottom:1
 .dl{display:grid; gap:.5rem; font-family:var(--f-m); font-size:.82rem; color:var(--steel-lt)}
 .dl b{color:var(--steel); font-weight:400; letter-spacing:.12em; font-size:.62rem; text-transform:uppercase; display:block}
 footer#ph{
+  position:relative;
+  z-index:10;
   font-family:var(--f-b);
   font-size:16px;
   line-height:1.6;
@@ -1313,7 +1315,7 @@ function switchSolTab(idx){
 </main>
 
 <!-- ══════════ FOOTER (Company Details Only) ══════════ -->
-<footer id="ph" style="background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
+<footer id="ph" style="position:relative;z-index:10;background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 2rem">
   <div class="wrap">
     <!-- Master Footer Grid -->
     <div class="footer-grid">
