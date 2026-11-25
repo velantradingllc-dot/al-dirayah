@@ -400,6 +400,206 @@
       display: flex;
       justify-content: center;
     }
+
+    /* Enhanced Organizational Structure Flowchart */
+    .org-flow-container {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+    }
+
+    .org-flow-top {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .node-gm {
+      background: #0E1726;
+      border: 1.5px solid var(--amber);
+      color: #FFF;
+      padding: 0.5rem 1.8rem;
+      border-radius: 20px;
+      font-family: var(--f-d);
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .node-gm::after {
+      content: '';
+      position: absolute;
+      bottom: -1.6rem;
+      left: 50%;
+      width: 2px;
+      height: 1.6rem;
+      background: var(--line);
+    }
+
+    .tree-branch-bar {
+      position: absolute;
+      bottom: -1.6rem;
+      left: 28%;
+      right: 28%;
+      height: 2px;
+      background: var(--line);
+    }
+
+    .org-flow-body {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .org-flow-ladder {
+      flex: 1 1 54%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .org-flow-ladder::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 12px;
+      left: 6px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .ladder-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-left: 3.5px solid var(--amber);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      position: relative;
+    }
+
+    .ladder-item::before {
+      content: '';
+      position: absolute;
+      left: -0.9rem;
+      top: 50%;
+      width: 0.9rem;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .ladder-item .level {
+      font-family: var(--f-m);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--amber-lt);
+      background: rgba(224, 138, 30, 0.15);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      margin-right: 0.6rem;
+      flex: none;
+    }
+
+    .ladder-item .title {
+      font-family: var(--f-d);
+      font-size: 1.05rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      flex: 1;
+    }
+
+    .ladder-item .dept {
+      font-size: 0.8rem;
+      color: var(--steel);
+    }
+
+    .org-flow-support {
+      flex: 1 1 42%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .node-hr {
+      background: rgba(224, 138, 30, 0.1);
+      border: 1.5px solid var(--amber);
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .node-hr .title {
+      font-family: var(--f-d);
+      font-size: 1.1rem;
+      color: var(--amber-lt);
+      letter-spacing: 0.5px;
+    }
+
+    .node-hr .badge {
+      background: var(--amber);
+      color: #FFF;
+      font-family: var(--f-m);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .governance-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      flex: 1;
+    }
+
+    .gov-title {
+      font-family: var(--f-d);
+      font-size: 0.95rem;
+      color: var(--amber-lt);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.35rem;
+    }
+
+    .gov-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--steel-lt);
+      line-height: 1.4;
+    }
+
+    .gov-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      margin-top: 4px;
+      flex: none;
+    }
+
     .org-chart {
       background: var(--card-bg);
       border: 1px solid var(--line);
@@ -858,6 +1058,139 @@
         width: auto !important;
         max-width: 100% !important;
       }
+      
+      .org-flow-container {
+        background: #F8FAFC !important;
+        border: 1px solid #CBD5E1 !important;
+        border-radius: 6px !important;
+        padding: 0.35rem 0.6rem !important;
+        margin-bottom: 0.45rem !important;
+        box-sizing: border-box !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .org-flow-top {
+        margin-bottom: 0.55rem !important;
+      }
+
+      .node-gm {
+        background: #0F172A !important;
+        border: 1.5px solid #D97706 !important;
+        color: #FFF !important;
+        padding: 0.18rem 0.9rem !important;
+        font-size: 0.78rem !important;
+        box-shadow: none !important;
+      }
+
+      .node-gm::after {
+        bottom: -0.55rem !important;
+        height: 0.55rem !important;
+        background: #CBD5E1 !important;
+      }
+
+      .tree-branch-bar {
+        bottom: -0.55rem !important;
+        background: #CBD5E1 !important;
+      }
+
+      .org-flow-body {
+        gap: 0.8rem !important;
+      }
+
+      .org-flow-ladder {
+        gap: 0.22rem !important;
+        padding-left: 0.8rem !important;
+      }
+
+      .org-flow-ladder::before {
+        background: #CBD5E1 !important;
+        left: 4px !important;
+        bottom: 8px !important;
+      }
+
+      .ladder-item {
+        background: #FFF !important;
+        border: 1px solid #CBD5E1 !important;
+        border-left: 3px solid #16325C !important;
+        padding: 0.12rem 0.45rem !important;
+        box-shadow: none !important;
+      }
+
+      .ladder-item::before {
+        left: -0.55rem !important;
+        width: 0.55rem !important;
+        background: #CBD5E1 !important;
+      }
+
+      .ladder-item .level {
+        background: #F1F5F9 !important;
+        color: #64748B !important;
+        font-size: 0.6rem !important;
+        padding: 0.05rem 0.25rem !important;
+        margin-right: 0.4rem !important;
+      }
+
+      .ladder-item .title {
+        color: #0F172A !important;
+        font-size: 0.76rem !important;
+      }
+
+      .ladder-item .dept {
+        color: #64748B !important;
+        font-size: 0.66rem !important;
+      }
+
+      .org-flow-support {
+        gap: 0.35rem !important;
+      }
+
+      .node-hr {
+        background: #FFFBEB !important;
+        border: 1px solid #D97706 !important;
+        padding: 0.18rem 0.5rem !important;
+      }
+
+      .node-hr .title {
+        color: #B45309 !important;
+        font-size: 0.78rem !important;
+      }
+
+      .node-hr .badge {
+        background: #D97706 !important;
+        color: #FFF !important;
+        font-size: 0.6rem !important;
+        padding: 0.08rem 0.3rem !important;
+      }
+
+      .governance-card {
+        background: #FFF !important;
+        border: 1px solid #CBD5E1 !important;
+        padding: 0.3rem 0.5rem !important;
+        gap: 0.25rem !important;
+      }
+
+      .gov-title {
+        color: #0F172A !important;
+        font-size: 0.7rem !important;
+        padding-bottom: 0.15rem !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+      }
+
+      .gov-item {
+        color: #475569 !important;
+        font-size: 0.67rem !important;
+        gap: 0.25rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .gov-dot {
+        background: #D97706 !important;
+        width: 5px !important;
+        height: 5px !important;
+        margin-top: 3px !important;
+      }
+
       .org-chart {
         background: #F8FAFC;
         border: 1px solid #E2E8F0;
@@ -1198,59 +1531,90 @@
     </div>
 
     <!-- 08: Organizational Structure -->
-    <div class="page-break-before" style="margin-bottom:1.5rem;">
+    <div class="page-break-before" style="margin-bottom:1.4rem;">
       <h2 class="section-title">Organizational Structure</h2>
-      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:0.8rem">
-        Our team is structured to keep clear accountability from leadership down to on-site execution, ensuring every installation is properly planned, supervised, and delivered.
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:0.9rem">
+        Our organizational hierarchy enforces rigorous line-of-command accountability from executive leadership through to active site execution, ensuring every vertical transportation project is meticulously coordinated, safety-verified, and delivered on schedule.
       </p>
 
-      <div class="org-flowchart-card">
-        <svg viewBox="0 0 520 315" width="100%" height="315" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;max-width:500px;">
-          <!-- Connectors -->
-          <!-- Trunk vertical line behind the operations stack -->
-          <line x1="135" y1="68" x2="135" y2="290" stroke="#94A3B8" stroke-width="2" />
+      <div class="org-flow-container">
+        <!-- Top Node: General Manager -->
+        <div class="org-flow-top">
+          <div class="node-gm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--amber-lt)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            General Manager
+          </div>
+          <div class="tree-branch-bar"></div>
+        </div>
 
-          <!-- Diagonal branches from General Manager -->
-          <line x1="235" y1="36" x2="135" y2="68" stroke="#94A3B8" stroke-width="2" />
-          <line x1="285" y1="36" x2="385" y2="68" stroke="#94A3B8" stroke-width="2" />
+        <!-- Body: Operations Ladder + Support Governance -->
+        <div class="org-flow-body">
+          <!-- Left Ladder: Operational Chain of Command -->
+          <div class="org-flow-ladder">
+            <div class="ladder-item">
+              <span class="level">L1</span>
+              <span class="title">Project Manager</span>
+              <span class="dept">Operations &amp; Delivery</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L2</span>
+              <span class="title">Project Coordinator</span>
+              <span class="dept">OEM &amp; Site Scheduling</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L3</span>
+              <span class="title">Project Supervisor</span>
+              <span class="dept">Quality Assurance</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L4</span>
+              <span class="title">Site Supervisor</span>
+              <span class="dept">Shaft &amp; Safety Oversight</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L5</span>
+              <span class="title">Senior Technician</span>
+              <span class="dept">Mechanical &amp; Electrical Lead</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L6</span>
+              <span class="title">Asst. Technician</span>
+              <span class="dept">Roping &amp; Alignment Crew</span>
+            </div>
+            <div class="ladder-item">
+              <span class="level">L7</span>
+              <span class="title">Skilled Helper</span>
+              <span class="dept">Rigging &amp; Shaft Prep</span>
+            </div>
+          </div>
 
-          <!-- Top Node: General Manager -->
-          <rect x="175" y="8" width="170" height="28" rx="8" fill="#16325C" />
-          <text x="260" y="26" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">General Manager</text>
+          <!-- Right Side: Corporate Support & Execution Governance -->
+          <div class="org-flow-support">
+            <div class="node-hr">
+              <div>
+                <div class="title">Human Resources (HR)</div>
+                <div style="font-size:0.75rem;color:var(--amber);margin-top:2px;">Workforce Logistics &amp; Induction</div>
+              </div>
+              <span class="badge">Support</span>
+            </div>
 
-          <!-- Right Node: HR -->
-          <rect x="325" y="68" width="120" height="26" rx="8" fill="#C27803" />
-          <text x="385" y="85" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle">HR</text>
-
-          <!-- Operations Column -->
-          <!-- 1. Project Manager -->
-          <rect x="60" y="68" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="85" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Manager</text>
-
-          <!-- 2. Project Coordinator -->
-          <rect x="60" y="102" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="119" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Coordinator</text>
-
-          <!-- 3. Project Supervisor -->
-          <rect x="60" y="136" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="153" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Supervisor</text>
-
-          <!-- 4. Site Supervisor -->
-          <rect x="60" y="170" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="187" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Site Supervisor</text>
-
-          <!-- 5. Senior Technician -->
-          <rect x="60" y="204" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="221" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Senior Technician</text>
-
-          <!-- 6. Asst. Technician -->
-          <rect x="60" y="238" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="255" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Asst. Technician</text>
-
-          <!-- 7. Skilled Helper -->
-          <rect x="60" y="272" width="150" height="26" rx="8" fill="#16325C" />
-          <text x="135" y="289" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Skilled Helper</text>
-        </svg>
+            <div class="governance-card">
+              <div class="gov-title">Execution Governance</div>
+              <div class="gov-item">
+                <div class="gov-dot"></div>
+                <div><strong>OEM Qualification:</strong> Installation crews certified under TK Elevator, Otis, and Kone technical protocols.</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-dot"></div>
+                <div><strong>Safety Compliance:</strong> Mandatory OSHAD-SF site inductions and licensed working-at-height permits.</div>
+              </div>
+              <div class="gov-item">
+                <div class="gov-dot"></div>
+                <div><strong>Disciplined Quality Gates:</strong> Staged inspection sign-offs at each installation milestone from plumb reading to handover.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
