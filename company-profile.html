@@ -391,6 +391,15 @@
     }
 
     /* Org Structure Visual */
+        .org-flowchart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+    }
     .org-chart {
       background: var(--card-bg);
       border: 1px solid var(--line);
@@ -540,7 +549,16 @@
         font-size: 0.95em !important;
       }
 
-      .org-chart {
+          .org-flowchart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .org-chart {
         padding: 0.5rem !important;
         margin-top: 0.3rem !important;
         margin-bottom: 0.5rem !important;
@@ -814,6 +832,32 @@
         color: #D97706;
       }
 
+          .org-flowchart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+          .org-flowchart-card {
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 8px !important;
+        padding: 0.5rem !important;
+        margin-bottom: 0.6rem !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+
+      .org-flowchart-card svg {
+        height: 220px !important;
+        width: auto !important;
+        max-width: 100% !important;
+      }
       .org-chart {
         background: #F8FAFC;
         border: 1px solid #E2E8F0;
@@ -1153,53 +1197,60 @@
       </p>
     </div>
 
-    <!-- 08: Organisational Structure -->
-    <div class="page-break-before"   style="margin-bottom:2.2rem;">
-      <h2 class="section-title">Organisational Structure</h2>
-      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.5rem">
-        Our operational team is structured to maintain crystal-clear accountability from executive leadership down to on-site execution, ensuring every vertical transport installation is meticulously planned, supervised, and delivered safely on time:
+    <!-- 08: Organizational Structure -->
+    <div class="page-break-before" style="margin-bottom:1.5rem;">
+      <h2 class="section-title">Organizational Structure</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:0.8rem">
+        Our team is structured to keep clear accountability from leadership down to on-site execution, ensuring every installation is properly planned, supervised, and delivered.
       </p>
 
-      <div class="org-chart">
-        <div class="org-level">
-          <!-- Level 1 -->
-          <div class="org-node main">
-            <div class="role">Executive Management &amp; Managing Director</div>
-            <div class="sub">Strategic Leadership · OEM Principal Relations · Compliance Oversight</div>
-          </div>
-          
-          <!-- Level 2 -->
-          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;width:100%">
-            <div class="org-node">
-              <div class="role">Technical &amp; Projects Director</div>
-              <div class="sub">Engineering, Installation Planning &amp; Handover</div>
-            </div>
-            <div class="org-node">
-              <div class="role">HSE &amp; QA/QC Lead</div>
-              <div class="sub">OSHAD-SF Compliance, RAMS &amp; Safety Audits</div>
-            </div>
-          </div>
+      <div class="org-flowchart-card">
+        <svg viewBox="0 0 520 315" width="100%" height="315" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;max-width:500px;">
+          <!-- Connectors -->
+          <!-- Trunk vertical line behind the operations stack -->
+          <line x1="135" y1="68" x2="135" y2="290" stroke="#94A3B8" stroke-width="2" />
 
-          <!-- Level 3 -->
-          <div class="org-subgrid">
-            <div class="org-subnode">
-              <div class="role">Project Managers</div>
-              <div class="sub">Site Coordination &amp; Timeline Management</div>
-            </div>
-            <div class="org-subnode">
-              <div class="role">Lead Site Engineers</div>
-              <div class="sub">Mechanical &amp; Electrical Installation Leads</div>
-            </div>
-            <div class="org-subnode">
-              <div class="role">Commissioning Specialists</div>
-              <div class="sub">VVVF Tuning &amp; TÜV Testing Engineers</div>
-            </div>
-            <div class="org-subnode">
-              <div class="role">Certified Technicians</div>
-              <div class="sub">Roping, Rail Alignment &amp; Cabling Crews</div>
-            </div>
-          </div>
-        </div>
+          <!-- Diagonal branches from General Manager -->
+          <line x1="235" y1="36" x2="135" y2="68" stroke="#94A3B8" stroke-width="2" />
+          <line x1="285" y1="36" x2="385" y2="68" stroke="#94A3B8" stroke-width="2" />
+
+          <!-- Top Node: General Manager -->
+          <rect x="175" y="8" width="170" height="28" rx="8" fill="#16325C" />
+          <text x="260" y="26" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">General Manager</text>
+
+          <!-- Right Node: HR -->
+          <rect x="325" y="68" width="120" height="26" rx="8" fill="#C27803" />
+          <text x="385" y="85" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle">HR</text>
+
+          <!-- Operations Column -->
+          <!-- 1. Project Manager -->
+          <rect x="60" y="68" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="85" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Manager</text>
+
+          <!-- 2. Project Coordinator -->
+          <rect x="60" y="102" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="119" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Coordinator</text>
+
+          <!-- 3. Project Supervisor -->
+          <rect x="60" y="136" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="153" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Project Supervisor</text>
+
+          <!-- 4. Site Supervisor -->
+          <rect x="60" y="170" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="187" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Site Supervisor</text>
+
+          <!-- 5. Senior Technician -->
+          <rect x="60" y="204" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="221" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Senior Technician</text>
+
+          <!-- 6. Asst. Technician -->
+          <rect x="60" y="238" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="255" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Asst. Technician</text>
+
+          <!-- 7. Skilled Helper -->
+          <rect x="60" y="272" width="150" height="26" rx="8" fill="#16325C" />
+          <text x="135" y="289" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Skilled Helper</text>
+        </svg>
       </div>
     </div>
 
