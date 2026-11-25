@@ -83,24 +83,41 @@
       gap: 1.5rem;
     }
 
-    .logo-block h1 {
+    .header-brand-title {
+      margin: 0;
       font-family: var(--f-d);
-      font-size: 2.4rem;
-      color: var(--white);
-      letter-spacing: 1px;
+      font-size: 1.9rem;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1.2;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: nowrap;
+      gap: 0.45rem;
+      white-space: nowrap;
     }
 
-    .logo-block h1 span {
+    .header-brand-title .brand-name {
+      color: var(--white);
+    }
+
+    .header-brand-title .brand-service {
       color: var(--amber-lt);
-      display: block;
+    }
+
+    .header-brand-title .brand-llc {
+      color: var(--amber);
+      font-size: 0.85em;
+      letter-spacing: 1px;
     }
 
     .logo-block .arabic {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       color: var(--steel);
-      margin-top: 0.3rem;
+      margin-top: 0.2rem;
+      text-align: left;
+      direction: rtl;
+      display: inline-block;
     }
 
     .meta-badge {
@@ -592,13 +609,57 @@
         margin-bottom: 1.5rem;
       }
 
-      .logo-block h1 {
-        color: #0F172A;
-        font-size: 2rem;
+      header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 1rem !important;
       }
 
-      .logo-block h1 span {
-        color: #D97706;
+      .logo-block {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.9rem !important;
+        flex: 1 1 auto !important;
+      }
+
+      .logo-block img {
+        width: 44px !important;
+        height: auto !important;
+      }
+
+      .header-brand-title {
+        font-size: 1.25rem !important;
+        line-height: 1.15 !important;
+        display: flex !important;
+        align-items: baseline !important;
+        flex-wrap: nowrap !important;
+        gap: 0.35rem !important;
+        white-space: nowrap !important;
+      }
+
+      .meta-badge {
+        flex: none !important;
+        padding: 0.4rem 0.8rem !important;
+      }
+
+      .meta-badge .val {
+        font-size: 1.05rem !important;
+      }
+
+      .header-brand-title .brand-name {
+        color: #0F172A !important;
+      }
+
+      .header-brand-title .brand-service {
+        color: #D97706 !important;
+      }
+
+      .header-brand-title .brand-llc {
+        color: #0F172A !important;
+        font-size: 0.85em !important;
+        letter-spacing: 0.5px !important;
       }
 
       .logo-block .arabic {
@@ -842,8 +903,12 @@
         <img src="logo.png" alt="Al Dirayah Logo"
           style="width:52px;height:auto;max-height:62px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 12px rgba(224,138,30,0.3))">
         <div>
-          <h1 style="margin:0">Al Dirayah <span style="display:block">Electromechanical Services</span></h1>
-          <div class="arabic" lang="ar" dir="rtl" style="margin-top:0.2rem">الدراية للخدمات الكهروميكانيكية ذ.م.م</div>
+          <h1 class="header-brand-title">
+            <span class="brand-name">Al Dirayah</span>
+            <span class="brand-service">Electromechanical Services</span>
+            <span class="brand-llc">LLC</span>
+          </h1>
+          <div class="arabic" lang="ar" dir="rtl" style="text-align:left;margin-top:0.15rem;">الدراية للخدمات الكهروميكانيكية ذ.م.م</div>
         </div>
       </div>
       <div class="meta-badge">
