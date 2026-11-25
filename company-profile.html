@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Google Tag Manager / Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-P5FDKBRB"></script>
@@ -16,7 +17,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
   <style>
     :root {
       --bg: #0A0D11;
@@ -24,6 +26,7 @@
       --card-border: rgba(224, 138, 30, 0.22);
       --amber: #E08A1E;
       --amber-lt: #F5A93C;
+      --amber-dim: #8A5A14;
       --white: #FFFFFF;
       --steel: #8C9BAE;
       --steel-lt: #CBD5E1;
@@ -34,25 +37,39 @@
       --f-a: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    .ar, [lang="ar"], .arabic { font-family: var(--f-a) !important; direction: rtl; unicode-bidi: isolate; letter-spacing: 0 !important; font-style: normal; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ar,
+    [lang="ar"],
+    .arabic {
+      font-family: var(--f-a) !important;
+      direction: rtl;
+      unicode-bidi: isolate;
+      letter-spacing: 0 !important;
+      font-style: normal;
+    }
+
     body {
       background: var(--bg);
       color: var(--steel-lt);
       font-family: var(--f-b);
       line-height: 1.6;
       font-size: 15px;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       background: #0E1219;
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 3rem;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
     }
 
     header {
@@ -115,7 +132,7 @@
       color: var(--white);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -128,12 +145,20 @@
       height: 12px;
       background: var(--amber);
       border-radius: 2px;
+      flex: none;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
       margin-bottom: 2.5rem;
     }
 
@@ -152,6 +177,129 @@
       text-transform: uppercase;
     }
 
+    .card h4 {
+      font-family: var(--f-d);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
+
+    /* Key Facts Table / Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .fact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .fact-item .lbl {
+      font-family: var(--f-m);
+      font-size: 0.75rem;
+      color: var(--amber-lt);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .fact-item .val {
+      font-size: 0.95rem;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Staged Process List */
+    .process-list {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .process-num {
+      font-family: var(--f-m);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--amber-lt);
+      background: rgba(224, 138, 30, 0.15);
+      border: 1px solid var(--amber-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      flex: none;
+    }
+
+    .process-desc {
+      font-size: 0.95rem;
+      color: var(--steel-lt);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(224, 138, 30, 0.12), rgba(18, 22, 31, 0.95));
+      border: 1px solid var(--amber-dim);
+      border-left: 4px solid var(--amber);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--white);
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--amber);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .project-card .title {
+      font-family: var(--f-d);
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .project-card .partner {
+      font-family: var(--f-m);
+      font-size: 0.78rem;
+      color: var(--amber-lt);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .project-card .scope {
+      font-size: 0.9rem;
+      color: var(--steel-lt);
+      line-height: 1.5;
+    }
+
+    /* Table */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -159,7 +307,8 @@
       font-size: 0.9rem;
     }
 
-    th, td {
+    th,
+    td {
       padding: 0.85rem 1rem;
       text-align: left;
       border-bottom: 1px solid var(--line);
@@ -181,6 +330,7 @@
       white-space: nowrap;
     }
 
+    /* Badges */
     .badge-bar {
       display: flex;
       flex-wrap: wrap;
@@ -189,13 +339,114 @@
     }
 
     .badge {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--line);
       padding: 0.5rem 1rem;
       border-radius: 6px;
       font-family: var(--f-m);
       font-size: 0.85rem;
       color: var(--white);
+    }
+
+    /* Policy Commitments List */
+    .policy-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .policy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--steel-lt);
+      line-height: 1.6;
+    }
+
+    .policy-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--amber);
+      flex: none;
+      margin-top: 0.2rem;
+    }
+
+    /* Org Structure Visual */
+    .org-chart {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .org-level {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .org-node {
+      background: rgba(224, 138, 30, 0.1);
+      border: 1px solid var(--amber);
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+      min-width: 260px;
+    }
+
+    .org-node.main {
+      background: linear-gradient(135deg, var(--amber), var(--amber-dim));
+      color: var(--white);
+      border: none;
+      box-shadow: 0 4px 15px rgba(224, 138, 30, 0.3);
+    }
+
+    .org-node .role {
+      font-family: var(--f-d);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .org-node .sub {
+      font-family: var(--f-m);
+      font-size: 0.75rem;
+      opacity: 0.85;
+      margin-top: 0.2rem;
+    }
+
+    .org-subgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .org-subnode {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      text-align: center;
+    }
+
+    .org-subnode .role {
+      font-family: var(--f-d);
+      font-size: 1rem;
+      color: var(--amber-lt);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .org-subnode .sub {
+      font-size: 0.8rem;
+      color: var(--steel);
+      margin-top: 0.2rem;
     }
 
     .cta-actions {
@@ -238,20 +489,23 @@
       text-transform: uppercase;
     }
 
+    /* Print Stylesheet for High-Grade PDF Export */
     @media print {
       @page {
         size: A4 portrait;
         margin: 12mm 15mm;
       }
+
       body {
         background: #FFF;
         color: #1E293B;
         padding: 0;
-        font-size: 13.5px;
+        font-size: 12.5px;
         line-height: 1.5;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
+
       .container {
         max-width: 100%;
         border: none;
@@ -259,112 +513,591 @@
         padding: 0;
         background: #FFF;
       }
+
       header {
         border-bottom: 2px solid #D97706;
         padding-bottom: 1.2rem;
         margin-bottom: 1.5rem;
       }
-      .logo-block h1 { color: #0F172A; font-size: 2.1rem; }
-      .logo-block h1 span { color: #D97706; }
-      .logo-block .arabic { color: #475569; }
-      .meta-badge { background: #FFF7ED; border: 1.5px solid #D97706; padding: 0.6rem 1.2rem; border-radius: 8px; }
-      .meta-badge .label { color: #D97706; }
-      .meta-badge .val { color: #0F172A; }
-      .meta-badge div { color: #64748B !important; }
-      .section-title { color: #0F172A; font-size: 1.35rem; margin-bottom: 0.8rem; break-after: avoid; page-break-after: avoid; }
-      .section-title::before { background: #D97706; }
-      p { color: #334155 !important; }
-      .grid-2 { gap: 1rem; margin-bottom: 1.5rem; }
+
+      .logo-block h1 {
+        color: #0F172A;
+        font-size: 2rem;
+      }
+
+      .logo-block h1 span {
+        color: #D97706;
+      }
+
+      .logo-block .arabic {
+        color: #475569;
+      }
+
+      .meta-badge {
+        background: #FFF7ED;
+        border: 1.5px solid #D97706;
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+      }
+
+      .meta-badge .label {
+        color: #D97706;
+      }
+
+      .meta-badge .val {
+        color: #0F172A;
+      }
+
+      .meta-badge div {
+        color: #64748B !important;
+      }
+
+      .section-title {
+        color: #0F172A;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .section-title::before {
+        background: #D97706;
+      }
+
+      p {
+        color: #334155 !important;
+      }
+
+      .facts-grid {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        padding: 1.1rem;
+        gap: 0.8rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .fact-item .lbl {
+        color: #D97706;
+      }
+
+      .fact-item .val {
+        color: #0F172A;
+      }
+
       .card {
         background: #F8FAFC;
         border: 1px solid #E2E8F0;
         border-radius: 8px;
-        padding: 1.1rem;
+        padding: 1rem;
         page-break-inside: avoid;
         break-inside: avoid;
       }
-      .card h3 { color: #D97706; font-size: 1.15rem; }
-      .card p { color: #334155 !important; font-size: 0.9rem; }
-      
+
+      .card h3 {
+        color: #D97706;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        color: #334155 !important;
+        font-size: 0.88rem;
+      }
+
+      .highlight-box {
+        background: #FFF7ED;
+        border: 1px solid #FDBA74;
+        border-left: 4px solid #D97706;
+        color: #1E293B;
+        padding: 1rem 1.2rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .process-item {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        padding: 0.7rem 1rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .process-num {
+        background: #FFF7ED;
+        border-color: #FDBA74;
+        color: #D97706;
+      }
+
+      .process-desc {
+        color: #334155;
+      }
+
+      .project-card {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-left: 3.5px solid #D97706;
+        padding: 0.9rem 1.1rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .project-card .title {
+        color: #0F172A;
+        font-size: 1.05rem;
+      }
+
+      .project-card .partner {
+        color: #D97706;
+      }
+
+      .project-card .scope {
+        color: #475569;
+      }
+
+      .policy-item {
+        color: #334155;
+        font-size: 0.88rem;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .policy-item svg {
+        color: #D97706;
+      }
+
+      .org-chart {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .org-node {
+        background: #FFF7ED;
+        border-color: #FDBA74;
+      }
+
+      .org-node.main {
+        background: #D97706;
+        color: #FFF;
+      }
+
+      .org-subnode {
+        background: #FFF;
+        border-color: #E2E8F0;
+      }
+
+      .org-subnode .role {
+        color: #D97706;
+      }
+
+      .org-subnode .sub {
+        color: #64748B;
+      }
+
       .page-break-before {
         page-break-before: always;
         break-before: page;
       }
-      
+
       table {
         margin-bottom: 1.5rem;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         page-break-inside: avoid;
         break-inside: avoid;
       }
-      table th { background: #F1F5F9; color: #D97706; padding: 0.65rem 0.8rem; font-size: 0.72rem; }
-      table td { border-bottom: 1px solid #E2E8F0; padding: 0.65rem 0.8rem; color: #334155; }
-      td.code { color: #D97706; font-weight: 600; }
-      
-      .badge-bar { gap: 0.5rem; margin-bottom: 1.5rem; page-break-inside: avoid; break-inside: avoid; }
-      .badge { background: #F8FAFC; border: 1px solid #CBD5E1; color: #1E293B; font-size: 0.78rem; padding: 0.4rem 0.75rem; border-radius: 6px; }
-      .badge svg { color: #D97706 !important; }
-      
-      .doc-footer { border-top: 1px solid #E2E8F0 !important; color: #64748B !important; margin-top: 1.5rem; padding-top: 1rem; }
-      .cta-actions { display: none; }
+
+      table th {
+        background: #F1F5F9;
+        color: #D97706;
+        padding: 0.6rem 0.75rem;
+        font-size: 0.7rem;
+      }
+
+      table td {
+        border-bottom: 1px solid #E2E8F0;
+        padding: 0.6rem 0.75rem;
+        color: #334155;
+      }
+
+      td.code {
+        color: #D97706;
+        font-weight: 600;
+      }
+
+      .badge-bar {
+        gap: 0.45rem;
+        margin-bottom: 1.5rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .badge {
+        background: #F8FAFC;
+        border: 1px solid #CBD5E1;
+        color: #1E293B;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+        border-radius: 6px;
+      }
+
+      .badge svg {
+        color: #D97706 !important;
+      }
+
+      .doc-footer {
+        border-top: 1px solid #E2E8F0 !important;
+        color: #64748B !important;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+      }
+
+      .cta-actions {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
+    <!-- Header Block -->
     <header>
       <div class="logo-block" style="display:flex;align-items:center;gap:1.2rem">
-        <img src="logo.png" alt="Al Dirayah Logo" style="width:52px;height:auto;max-height:62px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 12px rgba(224,138,30,0.3))">
+        <img src="logo.png" alt="Al Dirayah Logo"
+          style="width:52px;height:auto;max-height:62px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 12px rgba(224,138,30,0.3))">
         <div>
           <h1 style="margin:0">Al Dirayah <span style="display:block">Electromechanical Services</span></h1>
           <div class="arabic" lang="ar" dir="rtl" style="margin-top:0.2rem">الدراية للخدمات الكهروميكانيكية ذ.م.م</div>
         </div>
       </div>
       <div class="meta-badge">
-        <div class="label">Official Document</div>
+        <div class="label">Official Corporate Document</div>
         <div class="val">Company Profile</div>
         <div style="font-family:var(--f-m);font-size:0.75rem;color:var(--steel);margin-top:0.2rem">Licence: CN-6891729 · Abu Dhabi, UAE</div>
       </div>
     </header>
 
-    <div style="margin-bottom:2.5rem;">
-      <h2 class="section-title">Who We Are</h2>
-      <p style="font-size:1.05rem;line-height:1.7;color:var(--steel-lt)">
-        Al Dirayah Electromechanical Services LLC is an approved subcontractor and engineering specialist across TKE, OTIS, and KONE vertical transport systems. We deliver end-to-end engineering, installation, testing, Civil Defence safety clearance, and 24/7 annual maintenance (AMC) across Abu Dhabi & Dubai.
+    <!-- 01: Company Overview -->
+    <div style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Company Overview</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt)">
+        <strong>Al Dirayah Electromechanical Services LLC</strong> is an Abu Dhabi-based elevator and escalator installation, modernisation, and maintenance specialist, established in 2024. The company operates as a certified installation partner to major original equipment manufacturers (OEMs), delivering structured, quality-controlled vertical transport installations for residential villas, commercial towers, and institutional projects across the United Arab Emirates. Furthermore, our wider technical leadership and engineering group has maintained an established regional presence in Qatar since 2021, delivering high-complexity elevator and escalator installation projects across landmark infrastructure.
       </p>
     </div>
 
-    <div style="margin-bottom:2.5rem;">
-      <h2 class="section-title">Core Capabilities & Scope of Work</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Vertical Transport</h3>
-          <p>Lifts, escalators, and moving walkways — full turnkey installation, EN 81-20/50 compliance, safety upgrades, complete modernisation, and scheduled AMC service.</p>
+    <!-- 02: Key Facts Matrix -->
+    <div style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Key Facts &amp; Registration</h2>
+      <div class="facts-grid">
+        <div class="fact-item">
+          <span class="lbl">Legal Name</span>
+          <span class="val">Al Dirayah Electromechanical Services LLC</span>
         </div>
-        <div class="card">
-          <h3>Mechanical Systems & Modernisation</h3>
-          <p>Drive machinery overhaul, traction motors, hydraulic units, car frames, guide rails, safety gear, and EN 81-20/50 compliance modernisation.</p>
+        <div class="fact-item">
+          <span class="lbl">Arabic Name</span>
+          <span class="val" lang="ar" dir="rtl" class="ar">الدراية للخدمات الكهروميكانيكية ذ.م.م</span>
         </div>
-        <div class="card">
-          <h3>Electrical & Control Engineering</h3>
-          <p>Microprocessor controller retrofits, VVVF inverter drive integration, safety interlock circuits, emergency power backup (ARD), and 24/7 diagnostic monitoring.</p>
+        <div class="fact-item">
+          <span class="lbl">Established</span>
+          <span class="val">February 2024 (Qatar Operations since 2021)</span>
         </div>
-        <div class="card">
-          <h3>Supply & OEM Trading</h3>
-          <p>Direct wholesale import of elevators, escalators, and genuine OEM or approved-equivalent parts supporting project installations and maintenance fleets.</p>
+        <div class="fact-item">
+          <span class="lbl">Location</span>
+          <span class="val">3rd Floor, Al Yasat Tower, E11, Al Danah, Abu Dhabi, UAE</span>
+        </div>
+        <div class="fact-item">
+          <span class="lbl">Business Type</span>
+          <span class="val">Elevator &amp; Escalator Installation &amp; AMC Subcontractor</span>
+        </div>
+        <div class="fact-item">
+          <span class="lbl">Trade Licence No.</span>
+          <span class="val" style="font-family:var(--f-m);color:var(--amber-lt)">CN-6891729</span>
+        </div>
+        <div class="fact-item">
+          <span class="lbl">Core OEM Clients</span>
+          <span class="val">TK Elevator (TKE), Otis, Kone</span>
+        </div>
+        <div class="fact-item">
+          <span class="lbl">Typical Project Scope</span>
+          <span class="val">Installations up to 32 floors (High-Rise &amp; Heavy-Duty)</span>
+        </div>
+        <div class="fact-item" style="grid-column: 1 / -1;">
+          <span class="lbl">Official Contact</span>
+          <span class="val" style="font-family:var(--f-m)">+971 2 555 0192 | +971 50 873 1315 | service@aldirayah.com | info@aldirayah.com | aldirayah.com</span>
         </div>
       </div>
     </div>
 
-    <div class="page-break-before" style="margin-bottom:2.5rem;">
-      <h2 class="section-title">Licensed Trade Activity Matrix</h2>
+    <!-- 03: What We Do -->
+    <div style="margin-bottom:2.2rem;">
+      <h2 class="section-title">What We Do</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.2rem">
+        Our dedicated teams carry out full mechanical and electrical installation of passenger elevators, freight lifts, luxury villa elevators, and commercial escalators on behalf of leading OEMs. Our scope encompasses everything from initial shaft preparation, plumbing, and structural bracket fixing through final slow/high-speed commissioning, third-party load testing, and Civil Defence handover. We currently operate as an approved, trusted subcontractor to TK Elevator, Otis, and Kone in the UAE market.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Vertical Transport Installation</h3>
+          <p>Passenger lifts, panoramic elevators, heavy freight units, escalators, and moving autowalks. Full turnkey mechanical &amp; electrical delivery certified to EN 81-20/50 and EN 115-1 standards.</p>
+        </div>
+        <div class="card">
+          <h3>Modernisation &amp; Retrofits</h3>
+          <p>Microprocessor controller conversions, VVVF energy-saving inverter retrofits, safety gear replacement, traction motor overhauls, and luxury cabin interior architectural fit-outs.</p>
+        </div>
+        <div class="card">
+          <h3>Preventative AMC &amp; Emergency SLA</h3>
+          <p>Comprehensive 24/7 emergency breakdown support with guaranteed rapid response SLAs (30-min Abu Dhabi city, 2-hour Dubai), supported by OEM spare parts fleets.</p>
+        </div>
+        <div class="card">
+          <h3>Testing, Compliance &amp; Handover</h3>
+          <p>Third-party safety audits, TÜV / EN compliance inspection, 3D BIM shaft load assessments, and final Abu Dhabi Civil Defence operational clearance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: Our Installation Process -->
+    <div  style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Our Installation Process</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.2rem">
+        Every installation follows a disciplined, staged process — refined over hundreds of vertical transport projects since 2021 — that keeps quality consistent, prevents site snags, and keeps handover timelines strictly predictable:
+      </p>
+      <ul class="process-list">
+        <li class="process-item">
+          <span class="process-num">01</span>
+          <div class="process-desc"><strong>Shaft preparation and template installation</strong> — Verification of civil pit, overhead clearances, plumb line drop, and top/bottom template alignment.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">02</span>
+          <div class="process-desc"><strong>Plumb reading, bracket fixing, and rail alignment</strong> — Laser alignment and precision fixing of counterweight and car guide rails to tight tolerances.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">03</span>
+          <div class="process-desc"><strong>Entrance fixing and motor hoisting</strong> — Landing door header assembly, sill alignment, machine-room bedplate rigging, and gearless traction motor hoisting.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">04</span>
+          <div class="process-desc"><strong>Electrical work, trunking, and controller fixing</strong> — Shaft wiring, traveling cables, landing call stations, and microprocessor controller cabinet termination.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">05</span>
+          <div class="process-desc"><strong>Cabin work and roping</strong> — Car sling assembly, platform shock mounting, safety gear adjustment, car wall panels, and high-tensile steel wire roping.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">06</span>
+          <div class="process-desc"><strong>Slow-speed and high-speed commissioning</strong> — Inspection drive testing, safety circuit verification, door operator tuning, and full-speed ride comfort calibration.</div>
+        </li>
+        <li class="process-item">
+          <span class="process-num">07</span>
+          <div class="process-desc"><strong>Final TÜV / load testing and handover</strong> — Full static/dynamic buffer load tests, emergency battery rescue (ARD) validation, and Civil Defence sign-off.</div>
+        </li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>Execution Benchmark:</strong> A typical 3-stop, sub-800kg elevator installation is completed in approximately <strong>17 working days</strong>. Larger installations — such as 10-stop elevators with 60–70m shaft heights — are delivered in around <strong>1.5 months</strong>.
+      </div>
+    </div>
+
+    <!-- 05: Capacity & Scale & Why Work With Us -->
+    <div style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Capacity &amp; Scale</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.2rem">
+        Our installation crews are equipped and certified to handle vertical transport installations <strong>up to 32 floors</strong>, spanning compact private residential villas, medium-rise hotels, and high-density commercial towers. Each installation crew transitions seamlessly to their next assigned project upon completion, providing main contractors and OEM partners with predictable, monthly throughput planning without labour bottlenecks.
+      </p>
+
+      <h2 class="section-title" style="margin-top:2rem;">Why Work With Us</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Established OEM Track Record</h4>
+          <p>Long-standing installation and subcontracting partnerships with three of the global vertical transport leaders: TK Elevator, Otis, and Kone.</p>
+        </div>
+        <div class="card">
+          <h4>Standardised Methodology</h4>
+          <p>Rigorous 17-step quality checklist and 7-stage installation methodology ensuring zero snag handovers and zero downtime during handover.</p>
+        </div>
+        <div class="card">
+          <h4>Hands-On Technical Leadership</h4>
+          <p>Direct on-site project management by seasoned elevator engineers with extensive GCC high-rise and heavy industrial installation experience.</p>
+        </div>
+        <div class="card">
+          <h4>Abu Dhabi Base, Full UAE Coverage</h4>
+          <p>Centrally headquartered in Abu Dhabi with rapid deployment teams covering Abu Dhabi, Al Ain, Dubai, and the Northern Emirates.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: Major Projects Portfolio -->
+    <div  style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Landmark Project Portfolio</h2>
+      
+      <h3 style="font-family:var(--f-d);font-size:1.35rem;color:var(--amber-lt);text-transform:uppercase;margin-bottom:1rem;letter-spacing:1px">United Arab Emirates Projects</h3>
+      <div class="grid-3" style="margin-bottom:2rem">
+        <div class="project-card">
+          <span class="partner">Heavy Industrial &amp; Cultural</span>
+          <div class="title">Guggenheim Museum Project</div>
+          <div class="scope">Installation of heavy-duty 15-ton freight &amp; passenger elevator across 6 stops. Saadiyat Cultural District, Abu Dhabi.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Institutional Architecture</span>
+          <div class="title">Zayed National Museum Project</div>
+          <div class="scope">High-specification passenger elevator installations and architectural entrance coordination. Saadiyat Island, Abu Dhabi.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Commercial Modernisation</span>
+          <div class="title">ADGM Tower Modernisation</div>
+          <div class="scope">Elevator modernisation works, VVVF control integration, and high-speed gearless drive upgrades at Abu Dhabi Global Market.</div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--f-d);font-size:1.35rem;color:var(--amber-lt);text-transform:uppercase;margin-bottom:1rem;letter-spacing:1px">Upcoming Modernisation Projects (Abu Dhabi)</h3>
+      <div class="grid-3" style="margin-bottom:2rem">
+        <div class="project-card">
+          <span class="partner">Theme Park &amp; Leisure</span>
+          <div class="title">Ferrari World Abu Dhabi</div>
+          <div class="scope">Turnkey replacement and modernisation of heavy-traffic passenger elevators and escalators under strict safety protocols.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Municipal Infrastructure</span>
+          <div class="title">Underground Car Park Abu Dhabi</div>
+          <div class="scope">Complete equipment replacement and modernisation of public passenger elevators with anti-vandalism finishes.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Retail Destination</span>
+          <div class="title">Yas Mall Abu Dhabi</div>
+          <div class="scope">Modernisation of high-volume commercial escalators, moving walkways, and scenic passenger elevators.</div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--f-d);font-size:1.35rem;color:var(--amber-lt);text-transform:uppercase;margin-bottom:1rem;letter-spacing:1px">Regional Mega-Projects — Qatar (Established Presence Since 2021)</h3>
+      <div class="grid-2">
+        <div class="project-card">
+          <span class="partner">Super-Tall Tower · TK Elevator</span>
+          <div class="title">Lusail Plaza Tower (Qatar)</div>
+          <div class="scope">Installation of 72-floor super-high-rise twin cabin elevator systems in Lusail, Qatar.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Aviation Transit</span>
+          <div class="title">Hamad International Airport (HIA)</div>
+          <div class="scope">Comprehensive elevator installation project covering critical passenger transit 2-stop and 3-stop elevators.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">Luxury Mixed-Use Island</span>
+          <div class="title">Geewan Island Development</div>
+          <div class="scope">Turnkey 2-stop and 3-stop luxury residential villa and commercial elevator installations.</div>
+        </div>
+        <div class="project-card">
+          <span class="partner">High-Rise Residential</span>
+          <div class="title">Waterfront Towers 09 &amp; 06</div>
+          <div class="scope">Dual 35-floor high-rise residential towers, complete Canny passenger elevator installation and commissioning.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: OSH Policy -->
+    <div  style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Occupational Health &amp; Safety (OSH) Policy</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.2rem">
+        <strong>Al Dirayah Electromechanical Services LLC</strong> is strictly committed to providing a safe, incident-free, and healthy working environment for all employees, subcontractors, and site visitors. Our operations comply fully with <strong>UAE Federal Decree-Law No. 33 of 2021</strong> on the Regulation of Labour Relations, <strong>Cabinet Resolution No. 33 of 2022</strong> concerning Occupational Health and Safety, and the <strong>Abu Dhabi Occupational Safety and Health System Framework (OSHAD-SF)</strong>.
+      </p>
+
+      <ul class="policy-list">
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Site Hazard Assessment:</strong> Identifying and evaluating workplace hazards for every elevator shaft and machine room prior to commencement, implementing engineering controls to eliminate risk.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Mandatory PPE Compliance:</strong> Supplying all technicians with certified personal protective equipment, including dual-lanyard safety harnesses, EN 397 helmets, cut-resistant gloves, and safety footwear.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Task-Specific Safety Training:</strong> Delivering mandatory safety induction, working-at-height certifications, scaffolding safety, and confined-space training for all technicians prior to deployment.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Documented RAMS:</strong> Developing and maintaining approved Risk Assessments and Method Statements (RAMS) for each installation and rigging stage.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Incident Investigation &amp; Reporting:</strong> Immediate reporting, root-cause analysis, and corrective action tracking for all incidents and near-misses in accordance with statutory guidelines.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Routine Site Audits:</strong> Conducting weekly internal safety inspections and unannounced HSE compliance audits across all active installation sites.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Client &amp; Consultant HSE Alignment:</strong> Full adherence to main contractor site safety rules, permit-to-work (PTW) protocols, and consultant specifications.</div>
+        </li>
+        <li class="policy-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Continuous Policy Review:</strong> Periodic review and updating of our OSH policy framework to incorporate new UAE statutory mandates and international engineering best practices.</div>
+        </li>
+      </ul>
+      <p style="font-size:0.95rem;line-height:1.65;color:var(--steel);font-style:italic">
+        Responsibility for OSH implementation rests with executive management, supervised on-site by dedicated Project Engineers and Site Safety Officers, with every team member empowered to stop work if conditions are deemed unsafe.
+      </p>
+    </div>
+
+    <!-- 08: Organisational Structure -->
+    <div class="page-break-before" style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Organisational Structure</h2>
+      <p style="font-size:1.02rem;line-height:1.75;color:var(--steel-lt);margin-bottom:1.5rem">
+        Our operational team is structured to maintain crystal-clear accountability from executive leadership down to on-site execution, ensuring every vertical transport installation is meticulously planned, supervised, and delivered safely on time:
+      </p>
+
+      <div class="org-chart">
+        <div class="org-level">
+          <!-- Level 1 -->
+          <div class="org-node main">
+            <div class="role">Executive Management &amp; Managing Director</div>
+            <div class="sub">Strategic Leadership · OEM Principal Relations · Compliance Oversight</div>
+          </div>
+          
+          <!-- Level 2 -->
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;width:100%">
+            <div class="org-node">
+              <div class="role">Technical &amp; Projects Director</div>
+              <div class="sub">Engineering, Installation Planning &amp; Handover</div>
+            </div>
+            <div class="org-node">
+              <div class="role">HSE &amp; QA/QC Lead</div>
+              <div class="sub">OSHAD-SF Compliance, RAMS &amp; Safety Audits</div>
+            </div>
+          </div>
+
+          <!-- Level 3 -->
+          <div class="org-subgrid">
+            <div class="org-subnode">
+              <div class="role">Project Managers</div>
+              <div class="sub">Site Coordination &amp; Timeline Management</div>
+            </div>
+            <div class="org-subnode">
+              <div class="role">Lead Site Engineers</div>
+              <div class="sub">Mechanical &amp; Electrical Installation Leads</div>
+            </div>
+            <div class="org-subnode">
+              <div class="role">Commissioning Specialists</div>
+              <div class="sub">VVVF Tuning &amp; TÜV Testing Engineers</div>
+            </div>
+            <div class="org-subnode">
+              <div class="role">Certified Technicians</div>
+              <div class="sub">Roping, Rail Alignment &amp; Cabling Crews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09: Licensed Activity Matrix & Official Standards -->
+    <div style="margin-bottom:2.2rem;">
+      <h2 class="section-title">Licensed Trade Activities (Abu Dhabi DED)</h2>
       <table>
         <thead>
           <tr>
             <th>Activity Code</th>
             <th>Licensed Activity Description</th>
-            <th>Category & Scope</th>
+            <th>Category &amp; Scope</th>
           </tr>
         </thead>
         <tbody>
@@ -380,54 +1113,65 @@
           </tr>
           <tr>
             <td class="code">4100015</td>
-            <td>Constructional & Engineering Services (Tech Projects)</td>
-            <td>Final Handover & Project Sign-off</td>
+            <td>Constructional &amp; Engineering Services (Tech Projects)</td>
+            <td>Final Handover &amp; Project Sign-off</td>
           </tr>
           <tr>
             <td class="code">4659932</td>
-            <td>Wholesale of Elevators, Escalators & Spare Parts Trading</td>
+            <td>Wholesale of Elevators, Escalators &amp; Spare Parts Trading</td>
             <td>OEM Component Supply</td>
           </tr>
           <tr>
             <td class="code">4610008</td>
             <td>Importing Activities</td>
-            <td>Direct Sourcing & Logistics</td>
+            <td>Direct Sourcing &amp; Logistics</td>
           </tr>
         </tbody>
       </table>
-    </div>
 
-    <div style="margin-bottom:2.5rem;">
-      <h2 class="section-title">Certifications & Compliance Standards</h2>
+      <h2 class="section-title" style="margin-top:2rem;">Compliance &amp; Certifications</h2>
       <div class="badge-bar">
         <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>TKE · OTIS · KONE Approved Subcontractor</div>
         <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>OSHAD &amp; UAE Certified Safety Engineers</div>
         <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 10 3-3 3 3"/><path d="m9 14 3 3 3-3"/></svg>EN 81-20/50 Safety Standards</div>
-        <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><path d="M4 19h4.5l6-10H20"/><path d="M17 5h3v3"/></svg>EN 115 Escalator Standards</div>
+        <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><path d="M4 19h4.5l6-10H20"/><path d="M17 5h3v3"/></svg>EN 115-1 Escalator Standards</div>
         <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/></svg>Civil Defence Operations Clearance</div>
         <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;color:var(--amber-lt);margin-right:6px" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 SLA (30-Min Abu Dhabi · 2-Hour Dubai)</div>
       </div>
     </div>
 
+    <!-- 10: Corporate Headquarters & Contacts -->
     <div style="margin-bottom:2rem;">
-      <h2 class="section-title">Corporate Information & Contact</h2>
+      <h2 class="section-title">Corporate Information &amp; Contact</h2>
       <div class="grid-2">
         <div class="card">
           <h3 style="font-size:1.1rem">Headquarters</h3>
-          <p>Al Dirayah Electromechanical Services LLC<br>Commercial Licence: CN-6891729<br>3rd Floor, Al Yasat Tower, E11, Al Danah, Abu Dhabi, UAE</p>
+          <p>
+            <strong>Al Dirayah Electromechanical Services LLC</strong><br>
+            Commercial Licence: CN-6891729<br>
+            3rd Floor, Al Yasat Tower, E11, Al Danah, Abu Dhabi, United Arab Emirates
+          </p>
         </div>
         <div class="card">
-          <h3 style="font-size:1.1rem">Contact & Tenders</h3>
-          <p>Email: <a href="mailto:info@aldirayah.com" style="color:var(--amber-lt)">info@aldirayah.com</a> | <a href="mailto:tenders@aldirayah.com" style="color:var(--amber-lt)">tenders@aldirayah.com</a><br>Web: <a href="https://aldirayah.com" style="color:var(--amber-lt)">aldirayah.com</a></p>
+          <h3 style="font-size:1.1rem">Contact &amp; Tenders</h3>
+          <p>
+            24/7 Emergency Dispatch: <span style="font-family:var(--f-m);color:var(--amber-lt)">+971 2 555 0192</span><br>
+            Direct Mobile: <span style="font-family:var(--f-m);color:var(--amber-lt)">+971 50 873 1315</span><br>
+            Email: <a href="mailto:info@aldirayah.com" style="color:var(--amber-lt)">info@aldirayah.com</a> | <a href="mailto:service@aldirayah.com" style="color:var(--amber-lt)">service@aldirayah.com</a><br>
+            Web: <a href="https://aldirayah.com" style="color:var(--amber-lt)">aldirayah.com</a>
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="doc-footer" style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-family:var(--f-m);font-size:0.75rem;color:var(--steel)">
-      <span>© 2026 Al Dirayah Electromechanical Services LLC · CN-6891729</span>
+    <!-- Official Doc Footer -->
+    <div class="doc-footer"
+      style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-family:var(--f-m);font-size:0.75rem;color:var(--steel)">
+      <span>© 2026 Al Dirayah Electromechanical Services LLC · Commercial Licence CN-6891729</span>
       <span style="color:var(--amber-lt)">Official Corporate Profile · aldirayah.com</span>
     </div>
 
+    <!-- CTA Actions (Hidden in Print) -->
     <div class="cta-actions">
       <a href="Al-Dirayah-Company-Profile.pdf" target="_blank" class="btn-primary">Download PDF Copy →</a>
       <a href="index.html" class="btn-secondary">Back to Homepage ↵</a>
